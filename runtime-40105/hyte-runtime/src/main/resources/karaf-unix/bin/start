@@ -1,0 +1,62 @@
+#!/bin/sh
+
+realpath() {
+  OURPWD=${PWD}
+  cd "$(dirname "${1}")" || exit 2
+  LINK=$(ls -l "$(basename "${1}")" | awk -F"-> " '{print $2}')
+  while [ "${LINK}" ]; do
+	  echo "link: ${LINK}" >&2
+    cd "$(dirname "${LINK}")" || exit 2
+    LINK=$(ls -l "$(basename "${1}")" | awk -F"-> " '{print $2}')
+  done
+  REALPATH="${PWD}/$(basename "${1}")"
+  cd "${OURPWD}" || exit 2
+  echo "${REALPATH}"
+}
+
+REALNAME=$(realpath "$0")
+DIRNAME=$(dirname "${REALNAME}")
+PROGNAME=$(basename "${REALNAME}")
+
+#
+# Load common functions
+#
+. "${DIRNAME}/inc"
+
+#
+# Sourcing environment settings for karaf similar to tomcats setenv
+#
+KARAF_SCRIPT="${PROGNAME}"
+export KARAF_SCRIPT
+if [ -f "${DIRNAME}/setenv" ]; then
+  . "${DIRNAME}/setenv"
+fi
+
+init() {
+    # Determine if there is special OS handling we must perform
+    detectOS
+
+    # Locate the Karaf home directory
+    locateHome
+}
+
+run() {
+    convertPaths
+
+    # Enable redirect
+    if [ "x${KARAF_REDIRECT}" != "x" ]; then
+        warn "Redirecting Karaf output to ${KARAF_REDIRECT}"
+    else
+        KARAF_REDIRECT="/dev/null"
+    fi
+
+    exec "${KARAF_HOME}/bin/karaf" server "$@" >> "${KARAF_REDIRECT}" 2>&1 &
+}
+
+main() {
+    init
+    run "$@"
+}
+
+main "$@"
+
