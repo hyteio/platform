@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.hyte.runtime</groupId>
-		<artifactId>runtime-40105</artifactId>
+		<artifactId>parent</artifactId>
 		<version>4.1.5.hyte-4005-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-runtime</artifactId>
-	<name>HYTE :: Runtime :: v4.1.5 Assembly</name>
+	<name>HYTE :: Runtime :: Assembly</name>
 	<packaging>pom</packaging>
 	<dependencyManagement>
 		<dependencies>

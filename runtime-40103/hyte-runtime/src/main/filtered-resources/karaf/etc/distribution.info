@@ -1,2 +1,0 @@
-karafVersion=${project.version}
-name=HYTE Runtime

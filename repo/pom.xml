@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.hyte.runtime</groupId>
-		<artifactId>runtime-40103</artifactId>
-		<version>4.1.3.hyte-4005-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<artifactId>parent</artifactId>
+		<version>4.1.5.hyte-4005-SNAPSHOT</version>
+		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
-	<name>HYTE :: Runtime :: v4.1.3 Offline Repo</name>
+	<name>HYTE :: Runtime :: Offline Repo</name>
 	<packaging>pom</packaging>
 	<properties>
 		<buildhelper.skipAttach>true</buildhelper.skipAttach>
@@ -30,192 +31,132 @@
 		</dependency>
 		<!-- Merged dependencies -->
 		<!-- Start Karaf+Jetty+Camel Jetty wants 2.5.0, Karaf+Camel want 2.9.0 -->
-		<!-- These are shipped in Karaf v4.1.3 in lib/endorsed
+		<!-- These are shipped in Karaf v4.1.3 in lib/endorsed -->
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.activation-api-1.1</artifactId>
-			<version>2.9.0</version>
+			<version>${hyte.smx.specs.activation-api-1.1.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.stax-api-1.0</artifactId>
-			<version>2.9.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.specs</groupId>
-			<artifactId>org.apache.servicemix.specs.jaxb-api-2.2</artifactId>
-			<version>2.9.0</version>
+			<version>${hyte.smx.specs.stax-api-1.0.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.jaxws-api-2.2</artifactId>
-			<version>2.9.0</version>
+			<version>${hyte.smx.specs.jaxws-api-2.2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.saaj-api-1.3</artifactId>
-			<version>2.9.0</version>
+			<version>${hyte.smx.specs.saaj-api-1.3.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
-			<artifactId>org.apache.servicemix.specs.jaxrs-api-2.1</artifactId>
-			<version>2.9.1</version>
+			<artifactId>org.apache.servicemix.specs.jaxb-api-2.2</artifactId>
+			<version>${hyte.smx.specs.jaxb-api-2.2.version}</version>
 		</dependency>
-		-->
-		
 		<!-- End Karaf+Jetty+Camel conflicts -->
-		<!-- 
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.metatype</artifactId>
+			<version>${hyte.felix.metatype.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.inventory</artifactId>
-			<version>1.0.4</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.felix.inventory.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.scr.compat</artifactId>
-			<version>1.0.4</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.felix.scr.compat.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.scr</artifactId>
-			<version>2.0.12</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.felix.scr.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.webconsole.plugins.ds</artifactId>
-			<version>2.0.6</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.felix.webconsole.plugins.ds.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.karaf.scr</groupId>
 			<artifactId>org.apache.karaf.scr.command</artifactId>
 			<version>${hyte.karaf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.karaf.scr</groupId>
 			<artifactId>org.apache.karaf.scr.management</artifactId>
 			<version>${hyte.karaf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.karaf.scr</groupId>
 			<artifactId>org.apache.karaf.scr.state</artifactId>
 			<version>${hyte.karaf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.karaf.http</groupId>
 			<artifactId>org.apache.karaf.http.core</artifactId>
 			<version>${hyte.karaf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.karaf.web</groupId>
 			<artifactId>org.apache.karaf.web.core</artifactId>
 			<version>${hyte.karaf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.karaf.webconsole</groupId>
 			<artifactId>org.apache.karaf.webconsole.http</artifactId>
 			<version>${hyte.karaf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>javax.el-api</artifactId>
-			<version>3.0.0</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.javax.el-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
-			<version>4.4</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.ecj.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xbean</groupId>
 			<artifactId>xbean-bundleutils</artifactId>
 			<version>${hyte.xbean.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xbean</groupId>
 			<artifactId>xbean-finder</artifactId>
 			<version>${hyte.xbean.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.xbean</groupId>
 			<artifactId>xbean-reflect</artifactId>
 			<version>${hyte.xbean.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ow2.asm</groupId>
 			<artifactId>asm-all</artifactId>
-			<version>5.2</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.asm-all.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-classpath</artifactId>
 			<version>${hyte.pax.url.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-commons</artifactId>
 			<version>${hyte.pax.url.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-war</artifactId>
 			<version>${hyte.pax.url.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
@@ -223,413 +164,262 @@
 			<type>jar</type>
 			<classifier>uber</classifier>
 			<version>${hyte.pax.url.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.base</groupId>
 			<artifactId>ops4j-base-lang</artifactId>
-			<version>1.5.0</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.ops4j-base.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.base</groupId>
 			<artifactId>ops4j-base-util-property</artifactId>
-			<version>1.5.0</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.ops4j-base.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.swissbox</groupId>
 			<artifactId>pax-swissbox-property</artifactId>
-			<version>1.8.2</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.pax-swissbox.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-api</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-deployer</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-descriptor</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-extender-whiteboard</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-extender-war</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-jetty</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-jsp</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-runtime</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-spi</artifactId>
 			<version>${hyte.pax.web.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
-		 -->
 		<!-- Start Jetty Deps -->
-		<!-- 
 		<dependency>
 			<groupId>javax.annotation</groupId>
 			<artifactId>javax.annotation-api</artifactId>
-			<version>1.3</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.javax.annotation-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jaspic_1.0_spec</artifactId>
-			<version>1.1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.geronimo-jaspic_1.0_spec.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.4</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<artifactId>javax.mail-api</artifactId>
+			<version>${hyte.javax.mail-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.aries.spifly</groupId>
 			<artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
-			<version>1.0.2</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.aries.spifly.dynamic.bundle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.aries</groupId>
 			<artifactId>org.apache.aries.util</artifactId>
-			<version>1.1.3</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.aries.util.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-jta_1.1_spec</artifactId>
-			<version>1.1.1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.geronimo-jta_1.1_spec.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.javax.servlet-api.version}</version>
 		</dependency>
-		 -->
 		<!-- End Jetty Deps -->
 		<!-- Start Jetty -->
-		<!-- 
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-continuation</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-deploy</artifactId>
+			<version>${hyte.jetty.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-http</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-io</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jaspi</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
- 		<dependency>
+		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-plus</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jmx</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jndi</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-rewrite</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-security</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlet</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-servlets</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
- 		<dependency>
+		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-util</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-util-ajax</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jaas</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-xml</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-client</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>javax.websocket</groupId>
 			<artifactId>javax.websocket-api</artifactId>
-			<version>1.1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.javax.websocket-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-common</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-client</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-server</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>javax-websocket-server-impl</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>javax-websocket-client-impl</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-servlet</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty.websocket</groupId>
 			<artifactId>websocket-api</artifactId>
 			<version>${hyte.jetty.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
-		 -->
 		<!-- End Jetty -->
-		<!-- Start ActiveMQ Deps
+		<!-- Start ActiveMQ Deps -->
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-annotation_1.0_spec</artifactId>
-			<version>1.1.1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.geronimo-annotation_1.0_spec.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-j2ee-management_1.1_spec</artifactId>
-			<version>1.0.1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
-		</dependency>		
+			<version>${hyte.geronimo-j2ee-management_1.1_spec.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
-			<version>2.4.2</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.commons-pool2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
-			<version>3.6</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.commons-net.version}</version>
 		</dependency>
-		 -->
 		<!-- End ActiveMQ Deps -->
 		<!-- Start ActiveMQ -->
 		<dependency>
@@ -637,6 +427,13 @@
 			<artifactId>activemq-karaf</artifactId>
 			<version>${hyte.activemq.version}</version>
 			<classifier>features</classifier>
+			<type>xml</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-karaf</artifactId>
+			<version>${hyte.activemq.version}</version>
+			<classifier>features-core</classifier>
 			<type>xml</type>
 		</dependency>
 		<dependency>
@@ -651,124 +448,85 @@
 		</dependency>
 		<!-- End ActiveMQ -->
 		<!-- Start Camel Deps -->
-		<!-- see conflicting deps
-		<dependency>
-			<groupId>org.apache.servicemix.specs</groupId>
-			<artifactId>org.apache.servicemix.specs.activation-api-1.1</artifactId>
-			<version>2.9.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.specs</groupId>
-			<artifactId>org.apache.servicemix.specs.stax-api-1.0</artifactId>
-			<version>2.9.0</version>
-		</dependency>
-		-->
-		<!-- 
 		<dependency>
 			<groupId>org.codehaus.woodstox</groupId>
 			<artifactId>stax2-api</artifactId>
-			<version>3.1.4</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.stax2-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.woodstox</groupId>
 			<artifactId>woodstox-core-asl</artifactId>
-			<version>4.4.1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.woodstox-core-asl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jaxb-impl</artifactId>
-			<version>2.2.11_1</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.smx.bundles.jaxb-impl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-pool</groupId>
 			<artifactId>commons-pool</artifactId>
-			<version>1.6</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.commons-pool.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
-			<version>1.0_6</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
+			<version>${hyte.smx.bundles.aopalliance.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-core</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
-		</dependency>  	
+		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-expression</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-beans</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-context</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-context-support</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-jms</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
 			<version>${hyte.spring.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
-		 -->
+		<dependency>
+			<groupId>org.ops4j.pax.cdi</groupId>
+			<artifactId>pax-cdi-features</artifactId>
+			<version>${hyte.pax-cdi.version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jclouds.karaf</groupId>
+			<artifactId>jclouds-karaf</artifactId>
+			<version>${hyte.jclouds.version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
 		<!-- End Camel Deps -->
 		<!-- Start Camel -->
 		<dependency>
@@ -832,166 +590,146 @@
 			<artifactId>cxf-karaf-commands</artifactId>
 			<version>${hyte.cxf.version}</version>
 		</dependency>
-		<!-- cxf-jaxws
+		<dependency>
+			<groupId>org.apache.servicemix.specs</groupId>
+			<artifactId>org.apache.servicemix.specs.jaxrs-api-2.1</artifactId>
+			<version>${hyte.smx.specs.jaxrs-api-2.1.version}</version>
+		</dependency>
+		<!-- cxf-jaxws -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-soap</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-xml</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-databinding-jaxb</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-wsdl</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
-		 -->
-		 <!-- 
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-simple</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${hyte.cxf.version}</version>
-			<exclusions>
-				<exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
-			</exclusions>
 		</dependency>
-		 -->
-		<!-- 
 		<dependency>
 			<groupId>org.apache.neethi</groupId>
 			<artifactId>neethi</artifactId>
-			<version>3.1.0</version>		
+			<version>${hyte.neethi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.9.4</version>
+			<version>${hyte.joda-time.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.opensaml</artifactId>
-			<version>3.3.0_2</version>
+			<version>${hyte.smx.bundles.opensaml.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.xmlresolver</artifactId>
-			<version>1.2_5</version>
+			<version>${hyte.smx.bundles.xmlresolver.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.xalan</artifactId>
-			<version>2.7.2_3</version>
+			<version>${hyte.smx.bundles.xalan.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.bcel</artifactId>
-			<version>5.2_4</version>
+			<version>${hyte.smx.bundles.bcel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.xerces</artifactId>
-			<version>2.11.0_1</version>
+			<version>${hyte.smx.bundles.xerces.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.saaj-impl</artifactId>
-			<version>1.3.23_2</version>
+			<version>${hyte.smx.bundles.saaj-impl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jasypt</artifactId>
-			<version>1.9.0_1</version>
+			<version>${hyte.smx.bundles.jasypt.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.wsdl4j</artifactId>
-			<version>1.6.3_1</version>
+			<version>${hyte.smx.bundles.wsdl4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jaxb-xjc</artifactId>
-			<version>2.2.11_1</version>
+			<version>${hyte.smx.bundles.jaxb-xjc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.fastinfoset</artifactId>
-			<version>1.2.13_1</version>
+			<version>${hyte.smx.bundles.fastinfoset.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.ws.xmlschema</groupId>
 			<artifactId>xmlschema-core</artifactId>
-			<version>2.2.2</version>
+			<version>${hyte.xmlscheama-core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.woodstox</groupId>
 			<artifactId>woodstox-core</artifactId>
-			<version>5.0.3</version>
+			<version>${hyte.woodstox-core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<artifactId>geronimo-osgi-registry</artifactId>
-			<version>1.1</version>
+			<version>${hyte.geronimo-osgi-registry.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>20.0</version>
+			<version>${hyte.guava.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.10</version>
+			<version>${hyte.commons-codec.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.dropwizard.metrics</groupId>
 			<artifactId>metrics-core</artifactId>
-			<version>3.2.0</version>
+			<version>${hyte.metrics-core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jvnet.staxex</groupId>
 			<artifactId>stax-ex</artifactId>
-			<version>1.7.6</version>
+			<version>${hyte.stax-ex.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.santuario</groupId>
 			<artifactId>xmlsec</artifactId>
-			<version>2.1.0</version>
+			<version>${hyte.xmlsec.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wss4j</groupId>
@@ -1023,23 +761,39 @@
 			<artifactId>wss4j-ws-security-stax</artifactId>
 			<version>${hyte.wss4j.version}</version>
 		</dependency>
-		-->
-		<!-- End Cxf -->
-<!-- 		<dependency>
-			<groupId>org.ops4j.pax.cdi</groupId>
-			<artifactId>pax-cdi-features</artifactId>
-			<version>1.0.0.RC1</version>
-			<type>xml</type>
-			<classifier>features</classifier>
+		<!-- Start cxf-jaxrs -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.ops4j.pax.cdi</groupId>
-			<artifactId>pax-cdi-features</artifactId>
-			<version>1.0.0.RC1</version>
-			<type>xml</type>
-			<classifier>features</classifier>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-client</artifactId>
+			<version>${hyte.cxf.version}</version>
 		</dependency>
-		 -->	
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-json-basic</artifactId>
+			<version>${hyte.cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-extension-providers</artifactId>
+			<version>${hyte.cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-service-description</artifactId>
+			<version>${hyte.cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-extension-search</artifactId>
+			<version>${hyte.cxf.version}</version>
+		</dependency>
+		<!-- End cxf-jaxrs -->
+		<!-- End Cxf -->
 		<dependency>
 			<groupId>io.hyte.runtime</groupId>
 			<artifactId>features</artifactId>
@@ -1110,6 +864,18 @@
 						<configuration>
 							<descriptors>
 								<descriptor>src/main/resources/hyte-runtime-repo-assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>hyte-runtime-system</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>src/main/resources/hyte-runtime-system-assembly.xml</descriptor>
 							</descriptors>
 						</configuration>
 					</execution>

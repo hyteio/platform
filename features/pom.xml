@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.hyte.runtime</groupId>
-		<artifactId>runtime-40105</artifactId>
+		<artifactId>parent</artifactId>
 		<version>4.1.5.hyte-4005-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>features</artifactId>
 	<packaging>pom</packaging>
-	<name>HYTE :: Runtime :: v4.1.5 Karaf Features</name>
+	<name>HYTE :: Runtime :: Features</name>
 	<properties>
 		<buildhelper.skipAttach>false</buildhelper.skipAttach>
 	</properties>

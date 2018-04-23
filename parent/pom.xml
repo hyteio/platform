@@ -3,14 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.hyte.runtime</groupId>
-		<artifactId>runtime-parent</artifactId>
-		<version>4.0.5-SNAPSHOT</version>
+		<artifactId>build</artifactId>
+		<version>4.1.5.hyte-4005-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>runtime-40105</artifactId>
-	<name>HYTE :: Runtime :: v4.1.5</name>
+	<artifactId>parent</artifactId>
+	<name>HYTE :: Runtime :: Parent</name>
 	<packaging>pom</packaging>
-	<version>4.1.5.hyte-4005-SNAPSHOT</version>
 	<properties>
 		<!-- frameworks -->
 		<hyte.activemq.version>5.15.3</hyte.activemq.version>
@@ -84,10 +83,4 @@
 		<hyte.woodstox-core-asl.version>4.4.1</hyte.woodstox-core-asl.version>
 		<hyte.wss4j.version>2.2.1</hyte.wss4j.version>
 	</properties>
-	<modules>
-		<module>bom</module>
-		<module>features</module>
-		<module>repo</module>
-		<module>hyte-runtime</module>
-	</modules>
 </project>
