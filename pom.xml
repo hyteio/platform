@@ -53,7 +53,7 @@
 		<tag>HEAD</tag>
 	</scm>
 	<properties>
-		<hyte.revision>4005</hyte.revision>
+		<hyte.revision>4006</hyte.revision>
 		<hyte.jdk.version>1.8</hyte.jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
