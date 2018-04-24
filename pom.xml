@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.hyte.runtime</groupId>
-	<artifactId>runtime-parent</artifactId>
-	<name>HYTE :: Runtime :: Parent</name>
+	<artifactId>build</artifactId>
+	<name>HYTE :: Runtime :: Build</name>
 	<packaging>pom</packaging>
-	<version>4.0.6-SNAPSHOT</version>
-	<description>This is the parent pom for HYTE Runtime</description>
+	<version>4.1.5.hyte-4005-SNAPSHOT</version>
+	<description>HYTE Microservices Runtime</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
 	<organization>
@@ -62,12 +62,15 @@
 		<maven-build-helper-maven-plugin.version>3.0.0</maven-build-helper-maven-plugin.version>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
+		<maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
 		<maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
 		<maven-nexus-staging-maven-plugin.version>1.6.7</maven-nexus-staging-maven-plugin.version>
 		<maven-release-plugin.version>2.5.3</maven-release-plugin.version>
 		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
 		<maven-resources-plugin-encoding>${default.encoding}</maven-resources-plugin-encoding>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
 		<maven-wagon-maven-plugin.version>1.0</maven-wagon-maven-plugin.version>
 		<maven-wagon-ssh.version>3.0.0</maven-wagon-ssh.version>
 		<buildhelper.skipAttach>true</buildhelper.skipAttach>
@@ -92,9 +95,17 @@
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>${maven-dependency-plugin.version}</version>
 				</plugin>
+                                <plugin>
+                                        <artifactId>maven-deploy-plugin</artifactId>
+                                        <version>${maven-deploy-plugin.version}</version>
+                                </plugin>
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${maven-gpg-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -108,6 +119,10 @@
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>${maven-resources-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -252,8 +267,11 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-	<modules>
-		<module>runtime-40103</module>
-		<module>runtime-40105</module>
-	</modules>
+        <modules>
+                <module>parent</module>
+                <module>bom</module>
+                <module>features</module>
+                <module>repo</module>
+                <module>hyte-runtime</module>
+        </modules>
 </project>
