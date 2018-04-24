@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.hyte.runtime</groupId>
 	<artifactId>runtime-parent</artifactId>
 	<name>HYTE :: Runtime :: Parent</name>
 	<packaging>pom</packaging>
-	<version>4.0.5-SNAPSHOT</version>
+	<version>4.0.5</version>
 	<description>This is the parent pom for HYTE Runtime</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
@@ -51,7 +50,7 @@
 		<connection>scm:git:https://github.com/hyteio/runtime.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/hyteio/runtime.git</developerConnection>
 		<url>https://github.com/hyteio/runtime</url>
-		<tag>HEAD</tag>
+		<tag>v4.0.5</tag>
 	</scm>
 	<properties>
 		<hyte.revision>4005</hyte.revision>

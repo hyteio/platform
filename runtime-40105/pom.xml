@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>io.hyte.runtime</groupId>
 		<artifactId>runtime-parent</artifactId>
-		<version>4.0.5-SNAPSHOT</version>
+		<version>4.0.5</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>runtime-40105</artifactId>
 	<name>HYTE :: Runtime :: v4.1.5</name>
 	<packaging>pom</packaging>
-	<version>4.1.5.hyte-4005-SNAPSHOT</version>
+	<version>4.1.5.hyte-4005</version>
 	<properties>
 		<!-- frameworks -->
 		<hyte.activemq.version>5.15.3</hyte.activemq.version>
