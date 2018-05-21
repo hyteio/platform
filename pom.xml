@@ -48,7 +48,6 @@
 	</licenses>
 	<scm>                   
 		<connection>scm:git:https://github.com/hyteio/runtime.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/hyteio/runtime.git</developerConnection>
 		<url>https://github.com/hyteio/runtime</url>
 		<tag>HEAD</tag>
 	</scm>
