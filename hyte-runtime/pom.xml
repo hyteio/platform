@@ -245,7 +245,7 @@
 						<configuration>
 							<descriptors>
 								<descriptor>src/main/resources/hyte-runtime-unix-assembly.xml</descriptor>
-								<!-- descriptor>src/main/resources/hyte-runtime-unix-dev-assembly.xml</descriptor -->
+								<descriptor>src/main/resources/hyte-runtime-docker-assembly.xml</descriptor>
 								<!-- 
 								<descriptor>src/main/resources/hyte-runtime-win64-assembly.xml</descriptor>
 							 	-->
