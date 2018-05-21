@@ -5,7 +5,7 @@
 	<artifactId>build</artifactId>
 	<name>HYTE :: Runtime :: Build</name>
 	<packaging>pom</packaging>
-	<version>4.1.5.hyte-4006-SNAPSHOT</version>
+	<version>4.1.5.hyte-4006</version>
 	<description>HYTE Microservices Runtime</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
@@ -49,7 +49,7 @@
 	<scm>                   
 		<connection>scm:git:https://github.com/hyteio/runtime.git</connection>
 		<url>https://github.com/hyteio/runtime</url>
-		<tag>HEAD</tag>
+		<tag>v4.1.5.hyte-4006</tag>
 	</scm>
 	<properties>
 		<hyte.revision>4006</hyte.revision>
