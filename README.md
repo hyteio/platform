@@ -4,7 +4,7 @@ HYTE Runtime
 HYBRID Microservices runtime 
 
  * Java 8 
- * Apache ActiveMQ (v5.15.2) for messaging and eventing
+ * Apache ActiveMQ (v5.15.3) for messaging and eventing
  * Apache Camel (v2.21.0) for integration and low-code process flows
  * Apache CXF (v3.2.3) for REST API (JAX-RS) 
  * Jackson (v2.9.1) for JSON data formats
