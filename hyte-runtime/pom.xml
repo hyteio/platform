@@ -138,7 +138,6 @@
 									<outputDirectory>${project.build.directory}/karaf-unix</outputDirectory>
 									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
 								</artifactItem>
-								<!-- 
 								<artifactItem>
 									<groupId>org.apache.karaf</groupId>
 									<artifactId>apache-karaf</artifactId>
@@ -147,7 +146,6 @@
 									<outputDirectory>${project.build.directory}/karaf-win64</outputDirectory>
 									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
 								</artifactItem>
-								 -->
 								<artifactItem>
 									<groupId>io.hyte.runtime</groupId>
 									<artifactId>repo</artifactId>
@@ -215,7 +213,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>copy.disruptor</id>
+						<id>copy.disruptor.unix</id>
 						<phase>package</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
@@ -225,6 +223,22 @@
 							<excludeTransitive>true</excludeTransitive>
 							<includeArtifactIds>disruptor</includeArtifactIds>
 							<outputDirectory>${project.build.directory}/karaf-unix/apache-karaf-${hyte.karaf.version}/system</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<useRepositoryLayout>true</useRepositoryLayout>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy.disruptor.win64</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<copyPom>false</copyPom>
+							<excludeTransitive>true</excludeTransitive>
+							<includeArtifactIds>disruptor</includeArtifactIds>
+							<outputDirectory>${project.build.directory}/karaf-win64/apache-karaf-${hyte.karaf.version}/system</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 							<useRepositoryLayout>true</useRepositoryLayout>
@@ -246,9 +260,7 @@
 							<descriptors>
 								<descriptor>src/main/resources/hyte-runtime-unix-assembly.xml</descriptor>
 								<descriptor>src/main/resources/hyte-runtime-docker-assembly.xml</descriptor>
-								<!-- 
 								<descriptor>src/main/resources/hyte-runtime-win64-assembly.xml</descriptor>
-							 	-->
 							</descriptors>
 							<filters>
 								<filter>src/main/resources/README.md</filter>
