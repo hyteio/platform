@@ -14,7 +14,7 @@ HYBRID Microservices runtime
 Latest version: 4.1.5.hyte-4006 (DO NOT use 4.1.6.hyte-4006)
 
  * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4006/hyte-runtime-4.1.5.hyte-4006-unix.tar.gz)
- * Docker pre-image tar.gz: [Download latets](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4006/hyte-runtime-4.1.5.hyte-4006-docker.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4006/hyte-runtime-4.1.5.hyte-4006-docker.tar.gz)
 
 Maven coordinates:
 ```
