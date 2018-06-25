@@ -6,7 +6,7 @@
  * Apache ActiveMQ (v5.15.3) for messaging and eventing
  * Apache Camel (v2.21.0) for integration and low-code process flows
  * Apache CXF (v3.2.3) for REST API (JAX-RS) 
- * Jackson (v2.9.1) for JSON data formats
+ * Jackson (v2.9.3) for JSON data formats
  * Karaf (v4.1.5) lightweight runtime
  * LMAX disruptor (v3.4.1) for high-speed logging
 
