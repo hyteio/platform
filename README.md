@@ -1,7 +1,6 @@
-# runtime
-HYTE Runtime
+# HYTE Runtime #
 
-HYBRID Microservices runtime 
+## HYBRID Microservices runtime ##
 
  * Java 8 
  * Apache ActiveMQ (v5.15.3) for messaging and eventing
@@ -11,12 +10,12 @@ HYBRID Microservices runtime
  * Karaf (v4.1.5) lightweight runtime
  * LMAX disruptor (v3.4.1) for high-speed logging
 
-Latest version: 4.1.5.hyte-4006 (DO NOT use 4.1.6.hyte-4006)
+Latest version: 4.1.5.hyte-4006 (**_DO NOT use 4.1.6.hyte-4006_**)
 
  * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4006/hyte-runtime-4.1.5.hyte-4006-unix.tar.gz)
  * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4006/hyte-runtime-4.1.5.hyte-4006-docker.tar.gz)
 
-Maven coordinates:
+### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.runtime</groupId>
@@ -27,7 +26,7 @@ Maven coordinates:
 </dependency>
 ```
 
-For Docker image construction:
+### Maven coordinates for Docker image composition: ###
 ```
 <dependency>
     <groupId>io.hyte.runtime</groupId>
