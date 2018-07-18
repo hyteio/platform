@@ -60,7 +60,7 @@
 		<hyte.joda-time.version>2.9.4</hyte.joda-time.version>
 		<hyte.junit.version>4.11</hyte.junit.version>
 		<hyte.lmax.version>3.4.1</hyte.lmax.version>
-		<hyte.log4j.version>1.2.16</hyte.log4j.version>
+		<hyte.log4j.version>1.2.17</hyte.log4j.version>
 		<hyte.metrics-core.version>3.2.6</hyte.metrics-core.version>
 		<hyte.neethi.version>3.1.1</hyte.neethi.version>
 		<hyte.ops4j-base.version>1.5.0</hyte.ops4j-base.version>
@@ -164,7 +164,7 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
-				<version>${hyte.log4j.version}</version>
+				<version>${hyte.slf4j.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
