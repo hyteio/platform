@@ -12,6 +12,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<buildhelper.skipAttach>true</buildhelper.skipAttach>
+		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
