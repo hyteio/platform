@@ -49,10 +49,10 @@
 	<scm>                   
 		<connection>scm:git:https://github.com/hyteio/runtime.git</connection>
 		<url>https://github.com/hyteio/runtime</url>
-		<tag>v4.1.5.hyte-4006</tag>
+		<tag>v4.1.5.hyte-4007</tag>
 	</scm>
 	<properties>
-		<hyte.revision>4006</hyte.revision>
+		<hyte.revision>4007</hyte.revision>
 		<hyte.jdk.version>1.8</hyte.jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -222,7 +222,7 @@
 						<configuration>
 							<serverId>oss-sonatype-staging</serverId>
 							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+							<autoReleaseAfterClose>false</autoReleaseAfterClose>
 						</configuration>
 					</plugin>
 				</plugins>
