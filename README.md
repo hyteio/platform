@@ -18,7 +18,7 @@ Latest version: 4.1.5.hyte-4007 (**_DO NOT use 4.1.6.hyte-4006_**)
 
  * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-unix.tar.gz)
  * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-docker.tar.gz)
- * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-win64.tar.gz)
+ * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
