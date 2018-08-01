@@ -53,4 +53,4 @@ Latest version: 4.1.5.hyte-4007 (**_DO NOT use 4.1.6.hyte-4006_**)
 </dependency>
 ```
 
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/32c2b2ab5c3e4646bda106ee65e9a6d1)](https://www.codacy.com/app/mattrpav_2/runtime?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hyteio/runtime&amp;utm_campaign=Badge_Grade)
