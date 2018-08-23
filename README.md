@@ -10,22 +10,22 @@ HYTE Runtime provides a standards-based runtime for running HYBRID microservies 
  * Apache ActiveMQ (v5.15.3) for messaging and eventing
  * Apache Camel (v2.21.0) for integration and low-code process flows
  * Apache CXF (v3.2.3) for REST API (JAX-RS) 
- * Apache Karaf (v4.1.5) lightweight runtime
+ * Apache Karaf (v4.1.6) lightweight runtime
  * Jackson (v2.9.3) for JSON data formats
  * LMAX disruptor (v3.4.1) for high-speed async logging with log4j2
 
-Latest version: 4.1.5.hyte-4007 (**_DO NOT use 4.1.6.hyte-4006_**)
+Latest version: 4.1.6.hyte-4008
 
- * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-unix.tar.gz)
- * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-docker.tar.gz)
- * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.5.hyte-4007/hyte-runtime-4.1.5.hyte-4007-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.6.hyte-4008/hyte-runtime-4.1.6.hyte-4008-unix.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.6.hyte-4008/hyte-runtime-4.1.6.hyte-4008-docker.tar.gz)
+ * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.6.hyte-4008/hyte-runtime-4.1.6.hyte-4008-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.runtime</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.1.5.hyte-4007</version>
+    <version>4.1.6.hyte-4008</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -36,7 +36,7 @@ Latest version: 4.1.5.hyte-4007 (**_DO NOT use 4.1.6.hyte-4006_**)
 <dependency>
     <groupId>io.hyte.runtime</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.1.5.hyte-4007</version>
+    <version>4.1.6.hyte-4008</version>
     <classifier>docker</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -47,7 +47,7 @@ Latest version: 4.1.5.hyte-4007 (**_DO NOT use 4.1.6.hyte-4006_**)
 <dependency>
     <groupId>io.hyte.runtime</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.1.5.hyte-4007</version>
+    <version>4.1.6.hyte-4008</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
