@@ -475,7 +475,7 @@
   <feature name='camel-disruptor' version='2.21.0' resolver='(obr)' start-level='50'>
     <details>The camel-disruptor feature can only run on a SUN JVM. You need to add the package sun.misc to the java platform packages in the etc/jre.properties file.</details>
     <feature version='2.21.0'>camel-core</feature>
-    <bundle dependency='true'>mvn:com.lmax/disruptor/3.3.8</bundle>
+    <bundle dependency='true'>mvn:com.lmax/disruptor/${hyte.lmax.version}</bundle>
     <bundle>mvn:org.apache.camel/camel-disruptor/2.21.0</bundle>
   </feature>
   <feature name='camel-dns' version='2.21.0' resolver='(obr)' start-level='50'>
