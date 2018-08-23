@@ -49,10 +49,10 @@
 	<scm>                   
 		<connection>scm:git:https://github.com/hyteio/runtime.git</connection>
 		<url>https://github.com/hyteio/runtime</url>
-		<tag>v4.1.5.hyte-4007</tag>
+		<tag>v4.1.6.hyte-4008</tag>
 	</scm>
 	<properties>
-		<hyte.revision>4007</hyte.revision>
+		<hyte.revision>4008</hyte.revision>
 		<hyte.jdk.version>1.8</hyte.jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
