@@ -1,8 +1,8 @@
-# HYTE Runtime #
+# HYTE Platform #
 
 ## HYBRID Microservices runtime ##
 
-HYTE Runtime provides a standards-based runtime for running HYBRID microservies using REST APIs, standardized enterprise messaging and low-code integration process flows.
+HYTE Platform provides a standards-based runtime for running HYBRID microservies using REST APIs, standardized enterprise messaging and low-code integration process flows.
 
 ## Components ##
 
@@ -35,7 +35,7 @@ Default password: admin
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
-    <groupId>io.hyte.runtime</groupId>
+    <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
     <version>4.1.6.hyte-4008</version>
     <classifier>unix</classifier>
@@ -46,7 +46,7 @@ Default password: admin
 ### Maven coordinates for Docker image composition: ###
 ```
 <dependency>
-    <groupId>io.hyte.runtime</groupId>
+    <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
     <version>4.1.6.hyte-4008</version>
     <classifier>docker</classififer>
@@ -57,7 +57,7 @@ Default password: admin
 ### Maven coordinates for Windows: ###
 ```
 <dependency>
-    <groupId>io.hyte.runtime</groupId>
+    <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
     <version>4.1.6.hyte-4008</version>
     <classifier>win64</classififer>
