@@ -20,6 +20,18 @@ Latest version: 4.1.6.hyte-4008
  * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.6.hyte-4008/hyte-runtime-4.1.6.hyte-4008-docker.tar.gz)
  * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.1.6.hyte-4008/hyte-runtime-4.1.6.hyte-4008-win64.zip)
 
+### Default admin account and ports ###
+
+Default administrator account name: admin
+Default password: admin
+
+| **Service** | **Port** | **URL** | **Example usage** |
+|---------|------|-----|---------|
+| HTTP    | 8181 | http://localhost:8181 | wget http://localhost:8181 |
+| API base url | 8181 | http://localhost:8181/api | wget http://localhost:8181/api |
+| SSH     | 8101 | ssh://localhost:8101 | ssh -p 8101 admin@localhost |
+| JMX     | 44444/1099 | service:jmx:rmi://localhost:44444/jndi/rmi://localhost:1099/karaf-root | |
+
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
