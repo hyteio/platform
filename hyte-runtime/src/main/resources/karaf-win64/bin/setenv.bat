@@ -48,7 +48,7 @@ rem Begin HYTE
 set JAVA_CMS_GC_OPTS=-XX:ParallelGCThreads=2 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC
 set JAVA_CMS_GC_ADV_OPTS=-XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+CMSParallelRemarkEnabled -XX:+ExplicitGCInvokesConcurrent -XX:+ExplicitGCInvokesConcurrentAndUnloadsClasses -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark
 set JAVA_G1_GC_OPTS=-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800 
-set JAVA_GC_LOG_OPTS=-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:data\log\gc-%KARAF_STARTDATE%.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M 
+set JAVA_GC_LOG_OPTS=-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+PrintGCCause -Xloggc:data\log\gc-%KARAF_STARTDATE%.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M 
 set JAVA_HEAPDUMP_OPTS=-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data\log\%KARAF_STARTDATE%.hprof
 set JAVA_MISC_OPTS=-server
 set JAVA_NET_OPTS=-Dsun.net.inetaddr.ttl=60 -Dsun.net.client.defaultConnectTimeout=300000 -Dsun.net.client.defaultReadTimeout=600000

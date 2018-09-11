@@ -14,7 +14,7 @@ fi
 
 # Begin HYTE
 export JAVA_G1_GC_OPTS="-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800" 
-export JAVA_GC_LOG_OPTS="-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:data/log/gc-$KARAF_STARTDATE.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M" 
+export JAVA_GC_LOG_OPTS="-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+PrintGCCause -Xloggc:data/log/gc-$KARAF_STARTDATE.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M" 
 export JAVA_HEAPDUMP_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data/log/$KARAF_STARTDATE.hprof"
 export JAVA_MISC_OPTS="-server"
 export JAVA_NET_OPTS="-Dsun.net.inetaddr.ttl=60 -Dsun.net.client.defaultConnectTimeout=300000 -Dsun.net.client.defaultReadTimeout=600000"
