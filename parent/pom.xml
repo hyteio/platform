@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>io.hyte.runtime</groupId>
+		<groupId>io.hyte.platform</groupId>
 		<artifactId>build</artifactId>
 		<version>4.1.6.hyte-4008-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>parent</artifactId>
-	<name>HYTE :: Runtime :: Parent</name>
+	<name>HYTE :: Platform :: Parent</name>
 	<packaging>pom</packaging>
 	<properties>
 		<!-- frameworks -->
@@ -26,7 +26,7 @@
 		<hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version>
 		<!-- pax versions -->
 		<hyte.pax-cdi.version>1.0.0</hyte.pax-cdi.version>
-		<hyte.pax-swissbox.version>1.8.2</hyte.pax-swissbox.version>
+		<hyte.pax-swissbox.version>1.8.3</hyte.pax-swissbox.version>
 		<hyte.pax.url.version>2.5.4</hyte.pax.url.version>
 		<hyte.pax.web.version>6.0.11</hyte.pax.web.version>
 		<!-- lib dependencies -->
@@ -52,7 +52,7 @@
 		<hyte.felix.webconsole.plugins.ds.version>2.0.8</hyte.felix.webconsole.plugins.ds.version>
 		<hyte.guava.version>20.0</hyte.guava.version>
 		<hyte.jackson.version>2.9.6</hyte.jackson.version>
-		<hyte.jaxb2-basics-runtime.version>0.11.0</hyte.jaxb2-basics-runtime.version>
+		<hyte.jaxb2-basics-runtime.version>0.11.1</hyte.jaxb2-basics-runtime.version>
 		<hyte.javax.el-api.version>3.0.0</hyte.javax.el-api.version>
 		<hyte.jclouds.version>2.1.0</hyte.jclouds.version>
 		<hyte.joda-time.version>2.9.4</hyte.joda-time.version>
@@ -84,6 +84,7 @@
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
 		<hyte.stax-ex.version>1.7.6</hyte.stax-ex.version>
 		<hyte.stax2-api.version>3.1.4</hyte.stax2-api.version>
+		<hyte.sun.mail.version>1.6.1</hyte.sun.mail.version>
 		<hyte.xbean.version>4.1</hyte.xbean.version>
 		<hyte.xmlscheama-core.version>2.2.3</hyte.xmlscheama-core.version>
 		<hyte.xmlsec.version>2.1.1</hyte.xmlsec.version>
@@ -125,10 +126,10 @@
 				<version>${hyte.geronimo-jms_2.0.spec.version}</version>
 			</dependency>
 			<dependency>
-                                <groupId>org.apache.geronimo.specs</groupId>
-                                <artifactId>geronimo-jpa_2.0_spec</artifactId>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-jpa_2.0_spec</artifactId>
 				<version>${hyte.geronimo-jpa_2.0.spec.version}</version>
-                        </dependency>
+			</dependency>
 			<dependency>
 				<groupId>org.jvnet.jaxb2_commons</groupId>
 				<artifactId>jaxb2-basics-runtime</artifactId>
