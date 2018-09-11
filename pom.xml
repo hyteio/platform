@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.hyte.runtime</groupId>
+	<groupId>io.hyte.platform</groupId>
 	<artifactId>build</artifactId>
-	<name>HYTE :: Runtime :: Build</name>
+	<name>HYTE :: Platform :: Build</name>
 	<packaging>pom</packaging>
 	<version>4.1.6.hyte-4008-SNAPSHOT</version>
-	<description>HYTE Microservices Runtime</description>
+	<description>HYTE Platform</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
 	<organization>
@@ -37,7 +37,7 @@
 	</distributionManagement>
 	<issueManagement>
 		<system>github</system>
-		<url>https://github.com/hyteio/runtime/issues</url>
+		<url>https://github.com/hyteio/platform/issues</url>
 	</issueManagement>
 	<licenses>
 		<license>
@@ -47,8 +47,8 @@
 		</license>
 	</licenses>
 	<scm>                   
-		<connection>scm:git:https://github.com/hyteio/runtime.git</connection>
-		<url>https://github.com/hyteio/runtime</url>
+		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
+		<url>https://github.com/hyteio/platform</url>
 		<tag>v4.1.6.hyte-4008</tag>
 	</scm>
 	<properties>

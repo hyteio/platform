@@ -3,12 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0 http://karaf.apache.org/xmlns/features/v1.4.0">
 	
+	<feature name="hyte-javax-api" version="${project.version}" start-level="10">
+		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
+		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle>
+		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
+		<bundle start-level="10">mvn:javax.mail/javax.mail-api/${hyte.javax.mail-api.version}</bundle>
+		<bundle start-level="10">mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
+	</feature>
+	
+	<feature name="hyte-model" version="${project.version}" start-level="25">
+		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/${hyte.smx.bundles.jaxb-impl.version}</bundle>
+		<bundle>mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/${hyte.jaxb2-basics-runtime.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
+	</feature>
+	
 	<feature name="hyte-activemq-client" version="${hyte.activemq.version}">
 		<feature>spring</feature>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
-		<bundle>mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle>
-		<bundle>mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
-		<bundle>mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
+		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle>
+		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
+		<bundle start-level="10">mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
 		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/${hyte.smx.bundles.jaxb-impl.version}</bundle>
 		<bundle>mvn:org.apache.commons/commons-pool2/${hyte.commons-pool2.version}</bundle>
 		<bundle>mvn:commons-net/commons-net/${hyte.commons-net.version}</bundle>

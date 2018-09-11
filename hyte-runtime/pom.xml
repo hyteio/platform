@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>io.hyte.runtime</groupId>
+		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
 		<version>4.1.6.hyte-4008-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-runtime</artifactId>
-	<name>HYTE :: Runtime :: Assembly</name>
+	<name>HYTE :: Platform :: Runtime Assembly</name>
 	<packaging>pom</packaging>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>io.hyte.runtime</groupId>
+				<groupId>io.hyte.platform</groupId>
 				<artifactId>bom</artifactId>
 				<version>${project.version}</version>
 				<type>pom</type>
@@ -48,7 +48,7 @@
 		<dependency>
             <groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
-			<version>1.6.1</version>
+			<version>${hyte.sun.mail.version}</version>
 		</dependency>
 		<!-- End duplicate dependencies -->
 		<!-- Start startup dependencies -->
@@ -70,14 +70,14 @@
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>io.hyte.runtime</groupId>
+			<groupId>io.hyte.platform</groupId>
 			<artifactId>repo</artifactId>
 			<version>${project.version}</version>
 			<classifier>repo</classifier>
 			<type>zip</type>
 		</dependency>
 		<dependency>
-			<groupId>io.hyte.runtime</groupId>
+			<groupId>io.hyte.platform</groupId>
 			<artifactId>repo</artifactId>
 			<version>${project.version}</version>
 			<classifier>system</classifier>
@@ -147,7 +147,7 @@
 									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
 								</artifactItem>
 								<artifactItem>
-									<groupId>io.hyte.runtime</groupId>
+									<groupId>io.hyte.platform</groupId>
 									<artifactId>repo</artifactId>
 									<version>${project.version}</version>
 									<classifier>repo</classifier>
@@ -155,7 +155,7 @@
 									<outputDirectory>${project.build.directory}/local-repo</outputDirectory>
 								</artifactItem>
 								<artifactItem>
-									<groupId>io.hyte.runtime</groupId>
+									<groupId>io.hyte.platform</groupId>
 									<artifactId>repo</artifactId>
 									<version>${project.version}</version>
 									<classifier>system</classifier>
