@@ -50,7 +50,7 @@
 		<!-- End HYTE javax-api and model deps -->
 		<!-- Merged dependencies -->
 		<!-- Start Karaf+Jetty+Camel Jetty wants 2.5.0, Karaf+Camel want 2.9.0 -->
-		<!-- These are shipped in Karaf v4.1.3 in lib/endorsed -->
+		<!-- These are shipped in Karaf v4.1.6 in lib/endorsed -->
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.activation-api-1.1</artifactId>
@@ -551,6 +551,20 @@
 			<type>xml</type>
 			<classifier>features</classifier>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator-osgi-karaf-features</artifactId>
+			<version>6.0.10.Final</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir.karaf</groupId>
+			<artifactId>hapi-fhir</artifactId>
+			<version>3.3.0</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+		</dependency>		
 		<!-- End Camel Deps -->
 		<!-- Start Camel -->
 		<dependency>
