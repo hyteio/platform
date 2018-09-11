@@ -133,9 +133,14 @@
 			<version>${hyte.karaf.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>javax.el-api</artifactId>
-			<version>${hyte.javax.el-api.version}</version>
+			<groupId>org.apache.servicemix.specs</groupId>
+			<artifactId>org.apache.servicemix.specs.javax-el-api-3.0.0</artifactId>
+			<version>${hyte.smx.specs.javax-el-3.0.0.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.javax-el-impl</artifactId>
+			<version>${hyte.smx.bundles.javax-el-3.0.0.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
@@ -613,6 +618,11 @@
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.jaxrs-api-2.1</artifactId>
 			<version>${hyte.smx.specs.jaxrs-api-2.1.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+			<version>${hyte.geronimo-ws-metadata_2.0_spec.version}</version>
 		</dependency>
 		<!-- cxf-jaxws -->
 		<dependency>
