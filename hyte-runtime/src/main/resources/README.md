@@ -20,11 +20,13 @@ Technical Support: <support@hyte.io>
 Distributions
 =============
 
-The Integrated Console is distributed in three ways:
+The HYTE Runtime is distributed in three ways:
 
  * hyte-runtime-${project.version}-unix.tgz - Stand-Alone distribution that is ready to start on Linux 64-bit systems.
+ * hyte-runtime-${project.version}-win64.tgz - Stand-Alone distribution that is ready to start on Windows 64-bit systems.
+ * hyte-runtime-${project.version}-docker.tgz - Docker-ready distribution that is prepared for inclusion in a Docker container build process.
 
-All distributions are available for the current version of the product on the HYTE portal: https://portal.hyte.io/
+All distributions are available for the current version of the product via Maven Central: http://central.maven.org/maven2/io/hyte/platform/hyte-runtime/
 
 Quick Start
 ===========
@@ -35,8 +37,8 @@ Quick Start
 
  1. Extract the 'hyte-runtime-<version>-unix.tgz' distribution file.
  2. Ensure additional instances of HYTE Runtime are shutdown to avoid port conflicts.
- 3. Run ./bin/start script
- 4. Open a browser to http://localhost:8888/console 
+ 3. Run ./bin/start
+ 4. Open a browser to http://localhost:8181 
 
  Stopping:
 
@@ -46,4 +48,4 @@ Quick Start
 License
 ====================
 
-HYTE Runtime is licensed according to the 'license.txt' file.
+HYTE Runtime is licensed according to the 'license.txt' file
