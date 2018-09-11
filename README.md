@@ -9,7 +9,7 @@ HYTE Runtime provides a standards-based runtime for running HYBRID microservies 
  * Java 8 
  * Apache ActiveMQ (v5.15.6) for messaging and eventing
  * Apache Camel (v2.21.0) for integration and low-code process flows
- * Apache CXF (v3.2.3) for REST API (JAX-RS) 
+ * Apache CXF (v3.2.6) for REST API (JAX-RS) 
  * Apache Karaf (v4.1.6) lightweight runtime
  * Jackson (v2.9.6) for JSON data formats
  * LMAX disruptor (v3.4.2) for high-speed async logging with log4j2
