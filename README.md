@@ -1,8 +1,8 @@
-# HYTE Runtime #
+# HYTE Platform #
 
 ## HYBRID Microservices runtime ##
 
-HYTE Runtime provides a standards-based runtime for running HYBRID microservies using REST APIs, standardized enterprise messaging and low-code integration process flows.
+HYTE Platform provides a standards-based runtime for running HYBRID microservies using REST APIs, standardized enterprise messaging and low-code integration process flows.
 
 ## Components ##
 
