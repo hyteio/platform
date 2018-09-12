@@ -4,7 +4,9 @@ HYTE Runtime
 Contents
 ========
 
- * HYTE Runtime
+ * HYTE Runtime ${project.version}
+ 
+ Components:
  * Apache Karaf ${hyte.karaf.version}
  * Apache ActiveMQ ${hyte.activemq.version}
  * Apache Camel ${hyte.camel.version}
