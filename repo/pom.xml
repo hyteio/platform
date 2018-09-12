@@ -77,6 +77,63 @@
 			<version>${hyte.smx.specs.jaxb-api-2.2.version}</version>
 		</dependency>
 		<!-- End Karaf+Jetty+Camel conflicts -->
+		<!-- Start Karaf connector, transaction-api, transaction -->
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>${hyte.javax.el-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>${hyte.cdi-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.interceptor</groupId>
+			<artifactId>javax.interceptor-api</artifactId>
+			<version>${hyte.javax.interceptor-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>javax.transaction-api</artifactId>
+			<version>${hyte.javax.transaction-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.javax-inject</artifactId>
+			<version>${hyte.smx.bundles.javax-inject.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.coordinator</artifactId>
+			<version>${hyte.felix.coordinator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.aries.transaction</groupId>
+			<artifactId>org.apache.aries.transaction.blueprint</artifactId>
+			<version>${hyte.aries.transaction.blueprint_2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.aries.transaction</groupId>
+			<artifactId>org.apache.aries.transaction.manager</artifactId>
+			<version>${hyte.aries.transaction.manager.version}</version>
+		</dependency>
+  		<dependency>
+			<groupId>org.apache.geronimo.components</groupId>
+			<artifactId>geronimo-connector</artifactId>
+			<version>${hyte.geronimo-connector.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-j2ee-connector_1.6_spec</artifactId>
+			<version>${hyte.geronimo-j2ee-connector_1.6_spec.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-validation_1.0_spec</artifactId>
+			<version>${hyte.geronimo-validation_1.0_spec.version}</version>
+		</dependency>
+		<!-- End Karaf connector, transaction-api, transaction -->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.metatype</artifactId>

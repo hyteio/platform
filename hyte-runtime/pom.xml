@@ -50,6 +50,11 @@
 			<artifactId>javax.mail</artifactId>
 			<version>${hyte.sun.mail.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.aries.transaction</groupId>
+			<artifactId>org.apache.aries.transaction.blueprint</artifactId>
+			<version>${hyte.aries.transaction.blueprint_1.version}</version>
+		</dependency>
 		<!-- End duplicate dependencies -->
 		<!-- Start startup dependencies -->
 		<dependency>
