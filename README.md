@@ -1,6 +1,6 @@
 # HYTE Platform #
 
-## HYBRID Microservices runtime ##
+## HYBRID Microservices Runtime ##
 
 HYTE Platform provides a standards-based runtime for running HYBRID microservies using REST APIs, standardized enterprise messaging and low-code integration process flows.
 
@@ -59,6 +59,43 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
+    <version>4.1.6.hyte-4008</version>
+    <classifier>win64</classififer>
+    <type>zip</type>
+</dependency>
+```
+
+## HYTE MQ ##
+
+HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade best practices
+
+### Maven coordinates for UNIX: ###
+```
+<dependency>
+    <groupId>io.hyte.platform</groupId>
+    <artifactId>hyte-mq</artifactId>
+    <version>4.1.6.hyte-4008</version>
+    <classifier>unix</classifier>
+    <type>tar.gz</type>
+</dependency>
+```
+
+### Maven coordinates for Docker image composition: ###
+```
+<dependency>
+    <groupId>io.hyte.platform</groupId>
+    <artifactId>hyte-mq</artifactId>
+    <version>4.1.6.hyte-4008</version>
+    <classifier>docker</classififer>
+    <type>tar.gz</type>
+</dependency>
+```
+
+### Maven coordinates for Windows: ###
+```
+<dependency>
+    <groupId>io.hyte.platform</groupId>
+    <artifactId>hyte-mq</artifactId>
     <version>4.1.6.hyte-4008</version>
     <classifier>win64</classififer>
     <type>zip</type>
