@@ -62,7 +62,7 @@
 		<hyte.felix.scr.version>2.0.14</hyte.felix.scr.version>
 		<hyte.felix.webconsole.plugins.ds.version>2.0.8</hyte.felix.webconsole.plugins.ds.version>
 		<hyte.guava.version>20.0</hyte.guava.version>
-		<hyte.jackson.version>2.9.6</hyte.jackson.version>
+		<hyte.jackson.version>2.9.8</hyte.jackson.version>
 		<hyte.javax.el-api.version>3.0.0</hyte.javax.el-api.version>
 		<hyte.javax.interceptor-api.version>1.2</hyte.javax.interceptor-api.version>
 		<hyte.javax.transaction-api.version>1.2</hyte.javax.transaction-api.version>
