@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.1.6.hyte-4009-SNAPSHOT</version>
+		<version>4.2.5.hyte-4200-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-runtime</artifactId>
@@ -271,6 +271,7 @@
 								<filter>src/main/resources/README.md</filter>
 							</filters>
 							<finalName>hyte-runtime-${project.version}</finalName>
+							<tarLongFileMode>posix</tarLongFileMode>
 						</configuration>
 					</execution>
 				</executions>

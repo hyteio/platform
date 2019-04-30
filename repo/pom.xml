@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.1.6.hyte-4009-SNAPSHOT</version>
+		<version>4.2.5.hyte-4200-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
@@ -47,6 +47,7 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 		</dependency>
+		
 		<!-- End HYTE javax-api and model deps -->
 		<!-- Merged dependencies -->
 		<!-- Start Karaf+Jetty+Camel Jetty wants 2.5.0, Karaf+Camel want 2.9.0 -->
@@ -144,11 +145,13 @@
 			<artifactId>org.apache.felix.inventory</artifactId>
 			<version>${hyte.felix.inventory.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.scr.compat</artifactId>
 			<version>${hyte.felix.scr.compat.version}</version>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.apache.felix</groupId>
 			<artifactId>org.apache.felix.scr</artifactId>
@@ -159,11 +162,13 @@
 			<artifactId>org.apache.felix.webconsole.plugins.ds</artifactId>
 			<version>${hyte.felix.webconsole.plugins.ds.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.apache.karaf.scr</groupId>
 			<artifactId>org.apache.karaf.scr.command</artifactId>
 			<version>${hyte.karaf.version}</version>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.apache.karaf.scr</groupId>
 			<artifactId>org.apache.karaf.scr.management</artifactId>
@@ -219,11 +224,33 @@
 			<artifactId>xbean-reflect</artifactId>
 			<version>${hyte.xbean.version}</version>
 		</dependency>
+		<!-- included in karaf /system folder
 		<dependency>
 			<groupId>org.ow2.asm</groupId>
-			<artifactId>asm-all</artifactId>
-			<version>${hyte.asm-all.version}</version>
+			<artifactId>asm</artifactId>
+			<version>${hyte.asm.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-util</artifactId>
+			<version>${hyte.asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-tree</artifactId>
+			<version>${hyte.asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-analysis</artifactId>
+			<version>${hyte.asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-commons</artifactId>
+			<version>${hyte.asm.version}</version>
+		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-classpath</artifactId>
@@ -342,7 +369,17 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${hyte.javax.servlet-api.version}</version>
 		</dependency>
-		<!-- End Jetty Deps -->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.util.promise</artifactId>
+			<version>${hyte.osgi.util.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.util.function</artifactId>
+			<version>${hyte.osgi.util.version}</version>
+		</dependency>			  
+        <!-- End Jetty Deps -->
 		<!-- Start Jetty -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
@@ -594,6 +631,7 @@
 			<artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
 			<version>${hyte.spring.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.ops4j.pax.cdi</groupId>
 			<artifactId>pax-cdi-features</artifactId>
@@ -601,6 +639,7 @@
 			<type>xml</type>
 			<classifier>features</classifier>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.apache.jclouds.karaf</groupId>
 			<artifactId>jclouds-karaf</artifactId>
@@ -611,14 +650,14 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator-osgi-karaf-features</artifactId>
-			<version>6.0.10.Final</version>
+			<version>${hyte.hibernate.version}</version>
 			<type>xml</type>
 			<classifier>features</classifier>
 		</dependency>
 		<dependency>
 			<groupId>ca.uhn.hapi.fhir.karaf</groupId>
 			<artifactId>hapi-fhir</artifactId>
-			<version>3.3.0</version>
+			<version>${hyte.hapi-fhir.version}</version>
 			<type>xml</type>
 			<classifier>features</classifier>
 		</dependency>		
@@ -662,6 +701,33 @@
 			<version>${hyte.camel.version}</version>
 		</dependency>
 		<!-- End Camel -->
+		<!-- Start Cxf deps -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+			<version>${hyte.jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-base</artifactId>
+			<version>${hyte.jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+			<version>${hyte.jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>${hyte.jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>${hyte.snakeyaml.version}</version>
+		</dependency>
+		<!-- End Cxf deps -->
 		<!-- Start Cxf -->
 		<dependency>
 			<groupId>org.apache.cxf.karaf</groupId>
@@ -965,6 +1031,7 @@
 							<descriptors>
 								<descriptor>src/main/resources/hyte-runtime-repo-assembly.xml</descriptor>
 							</descriptors>
+							<tarLongFileMode>posix</tarLongFileMode>
 						</configuration>
 					</execution>
 					<execution>
@@ -977,6 +1044,7 @@
 							<descriptors>
 								<descriptor>src/main/resources/hyte-runtime-system-assembly.xml</descriptor>
 							</descriptors>
+							<tarLongFileMode>posix</tarLongFileMode>
 						</configuration>
 					</execution>
 				</executions>

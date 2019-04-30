@@ -39,4 +39,14 @@
             </New>
         </Arg>
     </Call>
+    <Get id="OrigHandler" name="handler"/>
+
+	<Set name="handler">
+		<New id="GzipHandler" class="org.eclipse.jetty.server.handler.gzip.GzipHandler">
+            <Set name="handler">
+			    <Ref id="OrigHandler"/>
+		    </Set>
+	    </New>
+    </Set>
+
 </Configure>

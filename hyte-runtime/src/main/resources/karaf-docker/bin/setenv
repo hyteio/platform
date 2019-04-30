@@ -9,19 +9,19 @@ if [ "$KARAF_SCRIPT" == "client" ] || [ "$KARAF_SCRIPT" == "status" ] || [ "$KAR
 else
     export JAVA_MIN_MEM=512M
     export JAVA_MAX_MEM=2G
-    export JAVA_DOCKER_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1"
+	export JAVA_DOCKER_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1"
 fi
 
 # Begin HYTE
 export JAVA_G1_GC_OPTS="-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800" 
 export JAVA_GC_LOG_OPTS="-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+PrintGCCause -Xloggc:data/log/gc-$KARAF_STARTDATE.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M" 
 export JAVA_HEAPDUMP_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data/log/$KARAF_STARTDATE.hprof"
-export JAVA_MISC_OPTS="-server"
 export JAVA_NET_OPTS="-Dsun.net.inetaddr.ttl=60 -Dsun.net.client.defaultConnectTimeout=300000 -Dsun.net.client.defaultReadTimeout=600000"
 # END HYTE
 
 # export JAVA_HOME # Location of Java installation
-export EXTRA_JAVA_OPTS="$JAVA_DOCKER_OPTS $JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_MISC_OPTS $JAVA_NET_OPTS"
+# G1 garbage collection
+export EXTRA_JAVA_OPTS="$JAVA_DOCKER_OPTS $JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_NET_OPTS"
 # export KARAF_HOME # Karaf home folder
 # export KARAF_DATA # Karaf data folder
 # export KARAF_BASE # Karaf base folder
@@ -29,4 +29,4 @@ export EXTRA_JAVA_OPTS="$JAVA_DOCKER_OPTS $JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JA
 # export KARAF_OPTS # Additional available Karaf options
 # export KARAF_DEBUG # Enable debug mode
 # export KARAF_REDIRECT # Enable/set the std/err redirection when using bin/start
-# export KARAF_NOROOT=true
+export KARAF_NOROOT=true
