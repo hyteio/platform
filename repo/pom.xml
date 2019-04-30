@@ -47,7 +47,6 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 		</dependency>
-		
 		<!-- End HYTE javax-api and model deps -->
 		<!-- Merged dependencies -->
 		<!-- Start Karaf+Jetty+Camel Jetty wants 2.5.0, Karaf+Camel want 2.9.0 -->
