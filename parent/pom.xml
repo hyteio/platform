@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>build</artifactId>
-		<version>4.2.5.hyte-4203-SNAPSHOT</version>
+		<version>4.2.6.hyte-4260-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>parent</artifactId>
@@ -13,22 +13,22 @@
 	<properties>
 		<!-- frameworks -->
 		<hyte.activemq.version>5.15.9</hyte.activemq.version>
-		<hyte.camel.version>2.23.2</hyte.camel.version>
-		<hyte.cxf.version>3.2.8</hyte.cxf.version>
-		<hyte.jetty.version>9.4.12.v20180830</hyte.jetty.version>
-		<hyte.karaf.version>4.2.5</hyte.karaf.version>
-		<hyte.spring.version>5.1.5.RELEASE_1</hyte.spring.version>
+		<hyte.camel.version>2.24.1</hyte.camel.version>
+		<hyte.cxf.version>3.2.9</hyte.cxf.version>
+		<hyte.jetty.version>9.4.18.v20190429</hyte.jetty.version>
+		<hyte.karaf.version>4.2.6</hyte.karaf.version>
+		<hyte.spring.version>5.1.7.RELEASE_1</hyte.spring.version>
 		<!-- api and specs -->
 		<hyte.javax.annotation-api.version>1.3</hyte.javax.annotation-api.version>
 		<hyte.javax.jms-api.version>2.0.1</hyte.javax.jms-api.version>
-		<hyte.javax.mail-api.version>1.6.1</hyte.javax.mail-api.version>
+		<hyte.javax.mail-api.version>1.6.2</hyte.javax.mail-api.version>
 		<hyte.javax.servlet-api.version>3.1.0</hyte.javax.servlet-api.version>
 		<hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version>
 		<!-- pax versions -->
 		<hyte.pax-cdi.version>1.1.1</hyte.pax-cdi.version>
 		<hyte.pax-swissbox.version>1.8.3</hyte.pax-swissbox.version>
 		<hyte.pax.url.version>2.6.1</hyte.pax.url.version>
-		<hyte.pax.web.version>7.2.8</hyte.pax.web.version>
+		<hyte.pax.web.version>7.2.10</hyte.pax.web.version>
 		<!-- lib dependencies -->
 		<hyte.aries.spifly.dynamic.bundle.version>1.2</hyte.aries.spifly.dynamic.bundle.version>
 		<hyte.aries.transaction.blueprint_1.version>1.1.1</hyte.aries.transaction.blueprint_1.version>
@@ -37,12 +37,12 @@
 		<hyte.aries.util.version>1.1.3</hyte.aries.util.version>
 		<hyte.asm.version>7.1</hyte.asm.version>
 		<hyte.cdi-api.version>1.2</hyte.cdi-api.version>
-		<hyte.commons-codec.version>1.11</hyte.commons-codec.version>
+		<hyte.commons-codec.version>1.12</hyte.commons-codec.version>
 		<hyte.commons-collection.version>3.2.2</hyte.commons-collection.version>
 		<hyte.commons-lang.version>2.6</hyte.commons-lang.version>
 		<hyte.commons-net.version>3.6</hyte.commons-net.version>
 		<hyte.commons-pool.version>1.6</hyte.commons-pool.version>
-		<hyte.commons-pool2.version>2.4.2</hyte.commons-pool2.version>
+		<hyte.commons-pool2.version>2.6.2</hyte.commons-pool2.version>
 		<hyte.ecj.version>4.5.1</hyte.ecj.version>
 		<hyte.felix.coordinator.version>1.0.2</hyte.felix.coordinator.version>
 		<hyte.felix.inventory.version>1.0.4</hyte.felix.inventory.version>
@@ -105,13 +105,13 @@
 		<hyte.snakeyaml.version>1.23</hyte.snakeyaml.version>
 		<hyte.stax-ex.version>1.7.6</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.1</hyte.stax2-api.version>
-		<hyte.sun.mail.version>1.6.1</hyte.sun.mail.version>
-		<hyte.xbean.version>4.12</hyte.xbean.version>
+		<hyte.sun.mail.version>1.6.2</hyte.sun.mail.version>
+		<hyte.xbean.version>4.13</hyte.xbean.version>
 		<hyte.xmlscheama-core.version>2.2.4</hyte.xmlscheama-core.version>
 		<hyte.xmlsec.version>2.1.2</hyte.xmlsec.version>
 		<hyte.woodstox-core.version>5.1.0</hyte.woodstox-core.version>
 		<hyte.woodstox-core-asl.version>4.4.1</hyte.woodstox-core-asl.version>
-		<hyte.wss4j.version>2.2.2</hyte.wss4j.version>
+		<hyte.wss4j.version>2.2.3</hyte.wss4j.version>
 		<!-- OSGi Bundle defaults -->
 		<hyte.osgi.version>${project.version}</hyte.osgi.version>
 		<hyte.osgi.export />
@@ -135,7 +135,7 @@
 		<hyte.osgi.embed.transitive>false</hyte.osgi.embed.transitive>
 		<hyte.osgi.service.component />
 		<!-- Maven Plugins -->
-		<maven-bundle-plugin.version>4.2.0</maven-bundle-plugin.version>
+		<maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
