@@ -11,7 +11,7 @@ HYTE Platform provides a standards-based runtime for running HYBRID microservies
  * Apache Camel (v2.23.2) for integration and low-code process flows
  * Apache CXF (v3.2.8) for REST API (JAX-RS) 
  * Apache Karaf (v4.2.5) lightweight runtime
- * Jackson (v2.9.9.3) for JSON data formats
+ * Jackson (v2.9.9/v2.9.9.3) for JSON data formats
  * LMAX disruptor (v3.4.2) for high-speed async logging with log4j2
 
 Latest version: 4.2.5.hyte-4200
