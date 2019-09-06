@@ -15,7 +15,7 @@
 		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/${hyte.smx.bundles.jaxb-impl.version}</bundle>
 		<bundle>mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/${hyte.jaxb2-basics-runtime.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
-		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.hotfix.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
 	</feature>
 	
@@ -105,7 +105,7 @@
         <bundle start-level="35">mvn:org.yaml/snakeyaml/1.23</bundle>
         <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
         <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
-        <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
+        <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.hotfix.version}</bundle>
         <bundle start-level="35">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${hyte.jackson.version}</bundle>
         <bundle start-level="35">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${hyte.jackson.version}</bundle>
         <!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.9.1</bundle> -->
