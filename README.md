@@ -14,11 +14,11 @@ HYTE Platform provides a standards-based runtime for running HYBRID microservies
  * Jackson (v2.9.9/v2.9.9.3) for JSON data formats
  * LMAX disruptor (v3.4.2) for high-speed async logging with log4j2
 
-Latest version: 4.2.6.hyte-4260
+Latest version: 4.2.6.hyte-4262
 
- * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4260/hyte-runtime-4.2.6.hyte-4260-unix.tar.gz)
- * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4260/hyte-runtime-4.2.6.hyte-4260-docker.tar.gz)
- * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4260/hyte-runtime-4.2.6.hyte-4260-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4260-unix.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4260-docker.tar.gz)
+ * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4260-win64.zip)
 
 ### Default admin account and ports ###
 
@@ -37,7 +37,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.2.6.hyte-4260</version>
+    <version>4.2.6.hyte-4262</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -48,7 +48,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.2.6.hyte-4260</version>
+    <version>4.2.6.hyte-4262</version>
     <classifier>docker</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -59,7 +59,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.2.6.hyte-4260</version>
+    <version>4.2.6.hyte-4262</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -74,7 +74,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.2.6.hyte-4260</version>
+    <version>4.2.6.hyte-4262</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -85,7 +85,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.2.6.hyte-4260</version>
+    <version>4.2.6.hyte-4262</version>
     <classifier>docker</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -96,7 +96,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.2.6.hyte-4260</version>
+    <version>4.2.6.hyte-4262</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
