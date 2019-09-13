@@ -16,9 +16,9 @@ HYTE Platform provides a standards-based runtime for running HYBRID microservies
 
 Latest version: 4.2.6.hyte-4262
 
- * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4260-unix.tar.gz)
- * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4260-docker.tar.gz)
- * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/runtime/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4260-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4262-unix.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](http://central.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4262-docker.tar.gz)
+ * Windows 64-bit zip: [Download latest](http://central.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.6.hyte-4262/hyte-runtime-4.2.6.hyte-4262-win64.zip)
 
 ### Default admin account and ports ###
 
