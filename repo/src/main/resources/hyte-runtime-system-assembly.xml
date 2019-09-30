@@ -15,7 +15,7 @@
 		<fileSet>
 			<directory>${project.build.directory}/hyte-system</directory>
 			<outputDirectory>/</outputDirectory>
-			<filtered>true</filtered>
+			<filtered>false</filtered>
 			<excludes>
 				<exclude>.locks</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
