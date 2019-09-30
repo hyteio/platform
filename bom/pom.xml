@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.6.hyte-4263-SNAPSHOT</version>
+		<version>4.2.7.hyte-4270</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>bom</artifactId>
@@ -29,7 +29,7 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
-				<version>${hyte.jackson.hotfix.version}</version>
+				<version>${hyte.jackson.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>

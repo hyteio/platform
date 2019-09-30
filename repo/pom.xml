@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.6.hyte-4263-SNAPSHOT</version>
+		<version>4.2.7.hyte-4270</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
@@ -281,6 +281,11 @@
 			<groupId>org.ops4j.base</groupId>
 			<artifactId>ops4j-base-util-property</artifactId>
 			<version>${hyte.ops4j-base.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ops4j.pax.logging</groupId>
+			<artifactId>pax-logging-log4j2-extra</artifactId>
+			<version>${hyte.pax-logging.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.swissbox</groupId>
@@ -1013,9 +1018,25 @@
 						<configuration>
 							<copyPom>true</copyPom>
 							<excludeTransitive>true</excludeTransitive>
-							<excludeArtifactIds>apache-karaf</excludeArtifactIds>
+							<excludeArtifactIds>apache-karaf,pax-logging-log4j2-extra</excludeArtifactIds>
 							<outputDirectory>${project.build.directory}/local-repo</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<useRepositoryLayout>true</useRepositoryLayout>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy.system</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<copyPom>true</copyPom>
+							<excludeTransitive>true</excludeTransitive>
+							<includeArtifactIds>pax-logging-log4j2-extra</includeArtifactIds>
+							<outputDirectory>${project.build.directory}/hyte-system</outputDirectory>
+							<overWriteRelease>false</overWriteRelease>
 							<overWriteSnapshots>true</overWriteSnapshots>
 							<useRepositoryLayout>true</useRepositoryLayout>
 						</configuration>

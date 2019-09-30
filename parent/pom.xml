@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>build</artifactId>
-		<version>4.2.6.hyte-4263-SNAPSHOT</version>
+		<version>4.2.7.hyte-4270</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>parent</artifactId>
@@ -15,8 +15,8 @@
 		<hyte.activemq.version>5.15.10</hyte.activemq.version>
 		<hyte.camel.version>2.24.1</hyte.camel.version>
 		<hyte.cxf.version>3.2.9</hyte.cxf.version>
-		<hyte.jetty.version>9.4.18.v20190429</hyte.jetty.version>
-		<hyte.karaf.version>4.2.6</hyte.karaf.version>
+		<hyte.jetty.version>9.4.20.v20190813</hyte.jetty.version>
+		<hyte.karaf.version>4.2.7</hyte.karaf.version>
 		<hyte.spring.version>5.1.7.RELEASE_1</hyte.spring.version>
 		<!-- api and specs -->
 		<hyte.javax.annotation-api.version>1.3</hyte.javax.annotation-api.version>
@@ -26,9 +26,10 @@
 		<hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version>
 		<!-- pax versions -->
 		<hyte.pax-cdi.version>1.1.1</hyte.pax-cdi.version>
+		<hyte.pax-logging.version>1.11.2</hyte.pax-logging.version>
 		<hyte.pax-swissbox.version>1.8.3</hyte.pax-swissbox.version>
 		<hyte.pax.url.version>2.6.1</hyte.pax.url.version>
-		<hyte.pax.web.version>7.2.10</hyte.pax.web.version>
+		<hyte.pax.web.version>7.2.11</hyte.pax.web.version>
 		<!-- lib dependencies -->
 		<hyte.aries.spifly.dynamic.bundle.version>1.2</hyte.aries.spifly.dynamic.bundle.version>
 		<hyte.aries.transaction.blueprint_1.version>1.1.1</hyte.aries.transaction.blueprint_1.version>
@@ -64,8 +65,7 @@
 		<hyte.guava.version>20.0</hyte.guava.version>
 		<hyte.hapi-fhir.version>3.5.0</hyte.hapi-fhir.version>
 		<hyte.hibernate.version>6.0.14.Final</hyte.hibernate.version>
-		<hyte.jackson.hotfix.version>2.9.9.3</hyte.jackson.hotfix.version>
-		<hyte.jackson.version>2.9.9</hyte.jackson.version>
+		<hyte.jackson.version>2.9.10</hyte.jackson.version>
 		<hyte.javax.el-api.version>3.0.0</hyte.javax.el-api.version>
 		<hyte.javax.interceptor-api.version>1.2</hyte.javax.interceptor-api.version>
 		<hyte.javax.transaction-api.version>1.2</hyte.javax.transaction-api.version>
