@@ -17,6 +17,16 @@
 				<version>${hyte.javax.jms-api.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>javax.activation</groupId>
+				<artifactId>javax.activation-api</artifactId>
+				<version>${hyte.javax-activation.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.activation</groupId>
+				<artifactId>javax.activation</artifactId>
+				<version>${hyte.javax-activation.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.lmax</groupId>
 				<artifactId>disruptor</artifactId>
 				<version>${hyte.lmax.version}</version>
@@ -35,6 +45,21 @@
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-core</artifactId>
 				<version>${hyte.jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.istack</groupId>
+				<artifactId>istack-commons-runtime</artifactId>
+				<version>${hyte.istack-commons-runtime.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.servicemix.bundles</groupId>
+				<artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
+				<version>${hyte.smx.bundles.jaxb-runtime.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.servicemix.bundles</groupId>
+				<artifactId>org.apache.servicemix.bundles.jaxb-xjc</artifactId>
+				<version>${hyte.smx.bundles.jaxb-xjc.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.geronimo.specs</groupId>
