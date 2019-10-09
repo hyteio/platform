@@ -14,7 +14,7 @@
 		<!-- frameworks -->
 		<hyte.activemq.version>5.15.10</hyte.activemq.version>
 		<hyte.camel.version>2.24.1</hyte.camel.version>
-		<hyte.cxf.version>3.2.9</hyte.cxf.version>
+		<hyte.cxf.version>3.3.3</hyte.cxf.version>
 		<hyte.jetty.version>9.4.20.v20190813</hyte.jetty.version>
 		<hyte.karaf.version>4.2.7</hyte.karaf.version>
 		<hyte.spring.version>5.1.7.RELEASE_1</hyte.spring.version>
@@ -65,11 +65,13 @@
 		<hyte.guava.version>20.0</hyte.guava.version>
 		<hyte.hapi-fhir.version>3.5.0</hyte.hapi-fhir.version>
 		<hyte.hibernate.version>6.0.14.Final</hyte.hibernate.version>
-		<hyte.jackson.version>2.9.10</hyte.jackson.version>
+		<hyte.istack-commons-runtime.version>3.0.7</hyte.istack-commons-runtime.version>
+		<hyte.jackson.version>2.10.0</hyte.jackson.version>
+		<hyte.javax-activation.version>1.2.0</hyte.javax-activation.version>
 		<hyte.javax.el-api.version>3.0.0</hyte.javax.el-api.version>
 		<hyte.javax.interceptor-api.version>1.2</hyte.javax.interceptor-api.version>
 		<hyte.javax.transaction-api.version>1.2</hyte.javax.transaction-api.version>
-		<hyte.jaxb2-basics-runtime.version>0.11.1</hyte.jaxb2-basics-runtime.version>
+		<hyte.jaxb2-basics-runtime.version>0.12.0</hyte.jaxb2-basics-runtime.version>
 		<hyte.jclouds.version>2.1.1</hyte.jclouds.version>
 		<hyte.joda-time.version>2.9.4</hyte.joda-time.version>
 		<hyte.junit.version>4.11</hyte.junit.version>
@@ -87,8 +89,8 @@
 		<hyte.smx.bundles.jasypt.version>1.9.2_1</hyte.smx.bundles.jasypt.version>
 		<hyte.smx.bundles.javax-el-3.0.0.version>3.0.0_1</hyte.smx.bundles.javax-el-3.0.0.version>
 		<hyte.smx.bundles.javax-inject.version>1_2</hyte.smx.bundles.javax-inject.version>
-		<hyte.smx.bundles.jaxb-impl.version>2.2.11_1</hyte.smx.bundles.jaxb-impl.version>
-		<hyte.smx.bundles.jaxb-xjc.version>2.2.11_1</hyte.smx.bundles.jaxb-xjc.version>
+		<hyte.smx.bundles.jaxb-runtime.version>2.3.1_1</hyte.smx.bundles.jaxb-runtime.version>
+		<hyte.smx.bundles.jaxb-xjc.version>2.3.1_1</hyte.smx.bundles.jaxb-xjc.version>
 		<hyte.smx.bundles.opensaml.version>3.3.0_2</hyte.smx.bundles.opensaml.version>
 		<hyte.smx.bundles.saaj-impl.version>1.3.23_2</hyte.smx.bundles.saaj-impl.version>
 		<hyte.smx.bundles.wsdl4j.version>1.6.3_1</hyte.smx.bundles.wsdl4j.version>
