@@ -49,7 +49,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>target/hyte-runtime-features.xml</file>
+									<file>target/hyte-platform-features.xml</file>
 									<classifier>features</classifier>
 									<type>xml</type>
 								</artifact>

@@ -36,6 +36,10 @@
 			<artifactId>istack-commons-runtime</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.jvnet.jaxb2_commons</groupId>
 			<artifactId>jaxb2-basics-runtime</artifactId>
 		</dependency>
@@ -263,6 +267,16 @@
 		</dependency>
 		 -->
 		<dependency>
+			<groupId>org.ops4j.pax.transx</groupId>
+			<artifactId>pax-transx-tm-api</artifactId>
+			<version>${hyte.pax-transx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ops4j.pax.transx</groupId>
+			<artifactId>pax-transx-tm-geronimo</artifactId>
+			<version>${hyte.pax-transx.version}</version>                                                                                                                                                                                                                                                      
+		</dependency>
+		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-classpath</artifactId>
 			<version>${hyte.pax.url.version}</version>
@@ -425,6 +439,11 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-plus</artifactId>
+			<version>${hyte.jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-proxy</artifactId>
 			<version>${hyte.jetty.version}</version>
 		</dependency>
 		<dependency>
@@ -978,6 +997,11 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-extension-search</artifactId>
+			<version>${hyte.cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-security</artifactId>
 			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<!-- End cxf-jaxrs -->
