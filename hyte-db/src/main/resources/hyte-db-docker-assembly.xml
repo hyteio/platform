@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly
+	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+	<id>docker</id>
+
+	<baseDirectory>/</baseDirectory>
+
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}/hyte-db/etc</directory>
+			<outputDirectory>hyte-db-${project.version}/etc</outputDirectory>
+			<includes>
+				<include>**/**</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}/local-repo</directory>
+			<outputDirectory>hyte-db-${project.version}/local-repo</outputDirectory>
+			<excludes>
+				<exclude>.locks</exclude>
+				<exclude>**/maven-metadata-local.xml</exclude>
+				<exclude>**/_remote.repositories</exclude>
+			</excludes>
+		</fileSet>
+		<!-- Karaf last, since maven assembly does __NOT__ overwrite previous files. -->
+		<fileSet>
+			<directory>${project.build.directory}/hyte-runtime-docker/hyte-runtime-${project.version}</directory>
+			<outputDirectory>hyte-db-${project.version}</outputDirectory>
+			<excludes>
+				<exclude>**/bin/*.bat</exclude>
+				<exclude>**/maven-metadata-local.xml</exclude>
+				<exclude>**/_remote.repositories</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
+	<files>
+		<file>
+			<source>src/main/resources/README.md</source>
+			<filtered>true</filtered>
+			<outputDirectory>hyte-db-${project.version}</outputDirectory>
+		</file>
+	</files>
+</assembly>

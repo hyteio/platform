@@ -37,7 +37,7 @@ Quick Start
 
  Starting: 
 
- 1. Extract the 'hyte-mq-<version>-unix.tgz' distribution file.
+ 1. Extract the 'hyte-mq-${project.version}-unix.tgz' distribution file.
  2. Ensure additional instances of HYTE MQ are shutdown to avoid port conflicts.
  3. Run ./bin/start
  4. Open a browser to http://localhost:8181 
@@ -50,4 +50,4 @@ Quick Start
 License
 ====================
 
-HYTE Runtime is licensed according to the 'license.txt' file
+HYTE MQ is licensed according to the 'license.txt' file

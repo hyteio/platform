@@ -7,20 +7,9 @@
 		<version>4.2.7.hyte-4270-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>hyte-mq</artifactId>
-	<name>HYTE :: Platform :: MQ Assembly</name>
+	<artifactId>hyte-db</artifactId>
+	<name>HYTE :: Platform :: DB Assembly</name>
 	<packaging>pom</packaging>
-	<properties>
-		<hyte.activeio-core.version>3.1.4</hyte.activeio-core.version>
-		<hyte.commons-collection.version>3.2.2</hyte.commons-collection.version>
-		<hyte.commons-lang.version>2.6</hyte.commons-lang.version>
-		<hyte.jettison.version>1.4.0</hyte.jettison.version>
-		<hyte.scala.version>2.11.0</hyte.scala.version>
-		<hyte.smx.bundles.jasypt-spring31.version>1.9.2_1</hyte.smx.bundles.jasypt-spring31.version>
-		<hyte.smx.bundles.velocity.version>1.7_6</hyte.smx.bundles.velocity.version>
-		<hyte.smx.bundles.xpp3.version>1.1.4c_5</hyte.smx.bundles.xpp3.version>
-		<hyte.smx.bundles.xstream.version>1.4.11.1_1</hyte.smx.bundles.xstream.version>
-	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -56,58 +45,12 @@
 			<type>tar.gz</type>
 		</dependency>
 		<!-- End HYTE Runtime base builds -->
-		<!-- Start ActiveMQ Broker -->
+		<!-- Start H2 database -->
 		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-karaf</artifactId>
-			<version>${hyte.activemq.version}</version>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activeio-core</artifactId>
-			<version>${hyte.activeio-core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>${hyte.commons-collection.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${hyte.commons-lang.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.velocity</artifactId>
-			<version>${hyte.smx.bundles.velocity.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.xpp3</artifactId>
-			<version>${hyte.smx.bundles.xpp3.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.xstream</artifactId>
-			<version>${hyte.smx.bundles.xstream.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jettison</groupId>
-			<artifactId>jettison</artifactId>
-			<version>${hyte.jettison.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-library</artifactId>
-			<version>${hyte.scala.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.jasypt-spring31</artifactId>
-			<version>${hyte.smx.bundles.jasypt-spring31.version}</version>
-		</dependency>
-		<!-- End ActiveMQ broker -->
+		<!-- End H2 database -->
 	</dependencies>
 	<build>
 		<extensions>
@@ -183,7 +126,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>copy.local-repo-mq</id>
+						<id>copy.local-repo-db</id>
 						<phase>package</phase>
 						<goals>
 							<goal>copy-dependencies</goal>
@@ -205,21 +148,21 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>hyte-mq</id>
+						<id>hyte-db</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
 						</goals>
 						<configuration>
 							<descriptors>
-								<descriptor>src/main/resources/hyte-mq-unix-assembly.xml</descriptor>
-								<descriptor>src/main/resources/hyte-mq-docker-assembly.xml</descriptor>
-								<descriptor>src/main/resources/hyte-mq-win64-assembly.xml</descriptor>
+								<descriptor>src/main/resources/hyte-db-unix-assembly.xml</descriptor>
+								<descriptor>src/main/resources/hyte-db-docker-assembly.xml</descriptor>
+								<descriptor>src/main/resources/hyte-db-win64-assembly.xml</descriptor>
 							</descriptors>
 							<filters>
 								<filter>src/main/resources/README.md</filter>
 							</filters>
-							<finalName>hyte-mq-${project.version}</finalName>
+							<finalName>hyte-db-${project.version}</finalName>
 							<tarLongFileMode>posix</tarLongFileMode>
 						</configuration>
 					</execution>

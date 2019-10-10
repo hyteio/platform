@@ -1,0 +1,3 @@
+karafVersion=${hyte.karaf.version}
+name=HYTE DB
+

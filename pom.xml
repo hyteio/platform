@@ -315,6 +315,7 @@
 		<module>features</module>
 		<module>repo</module>
 		<module>hyte-runtime</module>
+		<module>hyte-db</module>
 		<module>hyte-mq</module>
 	</modules>
 </project>
