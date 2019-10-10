@@ -29,12 +29,13 @@ rem
 
 rem Begin HYTE
 set JAVA_G1_GC_OPTS=-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800 
-set JAVA_GC_LOG_OPTS=-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+PrintGCCause -Xloggc:data\log\gc-%KARAF_STARTDATE%.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M 
-set JAVA_HEAPDUMP_OPTS=-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data\log\%KARAF_STARTDATE%.hprof
+set JAVA_GC_LOG_OPTS=-Xlog:gc*:file=data\log\gc-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16M
+set JAVA_SP_LOG_OPTS=-Xlog:safepoint*:file=data\log\safepoints-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16m
+set JAVA_HEAPDUMP_OPTS=-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data\log\jvm-heapdump-%KARAF_STARTDATE%.hprof
 set JAVA_NET_OPTS=-Dsun.net.inetaddr.ttl=60 -Dsun.net.client.defaultConnectTimeout=300000 -Dsun.net.client.defaultReadTimeout=600000
 rem END HYTE
 
-set EXTRA_JAVA_OPTS=%JAVA_G1_GC_OPTS% %JAVA_GC_LOG_OPTS% %JAVA_HEAPDUMP_OPTS% %JAVA_NET_OPTS%
+set EXTRA_JAVA_OPTS=%JAVA_G1_GC_OPTS% %JAVA_GC_LOG_OPTS% %JAVA_SP_LOG_OPTS% %JAVA_HEAPDUMP_OPTS% %JAVA_NET_OPTS%
 rem SET KARAF_HOME
 rem SET KARAF_DATA
 rem SET KARAF_BASE
