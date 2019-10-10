@@ -102,4 +102,41 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 </dependency>
 ```
 
+## HYTE DB ##
+
+HYTE DB is a packaged build of H2 Database
+
+### Maven coordinates for UNIX: ###
+```
+<dependency>
+    <groupId>io.hyte.platform</groupId>
+    <artifactId>hyte-db</artifactId>
+    <version>4.2.7.hyte-4270</version>
+    <classifier>unix</classifier>
+    <type>tar.gz</type>
+</dependency>
+```
+
+### Maven coordinates for Docker image composition: ###
+```
+<dependency>
+    <groupId>io.hyte.platform</groupId>
+    <artifactId>hyte-db</artifactId>
+    <version>4.2.7.hyte-4270</version>
+    <classifier>docker</classififer>
+    <type>tar.gz</type>
+</dependency>
+```
+
+### Maven coordinates for Windows: ###
+```
+<dependency>
+    <groupId>io.hyte.platform</groupId>
+    <artifactId>hyte-db</artifactId>
+    <version>4.2.7.hyte-4270</version>
+    <classifier>win64</classififer>
+    <type>zip</type>
+</dependency>
+```
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/32c2b2ab5c3e4646bda106ee65e9a6d1)](https://www.codacy.com/app/mattrpav_2/runtime?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hyteio/runtime&amp;utm_campaign=Badge_Grade)
