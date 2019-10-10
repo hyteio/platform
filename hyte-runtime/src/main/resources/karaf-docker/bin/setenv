@@ -9,19 +9,20 @@ if [ "$KARAF_SCRIPT" == "client" ] || [ "$KARAF_SCRIPT" == "status" ] || [ "$KAR
 else
     export JAVA_MIN_MEM=512M
     export JAVA_MAX_MEM=2G
-	export JAVA_DOCKER_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1"
+    export JAVA_DOCKER_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1"
 fi
 
 # Begin HYTE
 export JAVA_G1_GC_OPTS="-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800" 
-export JAVA_GC_LOG_OPTS="-verbose:gc -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+PrintGCCause -Xloggc:data/log/gc-$KARAF_STARTDATE.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=16 -XX:GCLogFileSize=16M" 
-export JAVA_HEAPDUMP_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data/log/$KARAF_STARTDATE.hprof"
+export JAVA_GC_LOG_OPTS="-Xlog:gc*:file=data/log/gc-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16M"
+export JAVA_SP_LOG_OPTS="-Xlog:safepoint*:file=data/log/safepoints-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16m"
+export JAVA_HEAPDUMP_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data/log/jvm-heapdump-$KARAF_STARTDATE.hprof"
 export JAVA_NET_OPTS="-Dsun.net.inetaddr.ttl=60 -Dsun.net.client.defaultConnectTimeout=300000 -Dsun.net.client.defaultReadTimeout=600000"
 # END HYTE
 
 # export JAVA_HOME # Location of Java installation
 # G1 garbage collection
-export EXTRA_JAVA_OPTS="$JAVA_DOCKER_OPTS $JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_NET_OPTS"
+export EXTRA_JAVA_OPTS="$JAVA_DOCKER_OPTS $JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_SP_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_NET_OPTS"
 # export KARAF_HOME # Karaf home folder
 # export KARAF_DATA # Karaf data folder
 # export KARAF_BASE # Karaf base folder
