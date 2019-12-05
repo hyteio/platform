@@ -22,6 +22,7 @@
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
 	</feature>
 	
 	<feature name="hyte-activemq-client" version="${hyte.activemq.version}">
@@ -69,6 +70,7 @@
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:org.scala-lang/scala-library/2.11.0</bundle>
 		<capability>activemq-broker;provider:=hyte</capability>
 	</feature>
@@ -105,24 +107,25 @@
 	</feature>
 		
 	<feature name="hyte-cxf-jackson" version="${hyte.cxf.version}">
-        <!-- Required by jackson-dataformat-yaml -->
-        <bundle start-level="10" dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxrs-api-2.1/2.9.1</bundle>
-        <bundle start-level="10" dependency="true">mvn:javax.annotation/javax.annotation-api/1.3.2</bundle>
-        <bundle start-level="35">mvn:org.yaml/snakeyaml/1.24</bundle>
-        <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
-        <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
-        <bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
-        <bundle start-level="35">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${hyte.jackson.version}</bundle>
-        <bundle start-level="35">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${hyte.jackson.version}</bundle>
-        <!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.9.1</bundle> -->
-        <!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.9.1</bundle> -->
-        <feature prerequisite="true">wrap</feature>
-        <bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs*;version="[2.0,3)",com.fasterxml.jackson*;version="[2.8,3)"</bundle>
-        <bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs*;version="[2.0,3)",com.fasterxml.jackson.module.jaxb;resolution:=optional;version="[2.8,3)",com.fasterxml.jackson*;version="[2.8,3)"</bundle>
+		<!-- Required by jackson-dataformat-yaml -->
+		<bundle start-level="10" dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxrs-api-2.1/2.9.1</bundle>
+		<bundle start-level="10" dependency="true">mvn:javax.annotation/javax.annotation-api/1.3.2</bundle>
+		<bundle start-level="35">mvn:org.yaml/snakeyaml/${hyte.snakeyaml.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${hyte.jackson.version}</bundle>
+		<!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.9.1</bundle> -->
+		<!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.9.1</bundle> -->
+		<feature prerequisite="true">wrap</feature>
+		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs*;version="[2.0,3)",com.fasterxml.jackson*;version="[2.8,3)"</bundle>
+		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs*;version="[2.0,3)",com.fasterxml.jackson.module.jaxb;resolution:=optional;version="[2.8,3)",com.fasterxml.jackson*;version="[2.8,3)"</bundle>
 		<capability>cxf-jackson;provider:=hyte</capability>        
-    </feature>
+	</feature>
     
-    <feature name="hyte-db" version="${hyte.h2.version}" start-level="80">
+	<feature name="hyte-db" version="${hyte.h2.version}" start-level="80">
 		<bundle>mvn:com.h2database/h2/${hyte.h2.version}</bundle>
-    </feature>
+	</feature>
 </features>
