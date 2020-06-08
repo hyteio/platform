@@ -22,29 +22,6 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-		<!-- Start duplicate deps need to be in separate pom.xml from the local-repo -->
-		<!-- 
-		<dependency>
-			<groupId>javax.annotation</groupId>
-			<artifactId>javax.annotation-api</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.specs</groupId>
-			<artifactId>org.apache.servicemix.specs.activation-api-1.1</artifactId>
-			<version>2.5.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.aries</groupId>
-			<artifactId>org.apache.aries.util</artifactId>
-			<version>1.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.ow2.asm</groupId>
-			<artifactId>asm-all</artifactId>
-			<version>5.0.2</version>
-		</dependency>
-		-->		
 		<dependency>
             <groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>

@@ -93,8 +93,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
-			<artifactId>org.apache.servicemix.specs.jaxb-api-2.2</artifactId>
-			<version>${hyte.smx.specs.jaxb-api-2.2.version}</version>
+			<artifactId>org.apache.servicemix.specs.jaxb-api-2.3</artifactId>
+			<version>${hyte.smx.specs.jaxb-api-2.3.version}</version>
 		</dependency>
 		<!-- End Karaf+Jetty+Camel conflicts -->
 		<!-- Start Karaf connector, transaction-api, transaction -->
