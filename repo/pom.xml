@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.7.hyte-4274-SNAPSHOT</version>
+		<version>4.2.8.hyte-4280-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
@@ -618,7 +618,6 @@
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
-			<version>${hyte.smx.bundles.jaxb-runtime.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-pool</groupId>
@@ -895,7 +894,6 @@
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jaxb-xjc</artifactId>
-			<version>${hyte.smx.bundles.jaxb-xjc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
