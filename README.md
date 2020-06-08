@@ -7,11 +7,11 @@ HYTE Platform provides a standards-based runtime for running modular application
 ## Components ##
 
  * Java 11
- * Apache ActiveMQ (v5.15.10) for messaging and eventing
- * Apache Camel (v2.24.1) for integration and low-code process flows
- * Apache CXF (v3.3.3) for REST API (JAX-RS) 
+ * Apache ActiveMQ (v5.15.13) for messaging and eventing
+ * Apache Camel (v2.25.1) for integration and low-code process flows
+ * Apache CXF (v3.3.6) for REST API (JAX-RS) 
  * Apache Karaf (v4.2.8) lightweight runtime
- * Jackson (v2.10.1) for JSON data formats
+ * Jackson (v2.11.0) for JSON data formats
  * LMAX disruptor (v3.4.2) for high-speed async logging with log4j2
 
 Latest version: 4.2.8.hyte-4280

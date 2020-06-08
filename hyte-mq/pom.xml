@@ -10,17 +10,6 @@
 	<artifactId>hyte-mq</artifactId>
 	<name>HYTE :: Platform :: MQ Assembly</name>
 	<packaging>pom</packaging>
-	<properties>
-		<hyte.activeio-core.version>3.1.4</hyte.activeio-core.version>
-		<hyte.commons-collection.version>3.2.2</hyte.commons-collection.version>
-		<hyte.commons-lang.version>2.6</hyte.commons-lang.version>
-		<hyte.jettison.version>1.4.0</hyte.jettison.version>
-		<hyte.scala.version>2.11.0</hyte.scala.version>
-		<hyte.smx.bundles.jasypt-spring31.version>1.9.2_1</hyte.smx.bundles.jasypt-spring31.version>
-		<hyte.smx.bundles.velocity.version>1.7_6</hyte.smx.bundles.velocity.version>
-		<hyte.smx.bundles.xpp3.version>1.1.4c_5</hyte.smx.bundles.xpp3.version>
-		<hyte.smx.bundles.xstream.version>1.4.11.1_1</hyte.smx.bundles.xstream.version>
-	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

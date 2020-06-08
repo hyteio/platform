@@ -57,21 +57,21 @@
 		<bundle dependency="true">mvn:commons-collections/commons-collections/${hyte.commons-collection.version}</bundle>
 		<bundle dependency="true">mvn:commons-lang/commons-lang/${hyte.commons-lang.version}</bundle>
 		<bundle dependency="true">mvn:commons-codec/commons-codec/${hyte.commons-codec.version}</bundle>
-		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.velocity/1.7_6</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.velocity/${hyte.smx.bundles.velocity.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt/${hyte.smx.bundles.jasypt.version}</bundle>
-		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt-spring31/1.9.2_1</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt-spring31/${hyte.smx.bundles.jasypt-spring31.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.stax-api-1.0/${hyte.smx.specs.stax-api-1.0.version}</bundle>
-		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_5</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/${hyte.smx.bundles.xpp3.version}</bundle>
 		<bundle dependency="true">mvn:joda-time/joda-time/${hyte.joda-time.version}</bundle>
-		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/1.4.11.1_1</bundle>
+		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/${hyte.smx.bundles.xstream.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.aries/org.apache.aries.util/${hyte.aries.util.version}</bundle>
-		<bundle dependency="true">mvn:org.apache.activemq/activeio-core/3.1.4</bundle>
-		<bundle dependency="true">mvn:org.codehaus.jettison/jettison/1.4.0</bundle>
+		<bundle dependency="true">mvn:org.apache.activemq/activeio-core/${hyte.activeio-core.version}</bundle>
+		<bundle dependency="true">mvn:org.codehaus.jettison/jettison/${hyte.jettison.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
-		<bundle dependency="true">mvn:org.scala-lang/scala-library/2.11.0</bundle>
+		<bundle dependency="true">mvn:org.scala-lang/scala-library/${hyte.scala.version}</bundle>
 		<capability>activemq-broker;provider:=hyte</capability>
 	</feature>
 
@@ -117,11 +117,13 @@
 		<bundle start-level="35">mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
 		<bundle start-level="35">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${hyte.jackson.version}</bundle>
 		<bundle start-level="35">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${hyte.jackson.version}</bundle>
-		<!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.9.1</bundle> -->
-		<!-- <bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.9.1</bundle> -->
+		<bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${hyte.jackson.version}</bundle>
+		<!-- 
 		<feature prerequisite="true">wrap</feature>
-		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs*;version="[2.0,3)",com.fasterxml.jackson*;version="[2.8,3)"</bundle>
-		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs*;version="[2.0,3)",com.fasterxml.jackson.module.jaxb;resolution:=optional;version="[2.8,3)",com.fasterxml.jackson*;version="[2.8,3)"</bundle>
+		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs.*;version="[2.0,3)",com.fasterxml.jackson.*;version="[2.8,3)"</bundle>
+		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs.*;version="[2.0,3)",com.fasterxml.jackson.module.jaxb;resolution:=optional;version="[2.8,3)",com.fasterxml.jackson.*;version="[2.8,3)"</bundle>
+		-->
 		<capability>cxf-jackson;provider:=hyte</capability>        
 	</feature>
     

@@ -16,15 +16,15 @@
 		<bundle start-level="10" dependency="true">mvn:com.sun.mail/javax.mail/${hyte.javax.mail-api.version}</bundle>
         <bundle start-level="20">mvn:org.codehaus.woodstox/stax2-api/${hyte.stax2-api.version}</bundle>
         <bundle start-level="20">mvn:com.fasterxml.woodstox/woodstox-core/${hyte.woodstox-core.version}</bundle>
-        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/2.3.1_1</bundle>
-        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/2.3.1_1</bundle>
+        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
+        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
         <bundle start-level="20">mvn:com.sun.istack/istack-commons-runtime/3.0.7</bundle>
     </feature>
     <feature name="cxf-jaxb" version="3.3.6">
         <feature version="3.3.6">cxf-specs</feature>
         <feature version="3.3.6">cxf-wsdl</feature>
-        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/2.3.1_1</bundle>
-        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/2.3.1_1</bundle>
+        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
+        <bundle start-level="20">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
         <bundle start-level="20">mvn:com.sun.istack/istack-commons-runtime/3.0.7</bundle>
     </feature>
     <!-- Current the abdera bundle is not working as we expect -->

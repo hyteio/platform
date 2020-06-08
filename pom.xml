@@ -49,10 +49,10 @@
 	<scm>
 		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
 		<url>https://github.com/hyteio/platform</url>
-		<tag>v4.2.7.hyte-4271</tag>
+		<tag>v4.2.8.hyte-4280</tag>
 	</scm>
 	<properties>
-		<hyte.revision>4271</hyte.revision>
+		<hyte.revision>4280</hyte.revision>
 		<hyte.jdk.version>11</hyte.jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -276,7 +276,7 @@
 		<repository>
 			<id>apache-snapshots</id>
 			<name>Apache Snapshots Repository</name>
-			<url>http://repository.apache.org/content/groups/snapshots-group</url>
+			<url>https://repository.apache.org/content/groups/snapshots-group</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -300,7 +300,7 @@
 		<pluginRepository>
 			<id>apache-snapshots</id>
 			<name>Apache Snapshots Repository</name>
-			<url>http://repository.apache.org/content/groups/snapshots-group</url>
+			<url>https://repository.apache.org/content/groups/snapshots-group</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
