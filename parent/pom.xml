@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>build</artifactId>
-		<version>4.2.8.hyte-4280</version>
+		<version>4.2.8.hyte-4281-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>parent</artifactId>
