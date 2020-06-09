@@ -135,7 +135,7 @@
   </feature>
   <feature name='camel-atom' version='2.25.1' resolver='(obr)' start-level='50'>
     <feature version='2.25.1'>camel-core</feature>
-    <bundle dependency='true'>mvn:com.sun.mail/javax.mail/1.6.1</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/${hyte.jakarta.mail.version}</bundle>
     <bundle dependency='true'>mvn:org.apache.abdera/abdera-core/1.1.3</bundle>
     <bundle dependency='true'>mvn:org.apache.abdera/abdera-extensions-main/1.1.3</bundle>
     <bundle dependency='true'>mvn:org.apache.abdera/abdera-i18n/1.1.3</bundle>
@@ -175,7 +175,7 @@
     <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.10</bundle>
     <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.6</bundle>
     <bundle dependency='true'>mvn:joda-time/joda-time/2.10.1</bundle>
-    <bundle dependency='true'>mvn:com.sun.mail/javax.mail/1.6.1</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/${hyte.jakarta.mail.version}</bundle>
     <bundle dependency='true'>mvn:commons-codec/commons-codec/1.13</bundle>
     <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.stax-api-1.0/2.9.0</bundle>
     <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.9.9</bundle>
@@ -813,7 +813,7 @@
     <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.9.9</bundle>
     <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-httpclient/3.1_7</bundle>
     <bundle dependency='true'>wrap:mvn:com.google.api-client/google-api-client/1.22.0</bundle>
-    <bundle dependency='true'>mvn:com.sun.mail/javax.mail/1.6.1</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/${hyte.jakarta.mail.version}</bundle>
     <bundle dependency='true'>wrap:mvn:com.google.apis/google-api-services-gmail/v1-rev81-1.22.0</bundle>
     <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client/1.22.0</bundle>
     <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-jackson2/1.22.0</bundle>
@@ -927,7 +927,7 @@
     <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-servlet_2.5_spec/1.2</bundle>
     <bundle dependency="true">wrap:mvn:javax.servlet.jsp/jsp-api/2.1</bundle>
     <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
-    <bundle dependency='true'>mvn:com.sun.mail/javax.mail/1.6.1</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/${hyte.jakarta.mail.version}</bundle>
     <bundle dependency='true'>mvn:commons-codec/commons-codec/1.13</bundle>
     <bundle dependency='true'>mvn:commons-beanutils/commons-beanutils/1.9.4</bundle>
     <bundle dependency='true'>mvn:commons-collections/commons-collections/3.2.2</bundle>
@@ -1536,7 +1536,7 @@
   </feature>
   <feature name='camel-mail' version='2.25.1' resolver='(obr)' start-level='50'>
     <feature version='2.25.1'>camel-core</feature>
-    <bundle dependency='true'>mvn:com.sun.mail/javax.mail/1.6.1</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/${hyte.jakarta.mail.version}</bundle>
     <bundle>mvn:org.apache.camel/camel-mail/2.25.1</bundle>
   </feature>
   <feature name='camel-master' version='2.25.1' resolver='(obr)' start-level='50'>
