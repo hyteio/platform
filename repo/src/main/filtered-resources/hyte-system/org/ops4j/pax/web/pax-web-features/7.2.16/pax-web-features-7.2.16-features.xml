@@ -139,7 +139,7 @@
         <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-war/7.2.16</bundle>
         <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/7.2.16</bundle>
         <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-deployer/7.2.16</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.url/pax-url-war/2.6.1/jar/uber</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.url/pax-url-war/2.6.2/jar/uber</bundle>
     </feature>
 
     <feature name="pax-http-tomcat" description="Provide Tomcat support" version="7.2.16">
