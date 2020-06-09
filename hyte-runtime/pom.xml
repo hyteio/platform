@@ -23,9 +23,14 @@
 	</dependencyManagement>
 	<dependencies>
 		<dependency>
-            <groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
-			<version>${hyte.sun.mail.version}</version>
+                        <groupId>jakarta.mail</groupId>
+                        <artifactId>jakarta.mail-api</artifactId>
+                        <version>${hyte.jakarta.mail-api.version}</version>
+                </dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>jakarta.mail</artifactId>
+			<version>${hyte.jakarta.mail.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.aries.transaction</groupId>
@@ -35,7 +40,7 @@
 		<!-- End duplicate dependencies -->
 		<!-- Start startup dependencies -->
 		<dependency>
-            <groupId>com.lmax</groupId>
+			<groupId>com.lmax</groupId>
 			<artifactId>disruptor</artifactId>
 		</dependency>
 		<!-- End startup dependencies -->
