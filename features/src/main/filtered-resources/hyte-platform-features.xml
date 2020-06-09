@@ -31,7 +31,7 @@
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
 		<bundle start-level="10">mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
-		<!-- bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/${hyte.smx.bundles.jaxb-impl.version}</bundle-->
+	  	<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
 		<bundle>mvn:org.apache.commons/commons-pool2/${hyte.commons-pool2.version}</bundle>
 		<bundle>mvn:commons-net/commons-net/${hyte.commons-net.version}</bundle>
 		<bundle>mvn:org.apache.activemq/activemq-osgi/${hyte.activemq.version}</bundle>	
@@ -75,17 +75,17 @@
 		<capability>activemq-broker;provider:=hyte</capability>
 	</feature>
 
-	<feature name="hyte-spring-jms" version="${hyte.spring.version}">
-		<feature version="${hyte.spring.version}">spring-tx</feature> 
+	<feature name="hyte-spring-jms" version="${hyte.smx.bundles.spring.version}">
+		<feature version="${hyte.smx.bundles.spring.version}">spring-tx</feature> 
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
-  		<bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-jms/${hyte.spring.version}</bundle>
+  		<bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-jms/${hyte.smx.bundles.spring.version}</bundle>
   		<capability>spring-jms;provider:=hyte</capability>
 	</feature>
 	
 	<feature name="hyte-camel-jms" version="${hyte.camel.version}">
 		<feature version="${hyte.camel.version}">camel-core</feature>
-		<feature version="${hyte.spring.version}">spring</feature>
-		<feature version="${hyte.spring.version}">hyte-spring-jms</feature>
+		<feature version="${hyte.smx.bundles.spring.version}">spring</feature>
+		<feature version="${hyte.smx.bundles.spring.version}">hyte-spring-jms</feature>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
 		<bundle>mvn:commons-pool/commons-pool/${hyte.commons-pool.version}</bundle>
 		<!-- mvn:org.apache.geronimo.specs/geronimo-jms_2.0_spec/1.0-alpha-2 -->
