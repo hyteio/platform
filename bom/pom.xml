@@ -17,14 +17,14 @@
 				<version>${hyte.javax.jms-api.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.activation</groupId>
-				<artifactId>javax.activation-api</artifactId>
-				<version>${hyte.javax-activation.version}</version>
+				<groupId>jakarta.activation</groupId>
+				<artifactId>jakarta.activation-api</artifactId>
+				<version>${hyte.jakarta.activation-api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.sun.activation</groupId>
-				<artifactId>javax.activation</artifactId>
-				<version>${hyte.javax-activation.version}</version>
+				<artifactId>jakarta.activation</artifactId>
+				<version>${hyte.jakarta.activation.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lmax</groupId>

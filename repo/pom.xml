@@ -60,22 +60,24 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>javax.activation-api</artifactId>
+			<groupId>jakarta.activation</groupId>
+			<artifactId>jakarta.activation-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.activation</groupId>
-			<artifactId>javax.activation</artifactId>
+			<artifactId>jakarta.activation</artifactId>
 		</dependency>
 		<!-- End HYTE javax-api and model deps -->
 		<!-- Merged dependencies -->
 		<!-- Start Karaf+Jetty+Camel Jetty wants 2.5.0, Karaf+Camel want 2.9.0 -->
 		<!-- These are shipped in Karaf v4.1.6 in lib/endorsed -->
+		<!-- HP-122 migrate to jakarta.activation
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.activation-api-1.1</artifactId>
 			<version>${hyte.smx.specs.activation-api-1.1.version}</version>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.apache.servicemix.specs</groupId>
 			<artifactId>org.apache.servicemix.specs.stax-api-1.0</artifactId>
