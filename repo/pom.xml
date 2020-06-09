@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.8.hyte-4281-SNAPSHOT</version>
+		<version>4.2.9.hyte-4290-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
@@ -632,42 +632,42 @@
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-core</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-expression</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-beans</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-aop</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-context</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-context-support</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-jms</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
-			<version>${hyte.spring.version}</version>
+			<version>${hyte.smx.bundles.spring.version}</version>
 		</dependency>
 		<!-- 
 		<dependency>

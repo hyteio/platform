@@ -1209,7 +1209,7 @@
     <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/1.4.11.1_1</bundle>
     <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_7</bundle>
     <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.11_1</bundle>
-    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/2.2.11_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
     <bundle>mvn:org.apache.camel/camel-jbpm/2.25.1</bundle>
   </feature>
   <feature name='camel-jcache' version='2.25.1' resolver='(obr)' start-level='50'>
@@ -1784,7 +1784,7 @@
     <bundle dependency='true'>mvn:org.drools/drools-core/7.14.0.Final</bundle>
     <bundle dependency='true'>mvn:org.drools/drools-compiler/7.14.0.Final</bundle>
     <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.11_1</bundle>
-    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/2.2.11_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
     <bundle dependency='true'>mvn:org.mvel/mvel2/2.4.2.Final</bundle>
     <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/1.4.11.1_1</bundle>
     <bundle dependency='true'>mvn:com.google.protobuf/protobuf-java/3.5.1</bundle>
