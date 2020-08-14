@@ -14,11 +14,7 @@ HYTE Platform provides a standards-based runtime for running modular application
  * Jackson (v2.11.0) for JSON data formats
  * LMAX disruptor (v3.4.2) for high-speed async logging with log4j2
 
-Latest version: 4.2.9.hyte-4290
-
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.9.hyte-4290/hyte-runtime-4.2.9.hyte-4290-unix.tar.gz)
- * Docker pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.9.hyte-4290/hyte-runtime-4.2.9.hyte-4290-docker.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.9.hyte-4290/hyte-runtime-4.2.9.hyte-4290-win64.zip)
+Latest version: 4.2.9.hyte-4292
 
 ### Default admin account and ports ###
 
@@ -33,12 +29,17 @@ Default password: admin
 | JMXMP   | 9999 | service:jmx:jmxmp://localhost:9999 | |
 | JMX     | 44444/1099 | service:jmx:rmi://localhost:44444/jndi/rmi://localhost:1099/karaf-root | |
 
+## Downloads:
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.9.hyte-4292/hyte-runtime-4.2.9.hyte-4292-unix.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.9.hyte-4292/hyte-runtime-4.2.9.hyte-4292-docker.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.2.9.hyte-4292/hyte-runtime-4.2.9.hyte-4292-win64.zip)
+
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -49,7 +50,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>docker</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -60,7 +61,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -70,12 +71,17 @@ Default password: admin
 
 HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade best practices
 
+## Downloads:
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.2.9.hyte-4292/hyte-mq-4.2.9.hyte-4292-unix.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.2.9.hyte-4292/hyte-mq-4.2.9.hyte-4292-docker.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.2.9.hyte-4292/hyte-mq-4.2.9.hyte-4292-win64.zip)
+
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -86,7 +92,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>docker</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -97,7 +103,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -107,12 +113,17 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 
 HYTE DB is a packaged build of H2 Database
 
+### Downloads:
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.2.9.hyte-4292/hyte-db-4.2.9.hyte-4292-unix.tar.gz)
+ * Docker pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.2.9.hyte-4292/hyte-db-4.2.9.hyte-4292-docker.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.2.9.hyte-4292/hyte-db-4.2.9.hyte-4292-win64.zip)
+
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -123,7 +134,7 @@ HYTE DB is a packaged build of H2 Database
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>docker</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -134,7 +145,7 @@ HYTE DB is a packaged build of H2 Database
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.2.9.hyte-4290</version>
+    <version>4.2.9.hyte-4292</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
