@@ -42,6 +42,7 @@
 				<exclude>bin/shell</exclude>
 				<exclude>bin/status</exclude>
 				<exclude>bin/instance</exclude>
+				<exclude>**/examples/**</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
 				<exclude>**/_remote.repositories</exclude>
 			</excludes>
