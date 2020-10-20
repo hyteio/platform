@@ -7,9 +7,9 @@ if [ "$KARAF_SCRIPT" == "client" ] || [ "$KARAF_SCRIPT" == "status" ] || [ "$KAR
     export JAVA_MAX_MEM=128M
     export JAVA_DOCKER_OPTS=
 else
-    export JAVA_MIN_MEM=512M
-    export JAVA_MAX_MEM=2G
-    export JAVA_DOCKER_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=1"
+    export JAVA_MIN_MEM=
+    export JAVA_MAX_MEM=
+    export JAVA_DOCKER_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
 fi
 
 # Begin HYTE
