@@ -12,7 +12,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<!-- frameworks -->
-		<hyte.activemq.version>5.15.13</hyte.activemq.version>
+		<hyte.activemq.version>5.15.13.hyte-6899</hyte.activemq.version>
 		<hyte.camel.version>2.25.1</hyte.camel.version>
 		<hyte.cxf.version>3.3.6</hyte.cxf.version>
 		<hyte.jetty.version>9.4.28.v20200408</hyte.jetty.version>
