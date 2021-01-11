@@ -5,7 +5,7 @@
 	<artifactId>build</artifactId>
 	<name>HYTE :: Platform :: Build</name>
 	<packaging>pom</packaging>
-	<version>4.2.10.hyte-42101</version>
+	<version>4.2.10.hyte-42102-SNAPSHOT</version>
 	<description>HYTE Platform</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
@@ -49,7 +49,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
 		<url>https://github.com/hyteio/platform</url>
-		<tag>v4.2.10.hyte-42101</tag>
+		<tag>v4.2.10.hyte-42100</tag>
 	</scm>
 	<properties>
 		<hyte.revision>42100</hyte.revision>
