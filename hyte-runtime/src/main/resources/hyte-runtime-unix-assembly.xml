@@ -41,7 +41,6 @@
 			<directory>${project.build.directory}/local-repo</directory>
 			<outputDirectory>hyte-runtime-${project.version}/local-repo</outputDirectory>
 			<excludes>
-				<exclude>**/runtime-40103-repo/**</exclude>
 				<exclude>.locks</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
 				<exclude>**/_remote.repositories</exclude>

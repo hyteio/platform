@@ -24,7 +24,7 @@ The HYTE DB is distributed in three ways:
 
  * hyte-db-${project.version}-unix.tgz - Stand-Alone distribution that is ready to start on Linux 64-bit systems.
  * hyte-db-${project.version}-win64.tgz - Stand-Alone distribution that is ready to start on Windows 64-bit systems.
- * hyte-db-${project.version}-docker.tgz - Docker-ready distribution that is prepared for inclusion in a Docker container build process.
+ * hyte-db-${project.version}-kubernetes.tgz - Kubernetes-ready distribution that is prepared for inclusion in a Kubernetes container build pipeline.
 
 All distributions are available for the current version of the product via Maven Central: http://central.maven.org/maven2/io/hyte/platform/hyte-db/
 

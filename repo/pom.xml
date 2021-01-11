@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.9.hyte-4297-SNAPSHOT</version>
+		<version>4.2.10.hyte-42100-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
@@ -285,24 +285,24 @@
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-classpath</artifactId>
-			<version>${hyte.pax.url.version}</version>
+			<version>${hyte.pax-url.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-commons</artifactId>
-			<version>${hyte.pax.url.version}</version>
+			<version>${hyte.pax-url.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-war</artifactId>
-			<version>${hyte.pax.url.version}</version>
+			<version>${hyte.pax-url.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-war</artifactId>
 			<type>jar</type>
 			<classifier>uber</classifier>
-			<version>${hyte.pax.url.version}</version>
+			<version>${hyte.pax-url.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.base</groupId>
@@ -327,47 +327,47 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-api</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-deployer</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-descriptor</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-extender-whiteboard</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-extender-war</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-jetty</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-jsp</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-runtime</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-spi</artifactId>
-			<version>${hyte.pax.web.version}</version>
+			<version>${hyte.pax-web.version}</version>
 		</dependency>
 		<!-- Start Jetty Deps -->
 		<dependency>
@@ -386,10 +386,10 @@
 			<version>${hyte.jakarta.mail-api.version}</version>
 		</dependency>
 		<dependency>
-                        <groupId>com.sun.mail</groupId>
-                        <artifactId>jakarta.mail</artifactId>
-                        <version>${hyte.jakarta.mail.version}</version>
-                </dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+            <version>${hyte.jakarta.mail.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.apache.aries.spifly</groupId>
 			<artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>

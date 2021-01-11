@@ -3,7 +3,7 @@
 	xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
-	<id>docker</id>
+	<id>kubernetes</id>
 
 	<baseDirectory>/</baseDirectory>
 
@@ -30,7 +30,7 @@
 		</fileSet>
 		<!-- Karaf last, since maven assembly does __NOT__ overwrite previous files. -->
 		<fileSet>
-			<directory>${project.build.directory}/hyte-runtime-docker/hyte-runtime-${project.version}</directory>
+			<directory>${project.build.directory}/hyte-runtime-kubernetes/hyte-runtime-${project.version}</directory>
 			<outputDirectory>hyte-mq-${project.version}</outputDirectory>
 			<excludes>
 				<exclude>**/bin/*.bat</exclude>

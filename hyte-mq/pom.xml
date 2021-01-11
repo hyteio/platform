@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.9.hyte-4297-SNAPSHOT</version>
+		<version>4.2.10.hyte-42100-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-mq</artifactId>
@@ -41,7 +41,7 @@
 			<groupId>io.hyte.platform</groupId>
 			<artifactId>hyte-runtime</artifactId>
 			<version>${project.version}</version>
-			<classifier>docker</classifier>
+			<classifier>kubernetes</classifier>
 			<type>tar.gz</type>
 		</dependency>
 		<!-- End HYTE Runtime base builds -->
@@ -164,9 +164,9 @@
 									<groupId>io.hyte.platform</groupId>
 									<artifactId>hyte-runtime</artifactId>
 									<version>${project.version}</version>
-									<classifier>docker</classifier>
+									<classifier>kubernetes</classifier>
 									<type>tar.gz</type>
-									<outputDirectory>${project.build.directory}/hyte-runtime-docker</outputDirectory>
+									<outputDirectory>${project.build.directory}/hyte-runtime-kubernetes</outputDirectory>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
@@ -202,7 +202,7 @@
 						<configuration>
 							<descriptors>
 								<descriptor>src/main/resources/hyte-mq-unix-assembly.xml</descriptor>
-								<descriptor>src/main/resources/hyte-mq-docker-assembly.xml</descriptor>
+								<descriptor>src/main/resources/hyte-mq-kubernetes-assembly.xml</descriptor>
 								<descriptor>src/main/resources/hyte-mq-win64-assembly.xml</descriptor>
 							</descriptors>
 							<filters>

@@ -3,7 +3,7 @@
 	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
-	<id>docker</id>
+	<id>kubernetes</id>
 
 	<baseDirectory>/</baseDirectory>
 
@@ -22,7 +22,7 @@
 		</fileSet>
 		-->
 		<fileSet>
-			<directory>${project.build.directory}/karaf-docker/bin</directory>
+			<directory>${project.build.directory}/karaf-kubernetes/bin</directory>
 			<outputDirectory>hyte-runtime-${project.version}/bin</outputDirectory>
 			<includes>
 				<include>**/**</include>
@@ -50,7 +50,6 @@
 			<directory>${project.build.directory}/local-repo</directory>
 			<outputDirectory>hyte-runtime-${project.version}/local-repo</outputDirectory>
 			<excludes>
-				<exclude>**/runtime-40103-repo/**</exclude>
 				<exclude>.locks</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
 				<exclude>**/_remote.repositories</exclude>

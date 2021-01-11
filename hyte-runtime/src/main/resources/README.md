@@ -26,7 +26,7 @@ The HYTE Runtime is distributed in three ways:
 
  * hyte-runtime-${project.version}-unix.tgz - Stand-Alone distribution that is ready to start on Linux 64-bit systems.
  * hyte-runtime-${project.version}-win64.tgz - Stand-Alone distribution that is ready to start on Windows 64-bit systems.
- * hyte-runtime-${project.version}-docker.tgz - Docker-ready distribution that is prepared for inclusion in a Docker container build process.
+ * hyte-runtime-${project.version}-kubernets.tgz - Kubernetes-ready distribution that is prepared for inclusion in a Kubernetes container build pipeline.
 
 All distributions are available for the current version of the product via Maven Central: http://central.maven.org/maven2/io/hyte/platform/hyte-runtime/
 
