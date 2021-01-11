@@ -18,6 +18,8 @@ IF "%KARAF_SCRIPT%" == "client.bat" OR "%KARAF_SCRIPT%" == "status.bat" OR "%KAR
 ) ELSE (
     set JAVA_MIN_MEM=512M
     set JAVA_MAX_MEM=2G
+    set JAVA_GC_LOG_OPTS=-Xlog:gc*:file=data\log\gc-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16M
+    set JAVA_SP_LOG_OPTS=-Xlog:safepoint*:file=data\log\safepoints-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16m
 )
 
 rem
@@ -29,8 +31,6 @@ rem
 
 rem Begin HYTE
 set JAVA_G1_GC_OPTS=-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800 
-set JAVA_GC_LOG_OPTS=-Xlog:gc*:file=data\log\gc-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16M
-set JAVA_SP_LOG_OPTS=-Xlog:safepoint*:file=data\log\safepoints-%p-%t.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16m
 set JAVA_HEAPDUMP_OPTS=-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data\log\jvm-heapdump-%KARAF_STARTDATE%.hprof
 set JAVA_NET_OPTS=-Dsun.net.inetaddr.ttl=60 -Dsun.net.client.defaultConnectTimeout=300000 -Dsun.net.client.defaultReadTimeout=600000
 rem END HYTE

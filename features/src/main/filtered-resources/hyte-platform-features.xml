@@ -39,7 +39,7 @@
 	</feature>
 
 	<feature name="hyte-activemq-camel" version="${hyte.activemq.version}">
-		<feature dependency="true" prerequisite="true">wrap</feature>
+		<feature dependency="true" prerequisite="true" version="${hyte.pax-url.version}">wrap</feature>
 		<feature>hyte-activemq-client</feature>
 		<feature version="[2.21,3)">camel</feature>
 		<feature version="[2.21,3)">hyte-camel-jms</feature>
@@ -128,6 +128,7 @@
 	</feature>
     
 	<feature name="hyte-db" version="${hyte.h2.version}" start-level="40">
-		<bundle>mvn:com.h2database/h2/${hyte.h2.version}</bundle>
+		<feature dependency="true" prerequisite="true">wrap</feature>
+		<bundle>wrap:mvn:com.h2database/h2/${hyte.h2.version}$overwrite=merge&amp;Export-Package=org.h2.server,*</bundle>
 	</feature>
 </features>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="cxf-3.3.6">
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="cxf-3.3.9">
 
 	<repository>mvn:org.ops4j.pax.cdi/pax-cdi-features/1.1.3/xml/features</repository>
 
