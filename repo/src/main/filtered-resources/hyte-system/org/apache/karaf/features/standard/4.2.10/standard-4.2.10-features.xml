@@ -60,7 +60,7 @@
     <feature name="feature" description="Features Support" version="4.2.10">
         <bundle start-level="1">mvn:org.apache.karaf.features/org.apache.karaf.features.extension/4.2.10</bundle>
         <bundle start-level="15">mvn:org.apache.karaf.features/org.apache.karaf.features.core/4.2.10</bundle>
-        <config name="org.apache.karaf.features.repos" overwrite="false">
+        <config name="org.apache.karaf.features.repos">
 ################################################################################
 #
 #    Licensed to the Apache Software Foundation (ASF) under one or more
