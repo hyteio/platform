@@ -1,9 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.10.hyte-42103-SNAPSHOT</version>
+		<version>4.2.11.hyte-42110-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>bom</artifactId>
@@ -11,6 +13,13 @@
 	<packaging>pom</packaging>
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.apache.karaf</groupId>
+				<artifactId>karaf-bom</artifactId>
+				<version>${hyte.karaf.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>javax.jms</groupId>
 				<artifactId>javax.jms-api</artifactId>
@@ -51,6 +60,7 @@
 				<artifactId>jackson-datatype-jsr310</artifactId>
 				<version>${hyte.jackson.version}</version>
 			</dependency>
+			<!-- provided by karaf-bom
 			<dependency>
 				<groupId>com.sun.istack</groupId>
 				<artifactId>istack-commons-runtime</artifactId>
@@ -61,6 +71,8 @@
 				<artifactId>jakarta.xml.bind-api</artifactId>
 				<version>${hyte.jakarta.xml.bind-api.version}</version>
 			</dependency>
+						-->
+			
 			<dependency>
 				<groupId>org.apache.servicemix.bundles</groupId>
 				<artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
@@ -81,6 +93,7 @@
 				<artifactId>jaxb2-basics-runtime</artifactId>
 				<version>${hyte.jaxb2-basics-runtime.version}</version>
 			</dependency>
+			<!-- 
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -96,6 +109,7 @@
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${hyte.slf4j.version}</version>
 			</dependency>
+			 -->
 			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
