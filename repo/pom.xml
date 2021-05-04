@@ -133,12 +133,11 @@
 		<dependency>
 			<groupId>org.apache.aries.transaction</groupId>
 			<artifactId>org.apache.aries.transaction.blueprint</artifactId>
-			<!-- version>${hyte.aries.transaction.blueprint_2.version}</version -->
+			<version>${hyte.aries.transaction.blueprint_2.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.aries.transaction</groupId>
 			<artifactId>org.apache.aries.transaction.manager</artifactId>
-			<!-- version>${hyte.aries.transaction.manager.version}</version -->
 		</dependency>
   		<dependency>
 			<groupId>org.apache.geronimo.components</groupId>
@@ -720,22 +719,18 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-blueprint</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-commands-core</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel.karaf</groupId>
@@ -745,7 +740,6 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<!-- End Camel -->
 		<!-- Start Cxf deps -->

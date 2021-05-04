@@ -21,6 +21,13 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-bom</artifactId>
+				<version>${hyte.camel.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>javax.jms</groupId>
 				<artifactId>javax.jms-api</artifactId>
 				<version>${hyte.javax.jms-api.version}</version>
@@ -60,19 +67,11 @@
 				<artifactId>jackson-datatype-jsr310</artifactId>
 				<version>${hyte.jackson.version}</version>
 			</dependency>
-			<!-- provided by karaf-bom
-			<dependency>
-				<groupId>com.sun.istack</groupId>
-				<artifactId>istack-commons-runtime</artifactId>
-				<version>${hyte.istack-commons-runtime.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>jakarta.xml.bind</groupId>
-				<artifactId>jakarta.xml.bind-api</artifactId>
-				<version>${hyte.jakarta.xml.bind-api.version}</version>
-			</dependency>
-						-->
-			
+			<!-- provided by karaf-bom <dependency> <groupId>com.sun.istack</groupId> 
+				<artifactId>istack-commons-runtime</artifactId> <version>${hyte.istack-commons-runtime.version}</version> 
+				</dependency> <dependency> <groupId>jakarta.xml.bind</groupId> <artifactId>jakarta.xml.bind-api</artifactId> 
+				<version>${hyte.jakarta.xml.bind-api.version}</version> </dependency> -->
+
 			<dependency>
 				<groupId>org.apache.servicemix.bundles</groupId>
 				<artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
@@ -93,23 +92,11 @@
 				<artifactId>jaxb2-basics-runtime</artifactId>
 				<version>${hyte.jaxb2-basics-runtime.version}</version>
 			</dependency>
-			<!-- 
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${hyte.junit.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${hyte.slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${hyte.slf4j.version}</version>
-			</dependency>
-			 -->
+			<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+				<version>${hyte.junit.version}</version> </dependency> <dependency> <groupId>org.slf4j</groupId> 
+				<artifactId>slf4j-api</artifactId> <version>${hyte.slf4j.version}</version> 
+				</dependency> <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> 
+				<version>${hyte.slf4j.version}</version> </dependency> -->
 			<dependency>
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
