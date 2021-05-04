@@ -21,6 +21,13 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-bom</artifactId>
+				<version>${hyte.camel.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>javax.jms</groupId>
 				<artifactId>javax.jms-api</artifactId>
 				<version>${hyte.javax.jms-api.version}</version>
@@ -71,8 +78,7 @@
 				<artifactId>jakarta.xml.bind-api</artifactId>
 				<version>${hyte.jakarta.xml.bind-api.version}</version>
 			</dependency>
-						-->
-			
+   		-->			
 			<dependency>
 				<groupId>org.apache.servicemix.bundles</groupId>
 				<artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
