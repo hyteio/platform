@@ -720,22 +720,18 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-blueprint</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-commands-core</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel.karaf</groupId>
@@ -745,7 +741,6 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
-			<version>${hyte.camel.version}</version>
 		</dependency>
 		<!-- End Camel -->
 		<!-- Start Cxf deps -->
