@@ -5,7 +5,7 @@
 	<artifactId>build</artifactId>
 	<name>HYTE :: Platform :: Build</name>
 	<packaging>pom</packaging>
-	<version>4.2.11.hyte-42110-SNAPSHOT</version>
+	<version>4.2.11.hyte-42110</version>
 	<description>HYTE Platform</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
