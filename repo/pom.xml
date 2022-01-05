@@ -590,10 +590,32 @@
 		<!-- Start ActiveMQ -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
+			<artifactId>activeio-core</artifactId>
+			<version>${hyte.activeio-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-http</artifactId>
+			<version>${hyte.activemq.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-karaf</artifactId>
 			<version>${hyte.activemq.version}</version>
 			<classifier>features</classifier>
 			<type>xml</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
@@ -601,16 +623,34 @@
 			<version>${hyte.activemq.version}</version>
 			<classifier>features-core</classifier>
 			<type>xml</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-osgi</artifactId>
 			<version>${hyte.activemq.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-camel</artifactId>
 			<version>${hyte.activemq.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- End ActiveMQ -->
 		<!-- Start Camel Deps -->
@@ -777,6 +817,12 @@
 			<version>${hyte.cxf.version}</version>
 			<classifier>features</classifier>
 			<type>xml</type>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>

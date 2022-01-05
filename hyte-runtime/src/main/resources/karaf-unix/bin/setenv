@@ -17,7 +17,8 @@ fi
 export JAVA_G1_GC_OPTS="-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800" 
 
 # export JAVA_HOME # Location of Java installation
-export EXTRA_JAVA_OPTS="$JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_SP_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_NET_OPTS"
+export LOG4SHELL_OPTS="-Dlog4j2.formatMsgNoLookups=true"
+export EXTRA_JAVA_OPTS="$JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_SP_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_NET_OPTS $LOG4SHELL_OPTS"
 # export JAVA_HOME # Location of Java installation
 # export JAVA_MIN_MEM # Minimum memory for the JVM
 # export JAVA_MAX_MEM # Maximum memory for the JVM

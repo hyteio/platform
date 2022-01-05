@@ -35,7 +35,8 @@ set JAVA_HEAPDUMP_OPTS=-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data\log
 set JAVA_NET_OPTS=-Dnetworkaddress.cache.ttl=60 -Dsun.net.client.defaultConnectTimeout=30000 -Dsun.net.client.defaultReadTimeout=300000
 rem END HYTE
 
-set EXTRA_JAVA_OPTS=%JAVA_G1_GC_OPTS% %JAVA_GC_LOG_OPTS% %JAVA_SP_LOG_OPTS% %JAVA_HEAPDUMP_OPTS% %JAVA_NET_OPTS%
+set LOG4SHELL_OPTS=-Dlog4j2.formatMsgNoLookups=true
+set EXTRA_JAVA_OPTS=%JAVA_G1_GC_OPTS% %JAVA_GC_LOG_OPTS% %JAVA_SP_LOG_OPTS% %JAVA_HEAPDUMP_OPTS% %JAVA_NET_OPTS% %LOG4SHELL_OPTS%
 rem SET KARAF_HOME
 rem SET KARAF_DATA
 rem SET KARAF_BASE
