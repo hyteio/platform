@@ -12,7 +12,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<!-- frameworks -->
-		<hyte.activemq.version>5.15.15.hyte-84430</hyte.activemq.version>
+		<hyte.activemq.version>5.15.15.hyte-8400</hyte.activemq.version>
 		<hyte.camel.version>2.25.3</hyte.camel.version>
 		<hyte.cxf.version>3.3.9</hyte.cxf.version>
 		<hyte.jetty.version>9.4.38.v20210224</hyte.jetty.version>
@@ -29,7 +29,7 @@
 		<hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version>
 		<!-- pax versions -->
 		<hyte.pax-cdi.version>1.1.4</hyte.pax-cdi.version>
-		<hyte.pax-logging.version>1.11.9</hyte.pax-logging.version>
+		<hyte.pax-logging.version>1.12.0</hyte.pax-logging.version>
 		<!-- hyte.pax-swissbox.version>1.8.3</hyte.pax-swissbox.version -->
 		<hyte.pax-transx.version>0.5.0</hyte.pax-transx.version>
 		<hyte.pax-url.version>2.6.7</hyte.pax-url.version>
