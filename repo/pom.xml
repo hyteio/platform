@@ -314,11 +314,26 @@
 			<artifactId>ops4j-base-util-property</artifactId>
 			<!-- version>${hyte.ops4j-base.version}</version -->
 		</dependency>
+                <dependency>
+                        <groupId>org.ops4j.pax.logging</groupId>
+                        <artifactId>pax-logging-api</artifactId>
+                        <version>${hyte.pax-logging.version}</version>
+                </dependency>
+                <dependency>
+                        <groupId>org.ops4j.pax.logging</groupId>
+                        <artifactId>pax-logging-log4j2</artifactId>
+                        <version>${hyte.pax-logging.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.logging</groupId>
 			<artifactId>pax-logging-log4j2-extra</artifactId>
 			<version>${hyte.pax-logging.version}</version>
 		</dependency>
+                <dependency>
+                        <groupId>org.ops4j.pax.logging</groupId>
+                        <artifactId>pax-logging-logback</artifactId>
+                        <version>${hyte.pax-logging.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.swissbox</groupId>
 			<artifactId>pax-swissbox-property</artifactId>
@@ -1106,7 +1121,8 @@
 						<configuration>
 							<copyPom>true</copyPom>
 							<excludeTransitive>true</excludeTransitive>
-							<excludeArtifactIds>apache-karaf,pax-logging-log4j2-extra</excludeArtifactIds>
+							<excludeArtifactIds>apache-karaf</excludeArtifactIds>
+							<excludeGroupIds>org.ops4j.pax.logging</excludeGroupIds>
 							<outputDirectory>${project.build.directory}/local-repo</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
@@ -1122,7 +1138,7 @@
 						<configuration>
 							<copyPom>true</copyPom>
 							<excludeTransitive>true</excludeTransitive>
-							<includeArtifactIds>pax-logging-log4j2-extra</includeArtifactIds>
+							<includeGroupIds>org.ops4j,pax.logging</includeGroupIds>
 							<outputDirectory>${project.build.directory}/hyte-system</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
