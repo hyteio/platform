@@ -15,9 +15,9 @@
 	</feature>
 	
 	<feature name="hyte-model" version="${project.version}" start-level="20">
-	  	<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
+	  <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
  		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
-  		<bundle>mvn:com.sun.istack/istack-commons-runtime/${hyte.istack-commons-runtime.version}</bundle>
+  	<bundle>mvn:com.sun.istack/istack-commons-runtime/${hyte.istack-commons-runtime.version}</bundle>
 		<bundle>mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/${hyte.jaxb2-basics-runtime.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
@@ -31,27 +31,31 @@
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
 		<bundle start-level="10">mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
-	  	<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
+	  <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
 		<bundle>mvn:org.apache.commons/commons-pool2/${hyte.commons-pool2.version}</bundle>
-		<bundle>mvn:commons-net/commons-net/${hyte.commons-net.version}</bundle>
 		<bundle>mvn:org.apache.activemq/activemq-osgi/${hyte.activemq.version}</bundle>	
 		<capability>activemq-client;provider:=hyte</capability>
 	</feature>
 
+  <!-- REMOVED in 5.17.x
 	<feature name="hyte-activemq-camel" version="${hyte.activemq.version}">
 		<feature dependency="true" prerequisite="true" version="${hyte.pax-url.version}">wrap</feature>
 		<feature>hyte-activemq-client</feature>
-		<feature version="[2.21,3)">camel</feature>
-		<feature version="[2.21,3)">hyte-camel-jms</feature>
-		<feature version="[2.21,3)">camel-spring</feature>
-		<feature version="[2.21,3)">camel-blueprint</feature>
-		<bundle>wrap:mvn:org.apache.activemq/activemq-camel/${hyte.activemq.version}$overwrite=merge&amp;Import-Package=javax.jms;version=&quot;[2,3)&quot;,*</bundle>
+		<feature version="[3.11,4)">camel</feature>
+		<feature version="[3.11,4)">hyte-camel-jms</feature>
+		<feature version="[3.11,4)">camel-spring</feature>
+		<feature version="[3.11,4)">camel-blueprint</feature>
+		-->
+		<!-- bundle>wrap:mvn:org.apache.activemq/activemq-camel/${hyte.activemq.version}$overwrite=merge&amp;Import-Package=javax.jms;version=&quot;[2,3)&quot;,*</bundle  -->
+		<!--
 		<capability>activemq-camel;provider:=hyte</capability>
 	</feature>
+	-->
 	
 	<feature name="hyte-activemq-broker" description="HYTE ActiveMQ broker" version="${hyte.activemq.version}" start-level="50">
 		<feature>connector</feature>
 		<feature>http</feature>
+    <feature>shell-compat</feature>
 		<feature version="${hyte.activemq.version}">hyte-activemq-client</feature>
 		<bundle>mvn:org.apache.activemq/activemq-karaf/${hyte.activemq.version}</bundle>
 		<bundle dependency="true">mvn:commons-collections/commons-collections/${hyte.commons-collection.version}</bundle>
@@ -63,7 +67,6 @@
 		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt-spring31/${hyte.smx.bundles.jasypt-spring31.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.stax-api-1.0/${hyte.smx.specs.stax-api-1.0.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/${hyte.smx.bundles.xpp3.version}</bundle>
-		<bundle dependency="true">mvn:joda-time/joda-time/${hyte.joda-time.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/${hyte.smx.bundles.xstream.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.aries/org.apache.aries.util/${hyte.aries.util.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.activemq/activeio-core/${hyte.activeio-core.version}</bundle>
@@ -72,7 +75,6 @@
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
-		<bundle dependency="true">mvn:org.scala-lang/scala-library/${hyte.scala.version}</bundle>
 		<capability>activemq-broker;provider:=hyte</capability>
 	</feature>
 
@@ -88,7 +90,7 @@
 		<feature version="${hyte.smx.bundles.spring.version}">spring</feature>
 		<feature version="${hyte.smx.bundles.spring.version}">hyte-spring-jms</feature>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
-		<bundle>mvn:commons-pool/commons-pool/${hyte.commons-pool.version}</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/${hyte.commons-pool2.version}</bundle>
 		<!-- mvn:org.apache.geronimo.specs/geronimo-jms_2.0_spec/1.0-alpha-2 -->
 		<bundle>mvn:org.apache.camel/camel-jms/${hyte.camel.version}</bundle>
 		<capability>camel-jms;provider:=hyte</capability>

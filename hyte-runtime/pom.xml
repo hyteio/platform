@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.11.hyte-42115-SNAPSHOT</version>
+		<version>4.3.7.hyte-43070-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-runtime</artifactId>
@@ -133,9 +133,10 @@
 									<version>${hyte.karaf.version}</version>
 									<type>tar.gz</type>
 									<outputDirectory>${project.build.directory}/karaf-unix</outputDirectory>
-									<!-- excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes -->
-                                                                        <!-- temporary upgrade pax-logging for log4shell -->
+									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
+                  <!-- temporary upgrade pax-logging for log4shell
 									<excludes>**/pax/logging/**,**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
+									-->
 								</artifactItem>
 								<artifactItem>
 									<groupId>org.apache.karaf</groupId>
@@ -143,9 +144,10 @@
 									<version>${hyte.karaf.version}</version>
 									<type>zip</type>
 									<outputDirectory>${project.build.directory}/karaf-win64</outputDirectory>
-									<!-- excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes -->
-                                                                        <!-- temporary upgrade pax-logging for log4shell -->
+									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
+                  <!-- temporary upgrade pax-logging for log4shell
 									<excludes>**/pax/logging/**,**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
+									-->
 								</artifactItem>
 								<artifactItem>
 									<groupId>io.hyte.platform</groupId>
