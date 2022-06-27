@@ -5,7 +5,7 @@
 	<artifactId>build</artifactId>
 	<name>HYTE :: Platform :: Build</name>
 	<packaging>pom</packaging>
-	<version>4.2.11.hyte-42115-SNAPSHOT</version>
+	<version>4.3.7.hyte-43070-SNAPSHOT</version>
 	<description>HYTE Platform</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
@@ -49,16 +49,17 @@
 	<scm>
 		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
 		<url>https://github.com/hyteio/platform</url>
-		<tag>v4.2.11.hyte-42114</tag>
+		<tag>v${project.version}</tag>
 	</scm>
 	<properties>
-		<hyte.revision>42114</hyte.revision>
+		<hyte.revision>${project.version}-${buildNumber}</hyte.revision>
 		<hyte.jdk.version>11</hyte.jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Maven Plugins -->
 		<maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
 		<maven-build-helper-maven-plugin.version>3.0.0</maven-build-helper-maven-plugin.version>
+                <maven-buildnumber-plugin.version>1.4</maven-buildnumber-plugin.version>
 		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
@@ -126,8 +127,13 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>${maven-build-helper-maven-plugin.version}</version>
+          <version>${maven-build-helper-maven-plugin.version}</version>
 				</plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${maven-buildnumber-plugin.version}</version>         
+        </plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
@@ -197,6 +203,24 @@
 					<goals>clean package deploy</goals>
 				</configuration>
 			</plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+              <goals>
+                <goal>create</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <doCheck>false</doCheck>
+            <doUpdate>false</doUpdate>
+            <revisionOnScmFailure>0</revisionOnScmFailure>
+            <shortRevisionLength>7</shortRevisionLength>
+         </configuration>
+      </plugin>
 		</plugins>
 	</build>
 	<profiles>
@@ -295,6 +319,17 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
+		</repository>
+		<repository>
+		  <id>apachekaraf437</id>
+		  <name>Apache 4.3.7</name>
+		  <url>https://repository.apache.org/content/repositories/orgapachekaraf-1174</url>
+		  <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
 		</repository>
 	</repositories>
 	<pluginRepositories>

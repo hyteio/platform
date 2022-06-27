@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.2.11.hyte-42115-SNAPSHOT</version>
+		<version>4.3.7.hyte-43070-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>repo</artifactId>
@@ -140,7 +140,17 @@
 			<artifactId>org.apache.aries.transaction.manager</artifactId>
 			<!-- version>${hyte.aries.transaction.manager.version}</version -->
 		</dependency>
-  		<dependency>
+		<dependency>
+		  <groupId>org.apache.aries.tx-control</groupId>
+		  <artifactId>tx-control-service-local</artifactId>
+		  <version>${hyte.aries.tx-control.version}</version>
+		</dependency>
+		<dependency>
+      <groupId>org.apache.aries.tx-control</groupId>
+      <artifactId>tx-control-service-xa</artifactId>
+      <version>${hyte.aries.tx-control.version}</version>
+    </dependency>
+    <dependency>
 			<groupId>org.apache.geronimo.components</groupId>
 			<artifactId>geronimo-connector</artifactId>
 			<version>${hyte.geronimo-connector.version}</version>
@@ -292,11 +302,13 @@
 			<artifactId>pax-url-commons</artifactId>
 			<!-- version>${hyte.pax-url.version}</version -->
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-war</artifactId>
 			<version>${hyte.pax-url.version}</version>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.ops4j.pax.url</groupId>
 			<artifactId>pax-url-war</artifactId>
@@ -314,26 +326,26 @@
 			<artifactId>ops4j-base-util-property</artifactId>
 			<!-- version>${hyte.ops4j-base.version}</version -->
 		</dependency>
-                <dependency>
-                        <groupId>org.ops4j.pax.logging</groupId>
-                        <artifactId>pax-logging-api</artifactId>
-                        <version>${hyte.pax-logging.version}</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.ops4j.pax.logging</groupId>
-                        <artifactId>pax-logging-log4j2</artifactId>
-                        <version>${hyte.pax-logging.version}</version>
-                </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-api</artifactId>
+      <version>${hyte.pax-logging.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-log4j2</artifactId>
+      <version>${hyte.pax-logging.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.logging</groupId>
 			<artifactId>pax-logging-log4j2-extra</artifactId>
 			<version>${hyte.pax-logging.version}</version>
 		</dependency>
-                <dependency>
-                        <groupId>org.ops4j.pax.logging</groupId>
-                        <artifactId>pax-logging-logback</artifactId>
-                        <version>${hyte.pax-logging.version}</version>
-                </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-logback</artifactId>
+      <version>${hyte.pax-logging.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.swissbox</groupId>
 			<artifactId>pax-swissbox-property</artifactId>
@@ -401,10 +413,10 @@
 			<version>${hyte.jakarta.mail-api.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>jakarta.mail</artifactId>
-            <version>${hyte.jakarta.mail.version}</version>
-        </dependency>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>jakarta.mail</artifactId>
+      <version>${hyte.jakarta.mail.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>org.apache.aries.spifly</groupId>
 			<artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
@@ -437,7 +449,7 @@
 			<version>${hyte.osgi.util.version}</version>
 		</dependency>
 		--> 
-        <!-- End Jetty Deps -->
+    <!-- End Jetty Deps -->
 		<!-- Start Jetty -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
@@ -596,11 +608,6 @@
 			<artifactId>commons-pool2</artifactId>
 			<version>${hyte.commons-pool2.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-net</groupId>
-			<artifactId>commons-net</artifactId>
-			<version>${hyte.commons-net.version}</version>
-		</dependency>
 		<!-- End ActiveMQ Deps -->
 		<!-- Start ActiveMQ -->
 		<dependency>
@@ -656,19 +663,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-camel</artifactId>
-			<version>${hyte.activemq.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>*</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 		<!-- End ActiveMQ -->
 		<!-- Start Camel Deps -->
+    <dependency>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+      <artifactId>caffeine</artifactId>
+      <version>2.9.2</version>
+    </dependency>
 		<dependency>
 			<groupId>org.codehaus.woodstox</groupId>
 			<artifactId>stax2-api</artifactId>
@@ -683,11 +684,13 @@
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jaxb-runtime</artifactId>
 		</dependency>
+		<!-- REMVED w/ Camel 3.x
 		<dependency>
 			<groupId>commons-pool</groupId>
 			<artifactId>commons-pool</artifactId>
 			<version>${hyte.commons-pool.version}</version>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
@@ -742,6 +745,7 @@
 			<classifier>features</classifier>
 		</dependency>
 		 -->
+		<!-- not needed in camel 3.x 
 		<dependency>
 			<groupId>org.apache.jclouds.karaf</groupId>
 			<artifactId>jclouds-karaf</artifactId>
@@ -749,6 +753,7 @@
 			<type>xml</type>
 			<classifier>features</classifier>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator-osgi-karaf-features</artifactId>
@@ -772,31 +777,238 @@
 			<classifier>features</classifier>
 			<type>xml</type>
 		</dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-base-engine</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-bean</artifactId>
+    </dependency>
 		<dependency>
-			<groupId>org.apache.camel</groupId>
+			<groupId>org.apache.camel.karaf</groupId>
 			<artifactId>camel-blueprint</artifactId>
+      <version>${hyte.camel.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-core</artifactId>
-		</dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-browse</artifactId>
+    </dependency>
 		<dependency>
-			<groupId>org.apache.camel</groupId>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-cloud</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-cluster</artifactId>
+    </dependency>
+		<dependency>
+			<groupId>org.apache.camel.karaf</groupId>
 			<artifactId>camel-commands-core</artifactId>
+      <version>${hyte.camel.version}</version>
 		</dependency>
+		<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-controlbus</artifactId>
+    </dependency>
+		<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-catalog</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-engine</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-languages</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-model</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-processor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-reifier</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-xml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-dataformat</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-dataset</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-direct</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-directvm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-endpointdsl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-file</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-health</artifactId>
+    </dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
 		</dependency>
 		<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-language</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-log</artifactId>
+    </dependency>
+		<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-main</artifactId>
+    </dependency>
+		<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-management</artifactId>
+    </dependency>
+		<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-management-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-mock</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-ref</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-rest</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-saga</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-scheduler</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-seda</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-xml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-stub</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-support</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-timer</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-tooling-model</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-util</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-util-json</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-validator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-vm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-xml-io-util</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-xml-jaxb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-xml-jaxp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-xpath</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-xslt</artifactId>
+    </dependency>
+		<!-- camel + karaf + osgi -->
+		<dependency>
+      <groupId>org.apache.camel.karaf</groupId>
+      <artifactId>camel-bean-osgi</artifactId>
+      <version>${hyte.camel.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.karaf</groupId>
+      <artifactId>camel-core-osgi</artifactId>
+      <version>${hyte.camel.version}</version>
+    </dependency>
+		<dependency>
 			<groupId>org.apache.camel.karaf</groupId>
 			<artifactId>camel-karaf-commands</artifactId>
 			<version>${hyte.camel.version}</version>
 		</dependency>
+		<!-- Hopefullly, not needed in 3.x 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
 		</dependency>
+		-->
 		<!-- End Camel -->
 		<!-- Start Cxf deps -->
 		<dependency>
@@ -842,17 +1054,14 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-core</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-management</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf.karaf</groupId>
 			<artifactId>cxf-karaf-commands</artifactId>
-			<version>${hyte.cxf.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.apache.karaf</groupId>
@@ -874,47 +1083,35 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-soap</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-xml</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-databinding-jaxb</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-wsdl</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-simple</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.neethi</groupId>
 			<artifactId>neethi</artifactId>
 			<version>${hyte.neethi.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>${hyte.joda-time.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
@@ -1039,37 +1236,30 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-client</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-json-basic</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-extension-providers</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-service-description</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-extension-search</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-security</artifactId>
-			<version>${hyte.cxf.version}</version>
 		</dependency>
 		<!-- End cxf-jaxrs -->
 		<!-- End Cxf -->

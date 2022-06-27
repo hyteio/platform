@@ -1,0 +1,2576 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.5.0" name='camel-3.14.2'>
+  <repository>mvn:org.apache.cxf.karaf/apache-cxf/[3.4,3.4]/xml/features</repository>
+  <repository>mvn:org.ops4j.pax.cdi/pax-cdi-features/[1,2)/xml/features</repository>
+  <repository>mvn:org.hibernate.validator/hibernate-validator-osgi-karaf-features/[6.2,6.3)/xml/features</repository>
+
+  <feature name='xml-specs-api' version='2.9.0' start-level='10'>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.activation-api-1.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.stax-api-1.0/2.9.0</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxws-api-2.2/2.9.0</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxrs-api-2.1/2.9.0</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxb-api-2.3/2.3_2</bundle>
+    <bundle>mvn:org.codehaus.woodstox/stax2-api/3.1.4</bundle>
+    <bundle>mvn:org.codehaus.woodstox/woodstox-core-asl/4.4.1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/2.3.1_1</bundle>
+  </feature>
+
+  <feature name='camel' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-blueprint</feature>
+    <!-- we no longer install camel-spring by default -->
+  </feature>
+  <feature name='camel-core' version='3.14.2' start-level='50'>
+    <feature version='2.9.0'>xml-specs-api</feature>
+    <bundle dependency='true'>mvn:com.github.ben-manes.caffeine/caffeine/2.9.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-api/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-management-api/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-util/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-util-json/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-support/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-base-engine/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-management/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-core-model/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-core-reifier/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-core-processor/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-core-engine/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-core-languages/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-core-osgi/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-core-catalog/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-cloud/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-cluster/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-health/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-xml-io-util/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-xml-jaxp/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-xml-jaxb/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-tooling-model/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-main/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-endpointdsl/3.14.2</bundle>
+    <!-- core components -->
+    <bundle>mvn:org.apache.camel.karaf/camel-bean-osgi/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-bean/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-browse/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-controlbus/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-dataformat/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-dataset/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-direct/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-directvm/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-file/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-language/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-log/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-mock/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-ref/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-rest/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-saga/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-scheduler/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-seda/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-stub/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-timer/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-validator/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-vm/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-xpath/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-xslt/3.14.2</bundle>
+    <conditional>
+      <condition>shell</condition>
+      <bundle>mvn:org.apache.camel.karaf/camel-commands-core/3.14.2</bundle>
+      <bundle>mvn:org.apache.camel.karaf/camel-karaf-commands/3.14.2</bundle>
+    </conditional>
+    <!-- allow camel to access its own mbeans for karaf commands and other needs -->
+    <config name="jmx.acl.org.apache.camel">
+      * = *
+    </config>
+  </feature>
+  <feature name='camel-blueprint' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-core-xml/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-blueprint/3.14.2</bundle>
+    <feature>aries-blueprint</feature>
+  </feature>
+  <feature name='camel-spring' version='3.14.2' start-level='50'>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <feature version='[5,6)'>spring</feature>
+    <feature version='[5,6)'>spring-tx</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-core-xml/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-spring/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-spring-xml/3.14.2</bundle>
+  </feature>
+
+  <!-- the following features are sorted A..Z -->
+  <feature name='camel-activemq' version='3.14.2' start-level='50'>
+    <feature prerequisite='true'>wrap</feature>
+    <feature version='3.14.2'>camel-jms</feature>
+    <feature version="[5,6)">spring</feature>
+    <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/1.1.1</bundle>
+    <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle dependency="true">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/1.0.1</bundle>
+    <bundle dependency="true">mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/0.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-impl/2.2.11_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/2.11.1</bundle>
+    <bundle dependency='true'>mvn:commons-net/commons-net/3.8.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.zookeeper/zookeeper/3.5.9$Export-Package=org.apache.zookeeper;version=3.5.9,org.apache.zookeeper.*;version=3.5.9</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.zookeeper/zookeeper-jute/3.5.9$Export-Package=org.apache.jute;version=3.5.9,org.apache.zookeeper.*;version=3.5.9</bundle>
+    <bundle>wrap:mvn:org.apache.activemq/activemq-osgi/5.16.3$overwrite=merge&amp;Import-Package=org.springframework.*;resolution:=optional;version="[5,6)",*;resolution:=optional</bundle>
+    <bundle>mvn:org.apache.camel/camel-activemq/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ahc' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.asynchttpclient/async-http-client/2.12.3$Export-Package=org.asynchttpclient.*;version=2.12.3</bundle>
+    <bundle dependency='true'>wrap:mvn:org.asynchttpclient/async-http-client-netty-utils/2.12.3$Export-Package=org.asynchttpclient.netty.util.*;version=2.12.3</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-kqueue/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-socks/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler-proxy/4.1.70.Final</bundle>
+    <bundle dependency='true'>wrap:mvn:com.typesafe.netty/netty-reactive-streams/2.0.5</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-ahc/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ahc-ws' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-ahc</feature>
+    <bundle>mvn:org.apache.camel/camel-ahc-ws/3.14.2</bundle>
+  </feature>
+  <feature name='camel-amqp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-jms</feature>
+    <bundle dependency='true'>mvn:org.apache.qpid/qpid-jms-client/0.59.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.qpid/proton-j/0.33.8</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-kqueue/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle>mvn:org.apache.camel/camel-amqp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-any23' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.any23/2.3_1</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.eclipse.rdf4j/rdf4j-model/3.7.2</bundle>
+    <bundle dependency='true'>wrap:mvn:org.eclipse.rdf4j/rdf4j-model-testsuite/3.7.2</bundle>
+    <bundle dependency='true'>wrap:mvn:org.eclipse.rdf4j/rdf4j-rio-api/3.7.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-any23/3.14.2</bundle>
+  </feature>
+  <feature name='camel-arangodb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.arangodb/arangodb-java-driver/6.14.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-arangodb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-as2' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-collections/commons-collections/3.2.2</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcutil-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.apache.velocity/velocity-engine-core/2.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-as2-api/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-as2/3.14.2</bundle>
+  </feature>
+  <feature name='camel-asn1' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.beanit/jasn1/1.11.3</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle>mvn:org.apache.camel/camel-asn1/3.14.2</bundle>
+  </feature>
+  <feature name='camel-asterisk' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.asterisk-java/1.0.0-final_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-asterisk/3.14.2</bundle>
+  </feature>
+  <feature name='camel-atom' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/1.6.6</bundle>
+    <bundle dependency='true'>mvn:org.apache.abdera/abdera-core/1.1.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.abdera/abdera-extensions-main/1.1.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.abdera/abdera-i18n/1.1.3</bundle>
+    <bundle>mvn:org.apache.abdera/abdera-parser/1.1.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.james/apache-mime4j-core/0.8.3</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle>mvn:org.apache.camel/camel-atom/3.14.2</bundle>
+  </feature>
+  <feature name='camel-atomix' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.atomix/atomix-all/1.0.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-atomix/3.14.2</bundle>
+  </feature>
+  <feature name='camel-avro' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-compress/1.20</bundle>
+    <bundle dependency='true'>mvn:org.apache.avro/avro/1.10.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-avro/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-athena' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-athena/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-cw' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-cw/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-ddb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-ddb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-ec2' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-ec2/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-ecs' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-ecs/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-eks' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-eks/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-eventbridge' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-eventbridge/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-iam' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-iam/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-kinesis' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-kinesis/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-kms' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-kms/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-lambda' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-lambda/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-mq' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-mq/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-msk' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-msk/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-s3' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-s3/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-ses' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/1.6.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-ses/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-sns' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-sns/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-sqs' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-sqs/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-sts' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-sts/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws2-translate' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws2-translate/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws-secrets-manager' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aws-java-sdk2/2.17.93_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws-secrets-manager/3.14.2</bundle>
+  </feature>
+  <feature name='camel-aws-xray' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.amazonaws/aws-xray-recorder-sdk-core/2.6.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.amazonaws/aws-xray-recorder-sdk-apache-http/2.6.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.amazonaws/aws-xray-recorder-sdk-aws-sdk/2.6.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.amazonaws/aws-xray-recorder-sdk-aws-sdk-instrumentor/2.6.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.amazonaws/aws-xray-recorder-sdk-sql-postgres/2.6.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.amazonaws/aws-xray-recorder-sdk-sql-mysql/2.6.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-aws-xray/3.14.2</bundle>
+  </feature>
+  <feature name='camel-azure-storage-blob' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle dependency='true'>mvn:io.projectreactor/reactor-core/3.4.5</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-core/1.16.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-common/12.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-blob/12.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-blob-changefeed/12.0.0-beta8_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-azure-storage-blob/3.14.2</bundle>
+  </feature>
+  <feature name='camel-azure-storage-datalake' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle dependency='true'>mvn:io.projectreactor/reactor-core/3.4.5</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-core/1.16.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-common/12.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-blob/12.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-blob-changefeed/12.0.0-beta8_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-file-datalake/12.5.1_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-azure-storage-blob/3.14.2</bundle>
+  </feature>
+  <feature name='camel-azure-storage-queue' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle dependency='true'>mvn:io.projectreactor/reactor-core/3.4.5</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-core/1.16.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-common/12.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-storage-queue/12.10.0_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-azure-storage-queue/3.14.2</bundle>
+  </feature>
+  <feature name='camel-azure-eventhubs' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle dependency='true'>mvn:io.projectreactor/reactor-core/3.4.5</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.qpid/qpid-jms-client/0.59.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.qpid/proton-j/0.33.8</bundle>
+    <feature version='3.14.2'>camel-azure-storage-blob</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-core/1.16.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-core-amqp/2.0.3_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-messaging-eventhubs/5.8.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.azure-messaging-eventhubs-checkpointstore-blob/1.8.0_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-azure-eventhubs/3.14.2</bundle>
+  </feature>
+  <feature name='camel-base64' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle>mvn:org.apache.camel/camel-base64/3.14.2</bundle>
+  </feature>
+  <feature name='camel-bean-validator' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>hibernate-validator</feature>
+    <bundle>mvn:org.apache.camel.karaf/camel-bean-validator-osgi/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-bean-validator/3.14.2</bundle>
+  </feature>
+  <feature name='camel-beanio' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.beanio/beanio/2.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-beanio/3.14.2</bundle>
+  </feature>
+  <feature name='camel-beanstalk' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.surftools/BeanstalkClient/1.4.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-beanstalk/3.14.2</bundle>
+  </feature>
+  <feature name='camel-barcode' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.zxing/3.4.0_1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.beust/jcommander/1.72</bundle>
+    <bundle>mvn:org.apache.camel/camel-barcode/3.14.2</bundle>
+  </feature>
+  <feature name='camel-bindy' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:com.ibm.icu/icu4j/70.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-bindy/3.14.2</bundle>
+  </feature>
+  <feature name='camel-box' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>pax-http-whiteboard</feature>
+    <bundle dependency='true'>mvn:org.eclipse.jetty.websocket/websocket-api/9.4.32.v20200930</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.jetty.websocket/websocket-common/9.4.32.v20200930</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.jetty.websocket/websocket-client/9.4.32.v20200930</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.httpcomponents/httpmime/4.5.13$Export-Package=org.apache.http.*;version=4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.htmlunit/2.24_1</bundle>
+    <bundle dependency='true'>wrap:mvn:org.w3c.css/sac/1.3</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.bcel/5.2_4</bundle>
+    <bundle dependency='true'>mvn:commons-collections/commons-collections/3.2.2</bundle>
+    <bundle dependency='true'>mvn:org.jsoup/jsoup/1.14.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xalan/2.7.2_3</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xerces/2.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:com.eclipsesource.minimal-json/minimal-json/0.9.5</bundle>
+    <bundle dependency='true'>mvn:org.bitbucket.b_c/jose4j/0.6.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.box/box-java-sdk/2.58.0</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.camel/camel-box-api/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-box/3.14.2</bundle>
+  </feature>
+  <feature name='camel-braintree' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jr/jackson-jr-objects/2.12.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.3</bundle>
+    <bundle dependency='true'>mvn:com.braintreepayments.gateway/braintree-java/3.13.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-csv/1.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-braintree/3.14.2</bundle>
+  </feature>
+  <feature name='camel-caffeine' version='3.14.2' start-level='50'>
+    <feature version="3.14.2">camel-core</feature>
+    <bundle dependency="true">mvn:com.github.ben-manes.caffeine/caffeine/2.9.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-caffeine/3.14.2</bundle>
+  </feature>
+  <feature name='camel-caffeine-lrucache' version='3.14.2' start-level='50'>
+    <feature version="3.14.2">camel-core</feature>
+    <bundle dependency="true">mvn:com.github.ben-manes.caffeine/caffeine/2.9.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-caffeine-lrucache/3.14.2</bundle>
+  </feature>
+  <feature name='camel-cbor' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-cbor/3.14.2</bundle>
+  </feature>
+  <feature name='camel-chatscript' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-chatscript/3.14.2</bundle>
+  </feature>
+  <feature name='camel-cm-sms' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[3.4,3.4]'>cxf-specs</feature>
+    <feature>hibernate-validator</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.libphonenumber/8.12.38_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-cm-sms/3.14.2</bundle>
+  </feature>
+  <feature name='camel-cmis' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[3.4,3.4]'>cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.apache.chemistry.opencmis/chemistry-opencmis-osgi-client/1.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-cmis/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-cmis-osgi/3.14.2</bundle>
+  </feature>
+  <feature name='camel-coap' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle>wrap:mvn:org.eclipse.californium/californium-core/2.6.5</bundle>
+    <bundle>wrap:mvn:org.eclipse.californium/element-connector/2.6.5</bundle>
+    <bundle>wrap:mvn:org.eclipse.californium/element-connector-tcp-netty/2.6.5</bundle>
+    <bundle>wrap:mvn:org.eclipse.californium/scandium/2.6.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-coap/3.14.2</bundle>
+  </feature>
+  <feature name='camel-cometd' version='3.14.2' start-level='50'>
+    <details>camel-cometd currently requires jetty 9</details>
+    <feature version="[9,10)">jetty</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:org.cometd.java/cometd-java-server/4.0.4</bundle>
+    <bundle dependency='true'>mvn:org.cometd.java/bayeux-api/4.0.4</bundle>
+    <bundle dependency='true'>mvn:org.cometd.java/cometd-java-common/4.0.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-cometd/3.14.2</bundle>
+  </feature>
+  <feature name='camel-consul' version='3.14.2' start-level='50'>
+    <feature prerequisite='true'>wrap</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/27.1-jre</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.fasterxml.jackson.datatype/jackson-datatype-guava/2.12.4$overwrite=merge&amp;Import-Package=com.google.*;version="[27.1,28.0)",*</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/3.14.1_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/1.15.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.retrofit/2.5.0_2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.orbitz-consul-client/1.3.3_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-consul/3.14.2</bundle>
+  </feature>
+  <feature name='camel-corda' version='3.14.2' start-level='50'>
+    <feature prerequisite='true'>wrap</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.reactivex/rxjava/1.3.8</bundle>
+    <bundle dependency='true'>wrap:mvn:net.corda/corda-core/4.8</bundle>
+    <bundle dependency='true'>wrap:mvn:net.corda/corda-node-api/4.8</bundle>
+    <bundle dependency='true'>wrap:mvn:net.corda/corda-rpc/4.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-corda/3.14.2</bundle>
+  </feature>
+  <feature name='camel-couchdb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lightcouch/0.2.0_1</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-couchdb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-cron' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-cron/3.14.2</bundle>
+  </feature>
+  <feature name='camel-crypto' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpg-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle>mvn:org.apache.camel/camel-crypto/3.14.2</bundle>
+  </feature>
+  <feature name='camel-csv' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-csv/1.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-csv/3.14.2</bundle>
+  </feature>
+  <feature name='camel-cxf' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-blueprint</feature>
+    <feature version='3.14.2'>camel-spring</feature>
+    <feature version='[3.4,3.4]'>cxf-core</feature>
+    <feature version='[3.4,3.4]'>cxf-jaxrs</feature>
+    <feature version='[3.4,3.4]'>cxf-jaxws</feature>
+    <feature version='[3.4,3.4]'>cxf-http-provider</feature>
+    <feature version='[3.4,3.4]'>cxf-databinding-jaxb</feature>
+    <feature version='[3.4,3.4]'>cxf-bindings-soap</feature>
+    <feature version='[3.4,3.4]'>cxf-features-logging</feature>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-cxf/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-cxf-transport/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-cxf-blueprint/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-cxf-transport-blueprint/3.14.2</bundle>
+  </feature>
+  <feature name='camel-digitalocean' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.digitalocean-api-client/2.17_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-digitalocean/3.14.2</bundle>
+  </feature>
+  <feature name='camel-disruptor' version='3.14.2' start-level='50'>
+    <details>The camel-disruptor feature can only run on a SUN JVM. You need to add the package sun.misc to the java platform packages in the etc/jre.properties file.</details>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.lmax/disruptor/3.4.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-disruptor/3.14.2</bundle>
+  </feature>
+  <feature name='camel-djl' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:ai.djl/api/0.11.0</bundle>
+    <bundle dependency='true'>wrap:mvn:ai.djl/model-zoo/0.11.0</bundle>
+    <bundle dependency='true'>wrap:mvn:ai.djl.mxnet/mxnet-model-zoo/0.11.0</bundle>
+    <bundle dependency='true'>wrap:mvn:ai.djl.mxnet/mxnet-engine/0.11.0</bundle>
+    <bundle dependency='true'>wrap:mvn:ai.djl.mxnet/mxnet-native-auto/1.8.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-djl/3.14.2</bundle>
+  </feature>
+  <feature name='camel-dns' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.dnsjava/3.4.2_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-dns/3.14.2</bundle>
+  </feature>
+  <feature name='camel-docker' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.docker-java/3.2.12_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-annotation_1.2_spec/1.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/19.0</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-classes-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-kqueue/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-classes-kqueue/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxrs-api-2.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-compress/1.21</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcmail-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcutil-jdk15on/1.70</bundle>
+    <bundle dependency='true'>wrap:mvn:com.github.luben/zstd-jni/1.3.3-3</bundle>
+    <bundle dependency='true'>wrap:mvn:net.java.dev.jna/jna/5.8.0</bundle>
+    <bundle dependency='true'>wrap:mvn:de.gesellix/unix-socket-factory/2015-01-27T15-02-14$Bundle-SymbolicName=de.gesellix.unix-socket-factory&amp;Bundle-Version=1.0.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-docker/3.14.2</bundle>
+  </feature>
+  <feature name='camel-drill' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[5,6)'>spring-jdbc</feature>
+	<bundle dependency='true'>wrap:mvn:org.apache.drill.exec/drill-jdbc-all/1.19.0$Export-Package=org.apache.drill.*&amp;Import-Package=!org.apache.drill.*,!oadd.*&amp;Private-Package=oadd.*</bundle>
+    <bundle>mvn:org.apache.camel/camel-drill/3.14.2</bundle>
+  </feature>
+  <feature name='camel-dozer' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>war</feature>
+    <bundle dependency='true'>mvn:com.github.dozermapper/dozer-core/6.5.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:commons-collections/commons-collections/3.2.2</bundle>
+    <bundle dependency='true'>mvn:commons-beanutils/commons-beanutils/1.9.4</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:javax.el/javax.el-api/3.0.0</bundle>
+    <!-- do not export javax.el from glassfish -->
+    <bundle dependency='true'>wrap:mvn:org.glassfish/javax.el/3.0.0$overwrite=merge&amp;Export-Package=!javax.el,!javax.el.*,*</bundle>
+    <bundle dependency='true'>mvn:org.objenesis/objenesis/2.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-dozer/3.14.2</bundle>
+  </feature>
+  <feature name='camel-dropbox' version='3.14.2' start-level='50'>
+    <feature version="3.14.2">camel-core</feature>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:com.dropbox.core/dropbox-core-sdk/3.2.0</bundle>
+    <!-- sadly dropbox-core-sdk include test scoped dependencies in its MANIFEST.MF OSGi import
+         so we need a bunch of other bundles here -->
+    <bundle dependency='true'>wrap:mvn:com.google.android/android/4.1.1.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.appengine/appengine-api-1.0-sdk/1.9.38</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/2.7.5_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/1.15.0_1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.squareup.okhttp3/okhttp/3.5.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-dropbox/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ehcache' version='3.14.2' start-level='50'>
+    <feature>scr</feature>
+    <feature version="3.14.2">camel-core</feature>
+    <bundle dependency="true">mvn:org.ehcache/ehcache/3.9.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-ehcache/3.14.2</bundle>
+  </feature>
+  <feature name='camel-elsql' version='3.14.2' start-level='50'>
+    <feature version="3.14.2">camel-sql</feature>
+    <bundle dependency="true">mvn:com.opengamma/elsql/1.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-elsql/3.14.2</bundle>
+  </feature>
+  <feature name='camel-elasticsearch-rest' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>http</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-smile/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/19.0</bundle>
+    <bundle dependency='true'>mvn:com.ning/compress-lzf/1.0.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpasyncclient-osgi/4.1.4</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.elasticsearch/7.9.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.logging.log4j/log4j-core/2.13.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.logging.log4j/log4j-api/2.13.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.mustache-compiler/0.9.10_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-elasticsearch-rest/3.14.2</bundle>
+  </feature>
+  <feature name='camel-etcd' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jzlib/1.1.3_2</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-afterburner/2.12.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.github.wnameless.json/json-flattener/0.9.0</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:org.mousio/etcd4j/2.18.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-etcd/3.14.2</bundle>
+  </feature>
+  <feature name='camel-eventadmin' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>eventadmin</feature>
+    <bundle>mvn:org.apache.camel.karaf/camel-eventadmin/3.14.2</bundle>
+  </feature>
+  <feature name='camel-exec' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-exec/1.3</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-exec/3.14.2</bundle>
+  </feature>
+  <feature name='camel-facebook' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.facebook4j/2.4.13_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-facebook/3.14.2</bundle>
+  </feature>
+  <feature name='camel-fastjson' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.fastjson/1.2.78_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-fastjson/3.14.2</bundle>
+  </feature>
+  <feature name='camel-file-watch' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:io.methvin/directory-watcher/0.15.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-file-watch/3.14.2</bundle>
+  </feature>
+  <feature name='camel-flatpack' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:net.sf.flatpack/flatpack/4.0.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-flatpack/3.14.2</bundle>
+  </feature>
+  <feature name='camel-fop' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xerces/2.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xalan/2.7.2_3</bundle>
+    <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlgraphics-commons/2.3_1</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-svg-dom/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-svg-dom&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-anim/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-anim&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-css/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-css&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-dom/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-dom&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-parser/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-parser&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-util/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-util&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-bridge/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-bridge&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-script/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-script&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-xml/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-xml&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-awt-util/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-awt-util&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-gvt/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-gvt&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-transcoder/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-transcoder&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-svggen/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-svggen&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-extension/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-extension&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:org.apache.xmlgraphics/batik-ext/1.14$Bundle-SymbolicName=org.apache.xmlgraphics.batik-ext&amp;Bundle-Version=1.14</bundle>
+    <bundle dependency="true">wrap:mvn:xml-apis/xml-apis-ext/1.3.04$Bundle-SymbolicName=xml-apis-ext&amp;Bundle-Version=1.3.04</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.bcel/5.2_4</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.fop/2.6_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-fop/3.14.2</bundle>
+  </feature>
+  <feature name='camel-freemarker' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.freemarker/freemarker/2.3.31</bundle>
+    <bundle>mvn:org.apache.camel/camel-freemarker/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ftp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-net/commons-net/3.8.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch/0.1.55_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-ftp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ganglia' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.acplt.remotetea/remotetea-oncrpc/1.1.3</bundle>
+    <bundle dependency='true'>mvn:info.ganglia.gmetric4j/gmetric4j/1.0.10</bundle>
+    <bundle>mvn:org.apache.camel/camel-ganglia/3.14.2</bundle>
+  </feature>
+  <feature name='camel-git' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.eclipse.jgit/org.eclipse.jgit/5.13.0.202109080827-r</bundle>
+    <bundle dependency='true'>mvn:com.googlecode.javaewah/JavaEWAH/1.1.6</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch/0.1.55_1</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpg-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle>mvn:org.apache.camel/camel-git/3.14.2</bundle>
+  </feature>
+  <feature name='camel-github' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <!--the latest gson version of github core supports is 2.2.2 -->
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.2.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.egit.github.core/2.1.5_1</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle>mvn:org.apache.camel/camel-github/3.14.2</bundle>
+   </feature>
+  <feature name='camel-google-bigquery' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api/api-common/1.10.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api-client/google-api-client/1.30.11</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api/gax/1.60.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api/gax-httpjson/0.77.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api.grpc/proto-google-common-protos/2.0.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api.grpc/proto-google-iam-v1/1.0.3</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.apis/google-api-services-bigquery/v2-rev20201030-1.30.10</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.auth/google-auth-library-credentials/0.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.auth/google-auth-library-oauth2-http/0.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.cloud/google-cloud-bigquery/1.124.7</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.cloud/google-cloud-core/1.93.10</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.cloud/google-cloud-core-http/1.93.10</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client/1.38.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-appengine/1.38.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-jackson2/1.38.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client/1.31.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.protobuf/protobuf-java-util/3.17.3</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/30.0-jre</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.protobuf/protobuf-java/3.17.3</bundle>
+    <bundle dependency='true'>mvn:commons-logging/commons-logging/1.2</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opencensus/opencensus-api/0.24.0</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opencensus/opencensus-contrib-http-util/0.24.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.activation-api-1.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.grpc/1.38.0_1</bundle>
+    <bundle dependency='true'>wrap:mvn:org.threeten/threetenbp/1.5.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-google-bigquery/3.14.2</bundle>
+  </feature>
+   <feature name='camel-google-calendar' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api-client/google-api-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.apis/google-api-services-calendar/v3-rev291-1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-jackson2/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-java6/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-jetty/1.22.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-google-calendar/3.14.2</bundle>
+  </feature>
+  <feature name='camel-google-sheets' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api-client/google-api-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.apis/google-api-services-sheets/v4-rev551-1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-jackson2/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-java6/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-jetty/1.22.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-google-sheets/3.14.2</bundle>
+  </feature>
+  <feature name='camel-google-drive' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api-client/google-api-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.apis/google-api-services-drive/v2-rev297-1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-jackson2/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-java6/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-jetty/1.22.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-google-drive/3.14.2</bundle>
+  </feature>
+  <feature name='camel-google-mail' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.api-client/google-api-client/1.22.0</bundle>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/1.6.6</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.apis/google-api-services-gmail/v1-rev81-1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.http-client/google-http-client-jackson2/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-java6/1.22.0</bundle>
+    <bundle dependency='true'>wrap:mvn:com.google.oauth-client/google-oauth-client-jetty/1.22.0</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/17.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-google-mail/3.14.2</bundle>
+  </feature>
+  <feature name='camel-grape' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.codehaus.groovy/groovy/3.0.8</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-grape/3.14.2</bundle>
+  </feature>
+  <feature name='camel-graphql' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle>mvn:org.apache.camel/camel-graphql/3.14.2</bundle>
+  </feature>
+  <feature name='camel-groovy' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.7.0_6</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.groovy/groovy/3.0.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-groovy/3.14.2</bundle>
+  </feature>
+  <feature name='camel-grok' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:io.krakens/java-grok/0.1.9</bundle>
+    <bundle>mvn:org.apache.camel/camel-grok/3.14.2</bundle>
+  </feature>
+
+
+  <feature name='camel-gson' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle>mvn:org.apache.camel/camel-gson/3.14.2</bundle>
+  </feature>
+  <feature name='camel-guava-eventbus' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.guava/guava/28.2-jre</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-guava-eventbus/3.14.2</bundle>
+  </feature>
+  <feature name='camel-hazelcast' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>transaction</feature>
+    <bundle dependency='true'>mvn:com.eclipsesource.minimal-json/minimal-json/0.9.5</bundle>
+    <bundle dependency='true'>mvn:com.hazelcast/hazelcast/4.2.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-hazelcast/3.14.2</bundle>
+  </feature>
+  <feature name='camel-headersmap' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-util/1.65.0_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-headersmap/3.14.2</bundle>
+  </feature>
+  <feature name='camel-hl7' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-netty</feature>
+    <bundle dependency='true'>mvn:org.apache.mina/mina-core/2.1.5</bundle>
+    <bundle dependency='true'>mvn:ca.uhn.hapi/hapi-osgi-base/2.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-hl7/3.14.2</bundle>
+  </feature>
+  <feature name='camel-http' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-common/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http/3.14.2</bundle>
+  </feature>
+  <feature name='camel-hystrix' version='3.14.2' start-level='50'>
+    <feature prerequisite='true'>wrap</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.hystrix/1.5.18_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.hystrix-event-stream/1.5.18_1</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:commons-configuration/commons-configuration/1.9</bundle>
+    <bundle dependency='true'>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle dependency='true'>mvn:io.reactivex/rxjava/1.3.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-hystrix/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ical' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>wrap:mvn:backport-util-concurrent/backport-util-concurrent/3.1$Bundle-SymbolicName=backport-util-concurrent.backport-util-concurrent&amp;Bundle-Version=3.1</bundle>
+    <bundle dependency='true'>mvn:org.mnode.ical4j/ical4j/1.0.7</bundle>
+    <bundle>mvn:org.apache.camel/camel-ical/3.14.2</bundle>
+  </feature>
+  <feature name='camel-iec60870' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.guava/guava/19.0</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.neoscada.protocols/org.eclipse.neoscada.protocol.iec60870/0.4.0</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.neoscada.protocols/org.eclipse.neoscada.protocol.iec60870.client/0.4.0</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.neoscada.protocols/org.eclipse.neoscada.protocol.iec60870.client.data/0.4.0</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.neoscada.protocols/org.eclipse.neoscada.protocol.iec60870.server/0.4.0</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.neoscada.protocols/org.eclipse.neoscada.protocol.iec60870.server.data/0.4.0</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.neoscada.utils/org.eclipse.scada.utils/0.4.0</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle>mvn:org.apache.camel/camel-iec60870/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ignite' version='3.14.2' start-level='50'>
+    <details>
+        <![CDATA[For performance reasons, Apache Ignite requires a JRE with the sun.nio.ch and com.sun.management low-level package.
+
+        You need to add this package to the list of packages exported by the system bundle in the etc/jre.properties file.
+
+        Additionally, you must provision the Ignite Karaf features repository in your container: mvn:org.apache.ignite/ignite-osgi-karaf/2.10.0.
+
+        Please refer to the component page (https://camel.apache.org/ignite.html) and to the Ignite docs (https://apacheignite.readme.io/docs/osgi-installation-in-karaf#preparatory-steps) for more information.]]>
+    </details>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='2.10.0'>ignite-core</feature>
+    <bundle>mvn:org.apache.camel/camel-ignite/3.14.2</bundle>
+  </feature>
+  <feature name='camel-influxdb' version='3.14.2' start-level='50'>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.influxdb-java/2.22_1</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/20.0</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/3.14.1_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.retrofit/2.5.0_2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/1.15.0_1</bundle>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-influxdb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-iota' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.iota/jota/1.0.0-beta9</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-iota/3.14.2</bundle>
+  </feature>
+  <feature name='camel-irc' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.irclib/1.10_5</bundle>
+    <bundle>mvn:org.apache.camel/camel-irc/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ironmq' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ironmq/3.0.5_1</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-ironmq/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jackson' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-jackson/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jackson-avro' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-jackson</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-avro/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.avro/avro/1.10.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-compress/1.20</bundle>
+    <bundle>mvn:org.apache.camel/camel-jackson-avro/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jackson-protobuf' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-jackson</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-protobuf/2.12.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.squareup/protoparser/4.0.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-jackson-protobuf/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jacksonxml' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-jackson</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-jacksonxml/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jasypt' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-jasypt/3.14.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt/1.9.3_1</bundle>
+  </feature>
+  <feature name='camel-jaxb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-jaxb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jcache' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-cache-api/1.1.1_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-jcache/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-jcache-osgi/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jcr' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:javax.jcr/jcr/2.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.jackrabbit/jackrabbit-jcr-commons/2.21.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-jcr/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jdbc' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-jdbc/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jetty' version='3.14.2' start-level='50'>
+    <feature>jetty</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-common/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-jetty-common/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-jetty/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jing' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.7.0_6</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.isorelax/20050913_4</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jing/20030619_5</bundle>
+    <bundle>mvn:org.apache.camel/camel-jing/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jms' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[5,6)'>spring</feature>
+    <feature version='[5,6)'>spring-jms</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/2.11.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_2.0_spec/1.0-alpha-2</bundle>
+    <bundle>mvn:org.apache.camel/camel-jms/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jmx' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-jmx/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jolt' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.bazaarvoice-jolt/0.1.5_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-jolt/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jooq' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.jooq/jooq/3.14.15</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-jooq/3.14.2</bundle>
+  </feature>
+  <feature name='camel-johnzon' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-commons/5.0.4</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-tree/5.0.4</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm/5.0.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.aries/org.apache.aries.util/1.1.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.2.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.johnzon/johnzon-core/1.2.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.johnzon/johnzon-mapper/1.2.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-json_1.1_spec/1.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-johnzon/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jpa' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[5,6)'>spring-jdbc</feature>
+    <feature version='[5,6)'>spring-orm</feature>
+    <feature version='[5,6)'>spring-tx</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jpa_2.1_spec/1.0-alpha-1</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-el_1.0_spec/1.0.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle dependency='true'>mvn:commons-collections/commons-collections/3.2.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.7.0_6</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.serp/1.14.1_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.xbean/xbean-asm5-shaded/4.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-jpa/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jsch' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-ftp</feature>
+    <bundle>mvn:org.apache.camel/camel-jsch/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jslt' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>wrap:mvn:com.schibsted.spt.data/jslt/0.1.11</bundle>
+    <bundle>mvn:org.apache.camel/camel-jslt/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jsonata' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.ibm.jsonata4java/JSONata4Java/1.5.8</bundle>
+    <bundle dependency='true'>wrap:mvn:org.antlr/antlr4-runtime/4.9</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-text/1.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-jsonata/3.14.2</bundle>
+  </feature>
+  <feature name='camel-json-validator' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.networknt/json-schema-validator/1.0.64</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.jruby.joni/joni/2.1.31</bundle>
+    <bundle dependency='true'>wrap:mvn:org.jruby.jcodings/jcodings/1.0.46</bundle>
+    <bundle>mvn:org.apache.camel/camel-json-validator/3.14.2</bundle>
+  </feature>
+  <feature name='camel-json-api' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.github.jasminb/jsonapi-converter/0.11</bundle>
+    <bundle>mvn:org.apache.camel/camel-jsonapi/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jsonb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-commons/5.0.4</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-tree/5.0.4</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm/5.0.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.aries/org.apache.aries.util/1.1.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.2.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.johnzon/johnzon-core/1.2.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.johnzon/johnzon-mapper/1.2.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.johnzon/johnzon-jsonb/1.2.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-json_1.1_spec/1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jsonb_1.0_spec/1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-jsonb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jsonpath' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <!-- json-path 2.5 and 2.6 does not work with OSGi -->
+    <bundle>mvn:com.jayway.jsonpath/json-path/2.4.0</bundle>
+    <bundle dependency='true'>mvn:net.minidev/json-smart/2.4.7</bundle>
+    <bundle dependency='true'>mvn:net.minidev/accessors-smart/2.4.7</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-analysis/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-commons/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-tree/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-util/8.0.1</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-jsonpath/3.14.2</bundle>
+  </feature>
+  <feature name='camel-jt400' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>transaction</feature>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jt400/10.7_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-jt400/3.14.2</bundle>
+  </feature>
+  <feature name='camel-kafka' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kafka-clients/2.8.1_1</bundle>
+    <bundle dependency='true'>mvn:org.xerial.snappy/snappy-java/1.1.7.3</bundle>
+    <bundle dependency='true'>wrap:mvn:org.lz4/lz4-java/1.8.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-kafka/3.14.2</bundle>
+  </feature>
+  <feature name='camel-kamelet' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-yaml-dsl</feature>
+    <feature version='3.14.2'>camel-jackson</feature>
+    <feature version='3.14.2'>camel-http</feature>
+    <bundle>mvn:org.apache.camel/camel-kamelet/3.14.2</bundle>
+  </feature>
+  <feature name='camel-kamelet-reify' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-kamelet</feature>
+    <bundle>mvn:org.apache.camel/camel-kamelet-reify/3.14.2</bundle>
+  </feature>
+  <feature name='camel-kubernetes' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jsr311-api-1.1.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.13.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.13.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.13.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.13.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.13.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.generex/1.0.2_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.automaton/1.11-8_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/1.15.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/3.14.1_1</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle dependency='true'>mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.3.0</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-analysis/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-commons/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-tree/8.0.1</bundle>
+    <bundle dependency='true'>mvn:org.ow2.asm/asm-util/8.0.1</bundle>
+    <bundle dependency='true'>mvn:io.fabric8/zjsonpatch/0.3.0</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-core/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-rbac/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-admissionregistration/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-apiextensions/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-apps/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-autoscaling/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-batch/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-certificates/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-coordination/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-discovery/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-events/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-extensions/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-networking/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-metrics/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-node/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-policy/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-scheduling/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-storageclass/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-common/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/kubernetes-model-flowcontrol/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-client/5.10.1/jar/bundle</bundle>
+    <bundle>mvn:io.fabric8/openshift-model/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-console/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-clusterautoscaling/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-machine/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-machineconfig/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-monitoring/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-miscellaneous/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-operator/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-operatorhub/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-storageversionmigrator/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-tuned/5.10.1</bundle>
+    <bundle>mvn:io.fabric8/openshift-model-whereabouts/5.10.1</bundle>
+    <bundle dependency='true'>mvn:io.fabric8/kubernetes-client/5.10.1/jar/bundle</bundle>
+    <bundle dependency='true'>mvn:io.fabric8/openshift-client/5.10.1/jar/bundle</bundle>
+    <bundle>mvn:org.apache.camel/camel-kubernetes/3.14.2</bundle>
+  </feature>
+  <feature name='camel-kudu' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.apache.kudu/kudu-client/1.14.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.yetus/audience-annotations/0.13.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-kudu/3.14.2</bundle>
+  </feature>
+  <feature name='camel-kura' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>scr</feature>
+    <bundle>mvn:org.apache.camel.karaf/camel-kura/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ldap' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-ldap/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ldif' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-i18n/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-asn1-api/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-asn1-ber/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-client-api/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-codec-core/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-extras-aci/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-extras-codec/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-extras-codec-api/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-extras-util/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-model/2.0.0</bundle>
+    <bundle>mvn:org.apache.directory.api/api-ldap-net-mina/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-ldap-schema-data/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.api/api-util/2.0.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.directory.server/apacheds-core-api/2.0.0.AM26</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.antlr/2.7.7_5</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-collections4/4.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/2.11.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.mina/mina-core/2.1.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-ldif/3.14.2</bundle>
+  </feature>
+  <feature name='camel-leveldb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.fusesource.leveldbjni/leveldbjni-all/1.8$Bundle-Version=1.8&amp;Export-Package=*;-noimport:=true;version="1.8"</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-leveldb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-leveldb-java' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.guava/guava/21.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.iq80.leveldb/leveldb-api/0.12$Bundle-Version=0.12&amp;Export-Package=*;-noimport:=true;version="0.12"</bundle>
+    <bundle dependency='true'>wrap:mvn:org.iq80.leveldb/leveldb/0.12$Bundle-Version=0.12&amp;Export-Package=*;-noimport:=true;version="0.12"</bundle>    
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-leveldb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-leveldb-legacy' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.fusesource.leveldbjni/leveldbjni-all/1.8$Bundle-Version=1.8&amp;Export-Package=*;-noimport:=true;version="1.8"</bundle>
+    <bundle dependency='true'>mvn:org.fusesource.hawtbuf/hawtbuf/1.11</bundle>
+    <bundle>mvn:org.apache.camel/camel-leveldb-legacy/3.14.2</bundle>
+  </feature>
+  <feature name='camel-leveldb-legacy-java' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.guava/guava/21.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.iq80.leveldb/leveldb-api/0.12$Bundle-Version=0.12&amp;Export-Package=*;-noimport:=true;version="0.12"</bundle>
+    <bundle dependency='true'>wrap:mvn:org.iq80.leveldb/leveldb/0.12$Bundle-Version=0.12&amp;Export-Package=*;-noimport:=true;version="0.12"</bundle>
+    <bundle dependency='true'>mvn:org.fusesource.hawtbuf/hawtbuf/1.11</bundle>
+    <bundle>mvn:org.apache.camel/camel-leveldb-legacy/3.14.2</bundle>
+  </feature>
+  <feature name='camel-lra' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[3.4,3.4]'>cxf-core</feature>
+    <feature version='[3.4,3.4]'>cxf-jaxrs</feature>
+    <bundle>mvn:org.apache.camel/camel-lra/3.14.2</bundle>
+  </feature>
+  <feature name='camel-lucene' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene/8.11.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-analyzers-common/8.11.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-queryparser/8.11.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-queries/8.11.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.lucene-sandbox/8.11.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jakarta-regexp/1.4_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-lucene/3.14.2</bundle>
+  </feature>
+  <feature name='camel-lumberjack' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-lumberjack/3.14.2</bundle>
+  </feature>
+  <feature name='camel-lzf' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.ning/compress-lzf/1.0.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-lzf/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mail' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.sun.mail/jakarta.mail/1.6.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-mail/3.14.2</bundle>
+  </feature>
+  <feature name='camel-master' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-master/3.14.2</bundle>
+  </feature>
+  <feature name='camel-metrics' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.dropwizard.metrics/metrics-core/4.2.3</bundle>
+    <bundle dependency='true'>mvn:io.dropwizard.metrics/metrics-jmx/4.2.3</bundle>
+    <bundle dependency='true'>mvn:io.dropwizard.metrics/metrics-json/4.2.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-metrics/3.14.2</bundle>
+  </feature>
+  <feature name='camel-micrometer' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:io.micrometer/micrometer-core/1.7.6</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-micrometer/3.14.2</bundle>
+  </feature>
+  <feature name='camel-milo' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.javassist/javassist/3.27.0-GA</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.12_1</bundle>
+    <bundle dependency='true'>mvn:com.codepoetics/protonpack/1.8</bundle>
+    <bundle dependency='true'>mvn:io.dropwizard.metrics/metrics-core/4.2.3</bundle>
+    <bundle dependency='true'>mvn:org.jooq/jool/0.9.12</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/annotations/2.0.3</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.61</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/1.61</bundle>     
+    <bundle dependency='true'>mvn:org.bouncycastle/bcmail-jdk15on/1.61</bundle>    
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>    
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>    
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>wrap:mvn:com.digitalpetri.fsm/strict-machine/0.2</bundle>
+    <bundle dependency='true'>wrap:mvn:com.digitalpetri.netty/netty-channel-fsm/0.3</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/26.0-jre</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/stack-core/0.3.7</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/stack-server/0.3.7</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/stack-client/0.3.7</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/sdk-core/0.3.7</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/sdk-server/0.3.7</bundle>    
+    <bundle dependency='true'>mvn:org.eclipse.milo/bsd-parser-core/0.3.7</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/sdk-client/0.3.7</bundle>
+    <bundle dependency='true'>mvn:org.eclipse.milo/bsd-parser-gson/0.3.7</bundle>
+    <bundle>mvn:org.apache.camel/camel-milo/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mina' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.mina/mina-core/2.1.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-mina/3.14.2</bundle>
+  </feature>
+  <feature name='camel-minio' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:io.minio/minio/8.3.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-compress/1.21</bundle>
+    <bundle dependency='true'>wrap:mvn:com.squareup.okhttp3/okhttp/3.14.9</bundle>
+    <bundle>mvn:org.apache.camel/camel-minio/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mllp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-mllp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mongodb' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-jackson</feature>
+    <bundle dependency='true'>mvn:org.mongodb/bson/4.1.0</bundle>
+    <bundle dependency='true'>mvn:org.mongodb/mongodb-driver-core/4.1.0</bundle>
+    <bundle dependency='true'>mvn:org.mongodb/mongodb-driver-sync/4.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-mongodb/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mongodb-gridfs' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-jackson</feature>
+    <bundle dependency='true'>mvn:org.mongodb/bson/4.1.0</bundle>
+    <bundle dependency='true'>mvn:org.mongodb/mongodb-driver-core/4.1.0</bundle>
+    <bundle dependency='true'>mvn:org.mongodb/mongodb-driver-sync/4.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-mongodb-gridfs/3.14.2</bundle>
+  </feature>
+  <feature name='camel-msv' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <!-- xerces is an optional dependency from isorelax -->
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xerces/2.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ant/1.7.0_6</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.isorelax/20050913_4</bundle>
+    <bundle>mvn:org.apache.camel/camel-msv/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mustache' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.mustache-compiler/0.9.10_1</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/20.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-mustache/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mvel' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.mvel/mvel2/2.4.13.Final</bundle>
+    <bundle>mvn:org.apache.camel/camel-mvel/3.14.2</bundle>
+  </feature>
+  <feature name='camel-mybatis' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.mybatis/mybatis/3.5.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-mybatis/3.14.2</bundle>
+  </feature>
+  <feature name='camel-nagios' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.github.jsendnsca/jsendnsca/2.1.1</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-nagios/3.14.2</bundle>
+  </feature>
+  <feature name='camel-netty' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-classes-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/2.11.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-netty/3.14.2</bundle>
+  </feature>
+  <feature name='camel-netty-http' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-netty</feature>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-netty-http/3.14.2</bundle>
+  </feature>
+  <feature name='camel-nitrite' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.dizitart/nitrite/3.4.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-nitrite/3.14.2</bundle>
+  </feature>
+  <feature name='camel-nsq' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.github.brainlag/nsq-client/1.0.0.RC4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/19.0</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle>mvn:org.apache.camel/camel-nsq/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ognl' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.ognl/3.1.12_1</bundle>
+    <bundle dependency='true'>mvn:org.javassist/javassist/3.27.0-GA</bundle>
+    <bundle>mvn:org.apache.camel/camel-ognl/3.14.2</bundle>
+  </feature>
+  <feature name='camel-olingo2' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>http</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpasyncclient-osgi/4.1.4</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.olingo/olingo-odata2-api/2.0.11</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.olingo-odata2-core/2.0.11_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jsr311-api-1.1.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.camel/camel-olingo2-api/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-olingo2/3.14.2</bundle>
+  </feature>
+  <feature name='camel-olingo4' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>http</feature>
+    <bundle dependency='true'>mvn:org.apache.olingo/odata-commons-api/4.8.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.olingo/odata-commons-core/4.8.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.olingo/odata-client-api/4.8.0</bundle>
+    <!--TODO remove wrap protocol when https://issues.apache.org/jira/browse/OLINGO-1206 is resolved-->
+    <bundle dependency='true'>wrap:mvn:org.apache.olingo/odata-server-api/4.8.0$overwrite=merge&amp;Export-Package=org.apache.olingo.server.api;version=4.8.0,org.apache.olingo.server.api.uri;version=4.8.0,org.apache.olingo.server.api.processor;version=4.8.0,org.apache.olingo.server.api.batch;version=4.8.0,org.apache.olingo.server.api.debug;version=4.8.0,org.apache.olingo.server.api.deserializer;version=4.8.0,org.apache.olingo.server.api.deserializer.batch;version=4.8.0,org.apache.olingo.server.api.etag;version=4.8.0,org.apache.olingo.server.api.prefer;version=4.8.0,org.apache.olingo.server.api.serializer;version=4.8.0,org.apache.olingo.server.api.uri.queryoption;version=4.8.0,org.apache.olingo.server.api.uri.queryoption.apply;version=4.8.0,org.apache.olingo.server.api.uri.queryoption.expression;version=4.8.0,org.apache.olingo.server.api.uri.queryoption.search;version=4.8.0,org.apache.olingo.netty.server.api;version=4.8.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.olingo/odata-server-core/4.8.0$overwrite=merge&amp;Export-Package=org.apache.olingo.server.core;version=4.8.0,org.apache.olingo.server.core.uri.parser;version=4.8.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.olingo/odata-client-core/4.8.0$overwrite=merge&amp;Export-Package=org.apache.olingo.client.core;version=4.8.0,org.apache.olingo.client.core.domain;version=4.8.0,org.apache.olingo.client.core.http;version=4.8.0,org.apache.olingo.client.core.communication.request.batch;version=4.8.0</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpasyncclient-osgi/4.1.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml/aalto-xml/0.9.10</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.camel/camel-olingo4-api/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-olingo4/3.14.2</bundle>
+  </feature>
+  <feature name='camel-opentracing' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-tracing</feature>
+    <bundle dependency='true'>wrap:mvn:io.opentracing/opentracing-api/0.33.0</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opentracing/opentracing-noop/0.33.0</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opentracing/opentracing-util/0.33.0</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opentracing.contrib/opentracing-tracerresolver/0.1.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-opentracing/3.14.2</bundle>
+  </feature>
+  <feature name='camel-opentelemetry' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-tracing</feature>
+    <bundle dependency='true'>wrap:mvn:io.opentelemetry/opentelemetry-api/1.9.1</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opentelemetry/opentelemetry-sdk/1.9.1</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opentelemetry/opentelemetry-context/1.9.1</bundle>
+    <bundle dependency='true'>wrap:mvn:io.opentelemetry/opentelemetry-semconv/1.9.1-alpha</bundle>
+    <bundle>mvn:org.apache.camel/camel-opentelemetry/3.14.2</bundle>
+  </feature>
+  <feature name='camel-paho' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.2.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-paho/3.14.2</bundle>
+  </feature>
+  <!-- paho v5 does not work in OSGi: https://github.com/eclipse/paho.mqtt.java/issues/857
+  <feature name='camel-paho-mqtt5' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.eclipse.paho/org.eclipse.paho.mqttv5.client/1.2.5</bundle>
+    <bundle>mvn:org.apache.camel/camel-paho-mqtt5/3.14.2</bundle>
+  </feature> -->
+  <feature name='camel-paxlogging' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel.karaf/camel-paxlogging/3.14.2</bundle>
+  </feature>
+  <feature name='camel-pdf' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcmail-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.apache.pdfbox/pdfbox/2.0.24</bundle>
+    <bundle dependency='true'>mvn:org.apache.pdfbox/fontbox/2.0.24</bundle>
+    <bundle>mvn:org.apache.camel/camel-pdf/3.14.2</bundle>
+  </feature>
+  <feature name='camel-pg-replication-slot' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>jdbc</feature>
+    <bundle dependency='true'>mvn:org.postgresql/postgresql/42.2.23</bundle>
+    <bundle>mvn:org.apache.camel/camel-pg-replication-slot/3.14.2</bundle>
+  </feature>
+  <feature name='camel-pgevent' version='3.14.2' start-level='50'>
+    <details>installing camel-pgevent may output an error in the log but it is installed correctly</details>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>transaction</feature>
+    <feature>jdbc</feature>
+    <bundle dependency='true'>wrap:mvn:com.impossibl.pgjdbc-ng/pgjdbc-ng/0.8.9</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle>mvn:org.apache.camel/camel-pgevent/3.14.2</bundle>
+  </feature>
+  <feature name='camel-printer' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-printer/3.14.2</bundle>
+  </feature>
+  <feature name='camel-protobuf' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.google.protobuf/protobuf-java/3.17.3</bundle>
+    <bundle dependency='true'>mvn:com.google.protobuf/protobuf-java-util/3.17.3</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/30.1.1-jre</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-protobuf/3.14.2</bundle>
+  </feature>
+  <feature name='camel-pubnub' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.pubnub/pubnub-gson/4.25.0</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/3.14.1_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/1.15.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.retrofit/2.5.0_2</bundle>
+    <bundle>mvn:org.apache.camel/camel-pubnub/3.14.2</bundle>
+  </feature>
+  <feature name='camel-quartz' version='3.14.2' start-level='50'>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.c3p0/0.9.5.5_1</bundle>
+    <bundle dependency='true'>mvn:com.zaxxer/HikariCP-java7/2.4.13</bundle>
+    <bundle dependency='true'>wrap:mvn:org.quartz-scheduler/quartz/2.3.2$overwrite=merge&amp;DynamicImport-Package=org.apache.camel.component.quartz</bundle>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-quartz/3.14.2</bundle>
+  </feature>
+  <feature name='camel-quickfix' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.mina/mina-core/2.1.5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.saxon/9.9.1-6_1</bundle>
+    <bundle>mvn:org.quickfixj/quickfixj-all/2.3.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-quickfix/3.14.2</bundle>
+  </feature>
+  <feature name='camel-rabbitmq' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.rabbitmq/amqp-client/5.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/2.11.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-rabbitmq/3.14.2</bundle>
+  </feature>
+  <feature name='camel-reactive-streams' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-reactive-streams/3.14.2</bundle>
+  </feature>
+  <feature name='camel-reactor' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-reactive-streams</feature>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle dependency='true'>mvn:io.projectreactor/reactor-core/3.4.5</bundle>
+    <bundle dependency='true'>wrap:mvn:io.micrometer/micrometer-core/1.7.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-reactor/3.14.2</bundle>
+  </feature>
+  <feature name='camel-rest-openapi' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-http</feature>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-csv/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-smile/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jsonSchema/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>wrap:mvn:io.apicurio/apicurio-data-models/1.1.16</bundle>
+    <bundle>mvn:org.apache.camel/camel-rest-openapi/3.14.2</bundle>
+  </feature>
+
+  <feature name='camel-rest-swagger' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-http</feature>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-csv/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-smile/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jsonSchema/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/27.1-jre</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-core/1.6.2</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-annotations/1.6.2</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-models/1.6.2</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-jaxrs/1.6.2</bundle>
+    <bundle dependency='true'>wrap:mvn:io.swagger/swagger-parser/1.0.51</bundle>
+    <bundle>mvn:org.apache.camel/camel-rest-swagger/3.14.2</bundle>
+  </feature>
+    <feature name='camel-robotframework' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.robotframework/robotframework/4.1</bundle>
+	<bundle dependency='true'>wrap:mvn:org.python/jython/2.5.3</bundle>
+	<bundle dependency='true'>wrap:mvn:org.python/jython-standalone/2.5.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-robotframework/3.14.2</bundle>
+  </feature>
+  <feature name='camel-rss' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-atom</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jdom/2.0.6_1</bundle>
+    <bundle dependency="true">mvn:com.rometools/rome/1.16.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-rss/3.14.2</bundle>
+  </feature>
+  <feature name='camel-sap-netweaver' version='3.14.2' start-level='50'>
+    <feature>http</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-sap-netweaver/3.14.2</bundle>
+  </feature>
+  <feature name='camel-salesforce' version='3.14.2' start-level='50'>
+    <feature>jetty</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jsonSchema/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/1.4.18_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_7</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:org.cometd.java/cometd-java-client/4.0.4</bundle>
+    <bundle dependency='true'>mvn:org.cometd.java/bayeux-api/4.0.4</bundle>
+    <bundle dependency='true'>mvn:org.cometd.java/cometd-java-common/4.0.4</bundle>
+    <bundle dependency='true'>mvn:joda-time/joda-time/2.10.11</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-salesforce/3.14.2</bundle>
+  </feature>
+  <feature name='camel-saxon' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.saxon/9.9.1-6_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-saxon/3.14.2</bundle>
+  </feature>
+  <feature name='camel-schematron' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.saxon/9.9.1-6_1</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-schematron/3.14.2</bundle>
+  </feature>
+  <feature name='camel-service' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-service/3.14.2</bundle>
+  </feature>
+  <feature name='camel-servicenow' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[3.4,3.4]'>cxf-core</feature>
+    <feature version='[3.4,3.4]'>cxf-jaxrs</feature>
+    <feature version='[3.4,3.4]'>cxf-rs-security-oauth2</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-servicenow/3.14.2</bundle>
+  </feature>
+  <feature name='camel-servlet' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>http</feature>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-base/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-http-common/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-servlet/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-servlet-osgi/3.14.2</bundle>
+  </feature>
+  <feature name='camel-shiro' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-collections/commons-collections/3.2.2</bundle>
+    <bundle dependency='true'>mvn:commons-beanutils/commons-beanutils/1.9.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-configuration2/2.7</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-text/1.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.shiro/shiro-core/1.8.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-shiro/3.14.2</bundle>
+  </feature>
+  <feature name='camel-sip' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jain-sip-api-1.2.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jain-sip-ri/1.2.154_2</bundle>
+    <bundle>mvn:org.apache.camel/camel-sip/3.14.2</bundle>
+  </feature>
+  <feature name='camel-sjms' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <!-- JTA is not currently supported by SJMS but is a required dependency of the Geronimo JMS Bundle -->
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-sjms/3.14.2</bundle>
+  </feature>
+  <feature name='camel-sjms2' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <!-- JTA is not currently supported by SJMS but is a required dependency of the Geronimo JMS Bundle -->
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_2.0_spec/1.0-alpha-2</bundle>
+    <bundle dependency='true'>mvn:org.apache.camel/camel-sjms/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-sjms2/3.14.2</bundle>
+  </feature>
+  <feature name='camel-slack' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.camel/camel-util-json/3.14.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:com.google.code.gson/gson/2.8.9</bundle>
+    <bundle dependency='true'>wrap:mvn:com.slack.api/slack-api-client/1.8.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.slack.api/slack-api-model/1.8.1</bundle>
+    <bundle dependency='true'>wrap:mvn:com.squareup.okhttp3/okhttp/3.14.9</bundle>
+    <bundle>mvn:org.apache.camel/camel-slack/3.14.2</bundle>
+  </feature>
+  <feature name='camel-smpp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.jsmpp/jsmpp/2.3.11</bundle>
+    <bundle>mvn:org.apache.camel/camel-smpp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-snakeyaml' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle>mvn:org.apache.camel/camel-snakeyaml/3.14.2</bundle>
+  </feature>
+  <feature name='camel-snmp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.snmp4j/2.6.3_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-snmp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-soap' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-jaxb</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-ws-metadata_2.0_spec/1.1.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jaxws-api-2.2/2.9.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.saaj-api-1.3/2.9.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-soap/3.14.2</bundle>
+  </feature>
+  <feature name='camel-solr' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.noggit/0.5_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.solr-solrj/8.11.0_1</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-httpclient/3.1_7</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-solr/3.14.2</bundle>
+  </feature>
+  <feature name='camel-soroush' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.core/jersey-client/2.35</bundle>
+    <bundle dependency='true'>mvn:jakarta.ws.rs/jakarta.ws.rs-api/2.1.5</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.core/jersey-common/2.35</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.hk2/osgi-resource-locator/1.0.1</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.hk2.external/jakarta.inject/2.6.1</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.media/jersey-media-json-jackson/2.35</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.ext/jersey-entity-filtering/2.35</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/3.14.1_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/1.15.0_1</bundle>
+    <bundle dependency='true'>mvn:com.google.code.findbugs/jsr305/3.0.2</bundle>
+    <bundle dependency='true'>wrap:mvn:com.squareup.okhttp3/okhttp-sse/3.14.9</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.inject/jersey-hk2/2.35</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.hk2/hk2-locator/2.6.1</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.hk2.external/aopalliance-repackaged/2.6.1</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.hk2/hk2-api/2.6.1</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.hk2/hk2-utils/2.6.1</bundle>
+    <bundle dependency='true'>mvn:org.javassist/javassist/3.27.0-GA</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.media/jersey-media-sse/2.35</bundle>
+    <bundle dependency='true'>mvn:org.glassfish.jersey.media/jersey-media-multipart/2.35</bundle>
+    <bundle dependency='true'>mvn:org.jvnet.mimepull/mimepull/1.9.15</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-soroush/3.14.2</bundle>
+  </feature>
+  <feature name='camel-splunk' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.splunk/1.6.5.0_1</bundle>
+    <bundle dependency='true'>mvn:joda-time/joda-time/2.10.11</bundle>
+    <bundle>mvn:org.apache.camel/camel-splunk/3.14.2</bundle>
+  </feature>
+  <feature name='camel-spring-batch' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>transaction</feature>
+    <feature version='[5,6)'>spring</feature>
+    <feature version='[5,6)'>spring-tx</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-batch-core/4.3.4_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-batch-infrastructure/4.3.4_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-spring-batch/3.14.2</bundle>
+  </feature>
+  <feature name='camel-spring-jdbc' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-jdbc</feature>
+    <feature version='[5,6)'>spring-jdbc</feature>
+    <bundle>mvn:org.apache.camel/camel-spring-jdbc/3.14.2</bundle>
+  </feature>
+  <feature name='camel-spring-ldap' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature>transaction</feature>
+    <feature version='[5,6)'>spring</feature>
+    <feature version='[5,6)'>spring-jdbc</feature>
+    <feature version='[5,6)'>spring-tx</feature>
+    <bundle dependency='true'>mvn:commons-lang/commons-lang/2.6</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-ldap/2.3.3.RELEASE_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-batch-core/4.3.4_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-batch-infrastructure/4.3.4_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-data-commons/2.5.6_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-spring-ldap/3.14.2</bundle>
+  </feature>
+  <feature name='camel-spring-ws' version='3.14.2' start-level='50'>
+    <feature>http</feature>
+    <feature version='3.14.2'>camel-xslt-saxon</feature>
+    <feature version='[5,6)'>spring</feature>
+    <feature version='[5,6)'>spring-jms</feature>
+    <feature version='[5,6)'>spring-oxm</feature>
+    <feature version='[5,6)'>spring-web</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.wsdl4j/1.6.3_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-ws-core/3.0.8.RELEASE_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-ws-support/3.0.8.RELEASE_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-ws-security/3.0.8.RELEASE_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-xml/3.0.7.RELEASE_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.saaj-api-1.3/2.9.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-attachments/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-spring-ws/3.14.2</bundle>
+  </feature>
+  <feature name='camel-sql' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='[5,6)'>spring-tx</feature>
+    <feature version='[5,6)'>spring-jdbc</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-sql/3.14.2</bundle>
+  </feature>
+  <feature name='camel-ssh' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.mina/mina-core/2.1.5</bundle>
+    <bundle dependency='true'>mvn:org.apache.sshd/sshd-osgi/2.7.0</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:org.bouncycastle/bcutil-jdk15on/1.70</bundle>
+    <bundle dependency='true'>mvn:net.i2p.crypto/eddsa/0.3.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-ssh/3.14.2</bundle>
+  </feature>
+  <feature name='camel-stax' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.woodstox/woodstox-core/6.1.1</bundle>
+    <bundle>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-stax/3.14.2</bundle>
+  </feature>
+  <feature name='camel-stream' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-stream/3.14.2</bundle>
+  </feature>
+  <feature name='camel-stomp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.geronimo.specs/geronimo-jms_1.1_spec/1.1.1</bundle>
+    <bundle dependency='true'>mvn:org.fusesource.stompjms/stompjms-client/1.19</bundle>
+    <bundle dependency='true'>mvn:org.fusesource.hawtbuf/hawtbuf/1.11</bundle>
+    <bundle dependency='true'>mvn:org.fusesource.hawtdispatch/hawtdispatch/1.22</bundle>
+    <bundle dependency='true'>mvn:org.fusesource.hawtdispatch/hawtdispatch-transport/1.22</bundle>
+    <bundle>mvn:org.apache.camel/camel-stomp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-string-template' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.antlr/3.5.2_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.antlr-runtime/3.5.2_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.stringtemplate/4.0.8_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-stringtemplate/3.14.2</bundle>
+  </feature>
+  <feature name='camel-swagger-java' version='3.14.2' start-level='50'>
+    <feature>http</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jsr311-api-1.1.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/27.1-jre</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-core/1.6.2</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-annotations/1.6.2</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-models/1.6.2</bundle>
+    <bundle dependency='true'>mvn:io.swagger/swagger-jaxrs/1.6.2</bundle>
+    <bundle dependency='true'>wrap:mvn:io.swagger/swagger-parser/1.0.51</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.12_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-swagger-java/3.14.2</bundle>
+  </feature>
+  <feature name='camel-openapi-java' version='3.14.2' start-level='50'>
+    <feature>http</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/2.0.1.Final</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jsr311-api-1.1.1/2.9.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.yaml/snakeyaml/1.29</bundle>
+    <bundle dependency='true'>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle dependency='true'>wrap:mvn:io.apicurio/apicurio-data-models/1.1.16</bundle>
+    <bundle dependency='true'>mvn:io.swagger.core.v3/swagger-annotations/2.1.11</bundle>
+    <bundle dependency='true'>mvn:io.swagger.core.v3/swagger-models/2.1.11</bundle>
+    <bundle dependency='true'>mvn:io.swagger.core.v3/swagger-core/2.1.11</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-openapi-java/3.14.2</bundle>
+  </feature>
+  <feature name='camel-syslog' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-netty</feature>
+    <bundle>mvn:org.apache.camel/camel-syslog/3.14.2</bundle>
+  </feature>
+  <feature name='camel-tagsoup' version='3.14.2' start-level='50'>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.tagsoup/1.2.1_1</bundle>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-tagsoup/3.14.2</bundle>
+  </feature>
+  <feature name='camel-tarfile' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-tarfile/3.14.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-compress/1.21</bundle>
+  </feature>
+  <feature name='camel-telegram' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <feature version='3.14.2'>camel-webhook</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.asynchttpclient/async-http-client/2.12.3</bundle>
+    <bundle dependency='true'>mvn:org.asynchttpclient/async-http-client-netty-utils/2.12.3</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-socks/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler-proxy/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-kqueue/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:com.typesafe.netty/netty-reactive-streams/2.0.5</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-telegram/3.14.2</bundle>
+  </feature>
+  <feature name='camel-test' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.junit/4.13.2_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-test/3.14.2</bundle>
+  </feature>
+  <feature name='camel-test-karaf' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-test</feature>
+    <bundle>mvn:biz.aQute.bnd/bndlib/2.4.0</bundle>
+    <bundle>mvn:org.ops4j.base/ops4j-base-io/1.5.0</bundle>
+    <bundle>mvn:org.ops4j.base/ops4j-base-lang/1.5.0</bundle>
+    <bundle>mvn:org.ops4j.base/ops4j-base-monitors/1.5.0</bundle>
+    <bundle>mvn:org.ops4j.base/ops4j-base-store/1.5.0</bundle>
+    <bundle>mvn:org.ops4j.pax.tinybundles/tinybundles/2.1.1</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-test-karaf/3.14.2</bundle>
+  </feature>
+  <feature name='camel-test-spring' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-spring</feature>
+    <feature version='[5,6)'>spring-test</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.junit/4.13.2_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-test/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-test-spring/3.14.2</bundle>
+  </feature>
+  <feature name='camel-thrift' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.libthrift/0.14.1_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:commons-io/commons-io/2.11.0</bundle>
+    <bundle dependency='true'>mvn:org.javassist/javassist/3.27.0-GA</bundle>
+    <bundle>mvn:org.apache.camel/camel-thrift/3.14.2</bundle>
+  </feature>
+  <feature name='camel-tika' version='3.14.2' start-level='50'>
+    <bundle dependency='true'>mvn:org.apache.tika/tika-core/1.27</bundle>
+    <bundle dependency='true'>mvn:org.apache.tika/tika-bundle/1.27</bundle>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-tika/3.14.2</bundle>
+  </feature>
+  <feature name='camel-tracing' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-tracing/3.14.2</bundle>
+  </feature>
+  <feature name='camel-twilio' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.twilio.sdk/twilio/7.55.3</bundle>
+    <bundle dependency='true'>mvn:joda-time/joda-time/2.10.11</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-twilio/3.14.2</bundle>
+  </feature>
+  <feature name='camel-twitter' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.twitter4j/4.0.7_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-twitter/3.14.2</bundle>
+  </feature>
+  <feature name='camel-univocity-parsers' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.univocity/univocity-parsers/2.9.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-univocity-parsers/3.14.2</bundle>
+  </feature>
+  <feature name='camel-vertx' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler-proxy/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http2/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-socks/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver-dns/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:com.hazelcast/hazelcast/4.2.2</bundle>
+    <bundle dependency='true'>mvn:com.eclipsesource.minimal-json/minimal-json/0.9.5</bundle>
+    <bundle dependency='true'>wrap:mvn:io.vertx/vertx-core/4.1.6</bundle>
+    <bundle>mvn:org.apache.camel/camel-vertx-common/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-vertx/3.14.2</bundle>
+  </feature>
+  <feature name='camel-velocity' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.velocity/velocity-engine-core/2.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-lang3/3.12.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-velocity/3.14.2</bundle>
+  </feature>
+  <feature name='camel-weather' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-weather/3.14.2</bundle>
+  </feature>
+  <feature name='camel-websocket' version='3.14.2' start-level='50'>
+    <feature>jetty</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-websocket/3.14.2</bundle>
+  </feature>
+  <feature name='camel-websocket-jsr356' version='3.14.2' start-level='50'>
+    <feature>jetty</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-websocket-jsr356/3.14.2</bundle>
+  </feature>
+  <feature name='camel-web3j' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.web3j/core/3.6.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.web3j/geth/3.6.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.web3j/parity/3.6.0</bundle>
+    <bundle dependency='true'>wrap:mvn:org.web3j/quorum/0.8.0</bundle>
+    <bundle dependency='true'>mvn:io.reactivex/rxjava/1.3.8</bundle>
+    <bundle>mvn:org.apache.camel/camel-web3j/3.14.2</bundle>
+  </feature>
+  <feature name='camel-webhook' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-webhook/3.14.2</bundle>
+  </feature>
+  <feature name='camel-wordpress' version='3.14.2' start-level='50'>
+    <feature version='[3.4,3.4]'>cxf-core</feature>
+    <feature version='[3.4,3.4]'>cxf-jaxrs</feature>
+    <feature version='[3.4,3.4]'>cxf-features-logging</feature>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.codehaus.woodstox/stax2-api/4.2</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/28.2-jre</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle>mvn:org.apache.camel/camel-wordpress/3.14.2</bundle>
+  </feature>
+  <feature name='camel-workday' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/4.4.14</bundle>
+    <bundle dependency='true'>mvn:org.apache.httpcomponents/httpclient-osgi/4.5.13</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.httpcomponents/httpmime/4.5.13$Export-Package=org.apache.http.*;version=4.5.13</bundle>
+    <bundle>mvn:org.apache.camel/camel-workday/3.14.2</bundle>
+  </feature>
+  <feature name='camel-xchange' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.knowm.xchange/xchange-core/5.0.12</bundle>
+    <bundle dependency='true'>wrap:mvn:com.github.mmazi/rescu/2.1.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-xchange/3.14.2</bundle>
+  </feature>
+  <feature name='camel-xj' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-xslt-saxon</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-xj/3.14.2</bundle>
+  </feature>
+  <feature name='camel-xmlsecurity' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xalan/2.7.2_3</bundle>
+    <bundle dependency='true'>mvn:org.apache.santuario/xmlsec/2.2.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xerces/2.12.0_1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.bcel/5.2_4</bundle>
+    <bundle>mvn:org.apache.camel/camel-xmlsecurity/3.14.2</bundle>
+  </feature>
+  <feature name='camel-xmpp' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_7</bundle>
+    <bundle dependency='true'>mvn:org.jxmpp/jxmpp-core/0.6.4</bundle>
+    <bundle dependency='true'>mvn:org.jxmpp/jxmpp-jid/0.6.4</bundle>
+    <bundle dependency='true'>mvn:org.jxmpp/jxmpp-util-cache/0.6.4</bundle>
+    <bundle dependency='true'>mvn:org.igniterealtime.smack/smack-core/4.3.5</bundle>
+    <bundle dependency='true'>mvn:org.igniterealtime.smack/smack-extensions/4.3.5</bundle>
+    <bundle dependency='true'>mvn:org.igniterealtime.smack/smack-java7/4.3.5</bundle>
+    <bundle dependency='true'>mvn:org.igniterealtime.smack/smack-im/4.3.5</bundle>
+    <bundle dependency='true'>mvn:org.igniterealtime.smack/smack-tcp/4.3.5</bundle>
+    <bundle dependency='true'>wrap:mvn:org.minidns/minidns-core/0.3.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-xmpp/3.14.2</bundle>
+  </feature>
+  <feature name='camel-xslt-saxon' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xmlresolver/1.2_5</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.saxon/9.9.1-6_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-xslt-saxon/3.14.2</bundle>
+  </feature>
+  <feature name='camel-xstream' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.codehaus.jettison/jettison/1.4.1</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xpp3/1.1.4c_7</bundle>
+    <bundle dependency='true'>mvn:joda-time/joda-time/1.6.2</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.kxml2/2.3.0_3</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.xstream/1.4.18_1</bundle>
+    <bundle>mvn:org.apache.camel/camel-xstream/3.14.2</bundle>
+  </feature>
+  <feature name='camel-yaml-dsl' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.snakeyaml/snakeyaml-engine/2.3</bundle>
+    <bundle>mvn:org.apache.camel/camel-yaml-dsl/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-yaml-dsl-common/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-yaml-dsl-deserializers/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-dsl-support/3.14.2</bundle>
+  </feature>
+  <feature name='camel-yammer' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.scribe/1.3.7_1</bundle>
+    <bundle dependency='true'>mvn:commons-codec/commons-codec/1.15</bundle>
+    <bundle>mvn:org.apache.camel/camel-yammer/3.14.2</bundle>
+  </feature>
+  <feature name='camel-zendesk' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:com.cloudbees.thirdparty/zendesk-java-client/0.14.1</bundle>
+    <bundle dependency='true'>wrap:mvn:org.asynchttpclient/async-http-client/2.12.3$Export-Package=org.asynchttpclient.*;version=2.12.3</bundle>
+    <bundle dependency='true'>wrap:mvn:org.asynchttpclient/async-http-client-netty-utils/2.12.3$Export-Package=org.asynchttpclient.netty.util.*;version=2.12.3</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-resolver/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-buffer/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-epoll/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-unix-common/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-transport-native-kqueue/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-http/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-codec-socks/4.1.70.Final</bundle>
+    <bundle dependency='true'>mvn:io.netty/netty-handler-proxy/4.1.70.Final</bundle>
+    <bundle dependency='true'>wrap:mvn:com.typesafe.netty/netty-reactive-streams/2.0.5</bundle>
+    <bundle dependency='true'>mvn:org.reactivestreams/reactive-streams/1.0.3</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-zendesk/3.14.2</bundle>
+  </feature>
+  <feature name='camel-zip-deflater' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:org.apache.commons/commons-compress/1.21</bundle>
+    <bundle>mvn:org.apache.camel/camel-zip-deflater/3.14.2</bundle>
+  </feature>
+  <feature name='camel-zipfile' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle>mvn:org.apache.camel/camel-zipfile/3.14.2</bundle>
+  </feature>
+  <feature name='camel-zipkin' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>mvn:io.zipkin.brave/brave/5.13.3</bundle>
+    <bundle dependency='true'>wrap:mvn:io.zipkin.brave/brave-context-slf4j/5.13.3</bundle>
+    <bundle dependency='true'>mvn:io.zipkin.zipkin2/zipkin/2.23.4</bundle>
+    <bundle dependency='true'>mvn:io.zipkin.reporter2/zipkin-reporter/2.16.3</bundle>
+    <bundle dependency='true'>mvn:io.zipkin.reporter2/zipkin-reporter-brave/2.16.3</bundle>
+    <bundle dependency='true'>mvn:io.zipkin.reporter2/zipkin-sender-urlconnection/2.16.3</bundle>
+    <bundle dependency='true'>mvn:io.zipkin.reporter2/zipkin-sender-libthrift/2.16.3</bundle>
+    <bundle dependency='true'>mvn:org.apache.thrift/libthrift/0.13.0</bundle>
+    <bundle>mvn:org.apache.camel/camel-zipkin/3.14.2</bundle>
+  </feature>
+  <feature name='camel-zookeeper' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.apache.zookeeper/zookeeper/3.5.9$Export-Package=org.apache.zookeeper;version=3.5.9,org.apache.zookeeper.*;version=3.5.9</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.zookeeper/zookeeper-jute/3.5.9$Export-Package=org.apache.jute;version=3.5.9,org.apache.zookeeper.*;version=3.5.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-framework/4.3.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-client/4.3.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-recipes/4.3.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-x-discovery/4.3.0</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/27.1-jre</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel/camel-zookeeper/3.14.2</bundle>
+  </feature>
+  <feature name='camel-zookeeper-master' version='3.14.2' start-level='50'>
+    <feature version='3.14.2'>camel-core</feature>
+    <bundle dependency='true'>wrap:mvn:org.apache.zookeeper/zookeeper/3.5.9$Export-Package=org.apache.zookeeper;version=3.5.9,org.apache.zookeeper.*;version=3.5.9</bundle>
+    <bundle dependency='true'>wrap:mvn:org.apache.zookeeper/zookeeper-jute/3.5.9$Export-Package=org.apache.jute;version=3.5.9,org.apache.zookeeper.*;version=3.5.9</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-framework/4.3.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-client/4.3.0</bundle>
+    <bundle dependency='true'>mvn:org.apache.curator/curator-recipes/4.3.0</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/failureaccess/1.0.1</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/27.1-jre</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-core/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-databind/2.12.4</bundle>
+    <bundle dependency='true'>mvn:com.fasterxml.jackson.core/jackson-annotations/2.12.4</bundle>
+    <bundle>mvn:org.apache.camel.karaf/camel-zookeeper-master-osgi/3.14.2</bundle>
+    <bundle>mvn:org.apache.camel/camel-zookeeper-master/3.14.2</bundle>
+  </feature>
+
+</features>

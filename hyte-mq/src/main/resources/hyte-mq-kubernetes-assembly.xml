@@ -34,6 +34,7 @@
 			<outputDirectory>hyte-mq-${project.version}</outputDirectory>
 			<excludes>
 				<exclude>**/bin/*.bat</exclude>
+        <exclude>**/examples/**</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
 				<exclude>**/_remote.repositories</exclude>
 			</excludes>
