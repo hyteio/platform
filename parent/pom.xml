@@ -107,11 +107,11 @@
 		<hyte.smx.bundles.xmlresolver.version>1.2_5</hyte.smx.bundles.xmlresolver.version>
 		<hyte.smx.bundles.xpp3.version>1.1.4c_5</hyte.smx.bundles.xpp3.version>
 		<hyte.smx.bundles.xstream.version>1.4.17_1</hyte.smx.bundles.xstream.version>
-		<!-- hyte.smx.specs.activation-api-1.1.version>2.9.0</hyte.smx.specs.activation-api-1.1.version -->
+		<hyte.smx.specs.activation-api-1.1.version>2.9.0</hyte.smx.specs.activation-api-1.1.version>
 		<hyte.smx.specs.javax-el-3.0.0.version>3.0.0_1</hyte.smx.specs.javax-el-3.0.0.version>
 		<hyte.smx.specs.jaxb-api-2.3.version>2.3_3</hyte.smx.specs.jaxb-api-2.3.version>
 		<hyte.smx.specs.jaxrs-api-2.1.version>2.9.1</hyte.smx.specs.jaxrs-api-2.1.version>
-		<!-- hyte.smx.specs.jaxws-api-2.2.version>2.9.0</hyte.smx.specs.jaxws-api-2.2.version -->
+		<hyte.smx.specs.jaxws-api-2.3.version>2.3_2</hyte.smx.specs.jaxws-api-2.3.version>
 		<!-- hyte.smx.specs.saaj-api-1.3.version>2.9.0</hyte.smx.specs.saaj-api-1.3.version -->
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
 		<hyte.snakeyaml.version>1.30</hyte.snakeyaml.version>
