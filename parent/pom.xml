@@ -119,7 +119,7 @@
 		<!-- hyte.smx.specs.jaxws-api-2.2.version>2.9.0</hyte.smx.specs.jaxws-api-2.2.version -->
 		<!-- hyte.smx.specs.saaj-api-1.3.version>2.9.0</hyte.smx.specs.saaj-api-1.3.version -->
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
-		<hyte.snakeyaml.version>1.27</hyte.snakeyaml.version>
+		<hyte.snakeyaml.version>1.30</hyte.snakeyaml.version>
 		<hyte.stax-ex.version>1.7.6</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.1</hyte.stax2-api.version>
 		<hyte.xbean.version>4.18</hyte.xbean.version>
