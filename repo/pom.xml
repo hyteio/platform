@@ -39,6 +39,10 @@
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
 		</dependency>
+                <dependency>
+                        <groupId>org.apache.servicemix.bundles</groupId>
+                        <artifactId>org.apache.servicemix.bundles.jaxb-xjc</artifactId>
+                </dependency>
 		<dependency>
 			<groupId>org.jvnet.jaxb2_commons</groupId>
 			<artifactId>jaxb2-basics-runtime</artifactId>
@@ -437,8 +441,8 @@
 			<version>${hyte.osgi.util.version}</version>
 		</dependency>
 		--> 
-        <!-- End Jetty Deps -->
-		<!-- Start Jetty -->
+                <!-- End Jetty Deps -->
+                <!-- Start Jetty -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-continuation</artifactId>
@@ -591,6 +595,11 @@
 			<artifactId>geronimo-j2ee-management_1.1_spec</artifactId>
 			<version>${hyte.geronimo-j2ee-management_1.1_spec.version}</version>
 		</dependency>
+                <dependency>
+                        <groupId>commons-codec</groupId>
+                        <artifactId>commons-codec</artifactId>
+                        <version>${hyte.commons-codec.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
@@ -601,6 +610,15 @@
 			<artifactId>commons-net</artifactId>
 			<version>${hyte.commons-net.version}</version>
 		</dependency>
+               <dependency>
+                        <groupId>org.apache.servicemix.bundles</groupId>
+                        <artifactId>org.apache.servicemix.bundles.jasypt</artifactId>
+                </dependency>
+                <dependency>
+                        <groupId>joda-time</groupId>
+                        <artifactId>joda-time</artifactId>
+                        <version>${hyte.joda-time.version}</version>
+                </dependency>
 		<!-- End ActiveMQ Deps -->
 		<!-- Start ActiveMQ -->
 		<dependency>
@@ -870,12 +888,32 @@
 			<artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
 			<version>${hyte.geronimo-ws-metadata_2.0_spec.version}</version>
 		</dependency>
-		<!-- cxf-jaxws -->
+		<!-- cxf-xml -->
 		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-bindings-soap</artifactId>
-			<version>${hyte.cxf.version}</version>
-		</dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.xmlresolver</artifactId>
+      <version>${hyte.smx.bundles.xmlresolver.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.fastinfoset</artifactId>
+      <version>${hyte.smx.bundles.fastinfoset.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ws.xmlschema</groupId>
+      <artifactId>xmlschema-core</artifactId>
+      <version>${hyte.xmlscheama-core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.woodstox</groupId>
+      <artifactId>woodstox-core</artifactId>
+      <version>${hyte.woodstox-core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-osgi-registry</artifactId>
+      <version>${hyte.geronimo-osgi-registry.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-xml</artifactId>
@@ -886,6 +924,12 @@
 			<artifactId>cxf-rt-databinding-jaxb</artifactId>
 			<version>${hyte.cxf.version}</version>
 		</dependency>
+		<!-- cxf-jaws 
+               <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-bindings-soap</artifactId>
+      <version>${hyte.cxf.version}</version>
+    </dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
@@ -923,11 +967,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.xmlresolver</artifactId>
-			<version>${hyte.smx.bundles.xmlresolver.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.xalan</artifactId>
 			<version>${hyte.smx.bundles.xalan.version}</version>
 		</dependency>
@@ -949,8 +988,7 @@
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jasypt</artifactId>
-			<!-- version>${hyte.smx.bundles.jasypt.version}</version -->
-		</dependency>
+		</dependency>		
 		<dependency>
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.wsdl4j</artifactId>
@@ -960,26 +998,8 @@
 			<groupId>org.apache.servicemix.bundles</groupId>
 			<artifactId>org.apache.servicemix.bundles.jaxb-xjc</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.fastinfoset</artifactId>
-			<version>${hyte.smx.bundles.fastinfoset.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ws.xmlschema</groupId>
-			<artifactId>xmlschema-core</artifactId>
-			<version>${hyte.xmlscheama-core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.woodstox</groupId>
-			<artifactId>woodstox-core</artifactId>
-			<version>${hyte.woodstox-core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-osgi-registry</artifactId>
-			<version>${hyte.geronimo-osgi-registry.version}</version>
-		</dependency>
+		-->
+		<!-- cxf wss4j 
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
@@ -1035,12 +1055,23 @@
 			<artifactId>wss4j-ws-security-stax</artifactId>
 			<version>${hyte.wss4j.version}</version>
 		</dependency>
+		-->
 		<!-- Start cxf-jaxrs -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
 			<version>${hyte.cxf.version}</version>
 		</dependency>
+                <dependency>
+                        <groupId>org.apache.cxf</groupId>
+                        <artifactId>cxf-rt-frontend-simple</artifactId>
+                        <version>${hyte.cxf.version}</version>
+                </dependency>
+                <dependency>
+                        <groupId>org.apache.cxf</groupId>
+                        <artifactId>cxf-rt-transports-http</artifactId>
+                        <version>${hyte.cxf.version}</version>
+                </dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-client</artifactId>
