@@ -146,7 +146,7 @@ pipeline {
         // If this build failed, send an email to the list.
         failure {
             script {
-                if(env.BRANCH_NAME == "main" || env.BRANCH_NAME == "v4.2.x) {
+                if(env.BRANCH_NAME == "main" || env.BRANCH_NAME == "v4.2.x") {
                     emailext(
                             subject: "[BUILD-FAILURE]: Job '${env.JOB_NAME} [${env.BRANCH_NAME}] [${env.BUILD_NUMBER}]'",
                             body: """
