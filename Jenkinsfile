@@ -113,10 +113,10 @@ pipeline {
             }
             steps {
                 script {
-                    if (!params.ReleaseVersion.isEmpty() && !params.NextSnapShotVersion.isEmpty()) {
-                        sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=params.ReleaseVersion -DdevelopmentVersion=params.NextSnapshotVersion release:prepare release:perform'
+                    if (!params.ReleaseVersion.isEmpty() && !params.NextSnapshotVersion.isEmpty()) {
+                        sh "mvn -B -Darguments=\"-DskipTests=true -Dmpir.skip=true\" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=${params.ReleaseVersion} -DdevelopmentVersion=${params.NextSnapshotVersion} release:prepare release:perform"
                     } else {
-                        sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                        sh "mvn -B -Darguments=\"-DskipTests=true -Dmpir.skip=true\" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform"
                     }
                 }
             }
@@ -130,18 +130,17 @@ pipeline {
             steps {
                 script {
                     if (params.mavenDebug) {
-                        if (!params.ReleaseVersion.isEmpty() && !params.NextSnapShotVersion.isEmpty()) {
-                            sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=params.ReleaseVersion -DdevelopmentVersion=params.NextSnapshotVersion release:prepare release:perform'
+                        if (!params.ReleaseVersion.isEmpty() && !params.NextSnapshotVersion.isEmpty()) {
+                            sh "mvn -X -B -Darguments=\"-DskipTests=true -Dmpir.skip=true\" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=${params.ReleaseVersion} -DdevelopmentVersion=${params.NextSnapshotVersion} release:prepare release:perform"
                         } else {
-                            sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                            sh "mvn -X -B -Darguments=\"-DskipTests=true -Dmpir.skip=true\" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform"
                         }
                     }  else {
-                        if (!params.ReleaseVersion.isEmpty() && !params.NextSnapShotVersion.isEmpty()) {
-                            sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=params.ReleaseVersion -DdevelopmentVersion=params.NextSnapshotVersion release:prepare release:perform'
+                        if (!params.ReleaseVersion.isEmpty() && !params.NextSnapshotVersion.isEmpty()) {
+                            sh "mvn -B -Darguments=\"-DskipTests=true -Dmpir.skip=true\" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=${params.ReleaseVersion} -DdevelopmentVersion=${params.NextSnapshotVersion} release:prepare release:perform"
                         } else {
-                            sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                            sh "mvn -B -Darguments=\"-DskipTests=true -Dmpir.skip=true\" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform"
                         }
-                        sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DskipTests=true -Dmpir.skip=true release:clean release:prepare release:perform'
                     }
                 }
             }
