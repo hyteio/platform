@@ -20,7 +20,8 @@ pipeline {
 
     parameters {
         choice(name: 'Build', choices: ['snapshot', 'release-dry-run', 'release'])
-        string(name: 'Version', trim: true, description: 'Override version number')
+        string(name: 'ReleaseVersion', trim: true, description: 'Override release version number')
+        string(name: 'NextSnapshotVersion', trim: true, description: 'Override next SNAPSHOT version number')
         booleanParam(name: 'keepWorkspace', description: 'Keep workspace', defaultValue: false)
         booleanParam(name: 'mavenDebug', description: 'Enable Maven debug mode', defaultValue: false)
     }
@@ -111,7 +112,13 @@ pipeline {
                 expression { params.Build == 'release-dry-run' }
             }
             steps {
-                sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                script {
+                    if (!params.ReleaseVersion.isEmpty() && !params.NextSnapShotVersion.isEmpty()) {
+                        sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=params.ReleaseVersion -DdevelopmentVersion=params.NextSnapshotVersion release:prepare release:perform'
+                    } else {
+                        sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                    }
+                }
             }
         }
 
@@ -123,9 +130,17 @@ pipeline {
             steps {
                 script {
                     if (params.mavenDebug) {
-                        sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DskipTests=true -Dmpir.skip=true release:clean release:prepare release:perform'
+                        if (!params.ReleaseVersion.isEmpty() && !params.NextSnapShotVersion.isEmpty()) {
+                            sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=params.ReleaseVersion -DdevelopmentVersion=params.NextSnapshotVersion release:prepare release:perform'
+                        } else {
+                            sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                        }
                     }  else {
-                        sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DskipTests=true -Dmpir.skip=true release:clean release:prepare release:perform'
+                        if (!params.ReleaseVersion.isEmpty() && !params.NextSnapShotVersion.isEmpty()) {
+                            sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true -DreleaseVersion=params.ReleaseVersion -DdevelopmentVersion=params.NextSnapshotVersion release:prepare release:perform'
+                        } else {
+                            sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
+                        }
                     }
                 }
             }
