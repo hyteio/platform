@@ -141,6 +141,7 @@ pipeline {
                         } else {
                             sh 'mvn -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DdryRun=true -DskipTests=true -Dmpir.skip=true release:prepare release:perform'
                         }
+                        sh 'mvn -X -B -Darguments="-DskipTests=true -Dmpir.skip=true" -DignoreSnapshots=true -DskipTests=true -Dmpir.skip=true release:clean release:prepare release:perform'
                     }
                 }
             }
