@@ -18,7 +18,7 @@
 		<hyte.jetty.version>9.4.48.v20220622</hyte.jetty.version>
 		<hyte.karaf.version>4.2.11</hyte.karaf.version>
 		<hyte.spring.version>5.3.4.RELEASE</hyte.spring.version>
-		<hyte.h2.version>1.4.200</hyte.h2.version>
+		<hyte.h2.version>2.1.214</hyte.h2.version>
 		<!-- api and specs -->
 		<hyte.jakarta.xml.bind-api.version>2.3.3</hyte.jakarta.xml.bind-api.version>
 		<hyte.javax.annotation-api.version>1.3.2</hyte.javax.annotation-api.version>
