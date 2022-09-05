@@ -15,7 +15,7 @@
 		<hyte.activemq.version>5.15.15.hyte-8400</hyte.activemq.version>
 		<hyte.camel.version>2.25.3</hyte.camel.version>
 		<hyte.cxf.version>3.3.13</hyte.cxf.version>
-		<hyte.jetty.version>9.4.38.v20210224</hyte.jetty.version>
+		<hyte.jetty.version>9.4.48.v20220622</hyte.jetty.version>
 		<hyte.karaf.version>4.2.11</hyte.karaf.version>
 		<hyte.spring.version>5.3.4.RELEASE</hyte.spring.version>
 		<hyte.h2.version>1.4.200</hyte.h2.version>
@@ -119,7 +119,7 @@
 		<!-- hyte.smx.specs.jaxws-api-2.2.version>2.9.0</hyte.smx.specs.jaxws-api-2.2.version -->
 		<!-- hyte.smx.specs.saaj-api-1.3.version>2.9.0</hyte.smx.specs.saaj-api-1.3.version -->
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
-		<hyte.snakeyaml.version>1.30</hyte.snakeyaml.version>
+		<hyte.snakeyaml.version>1.31</hyte.snakeyaml.version>
 		<hyte.stax-ex.version>1.7.6</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.1</hyte.stax2-api.version>
 		<hyte.xbean.version>4.18</hyte.xbean.version>
