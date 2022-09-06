@@ -61,7 +61,6 @@
 		<hyte.geronimo-connector.version>3.1.4</hyte.geronimo-connector.version>
 		<hyte.geronimo-j2ee-connector_1.6_spec.version>1.0</hyte.geronimo-j2ee-connector_1.6_spec.version>
 		<hyte.geronimo-j2ee-management_1.1_spec.version>1.0.1</hyte.geronimo-j2ee-management_1.1_spec.version>
-		<hyte.geronimo-jaspic_1.0_spec.version>1.1</hyte.geronimo-jaspic_1.0_spec.version>
 		<hyte.geronimo-jms_2.0.spec.version>1.0-alpha-2</hyte.geronimo-jms_2.0.spec.version>
 		<hyte.geronimo-jpa_2.0.spec.version>1.1</hyte.geronimo-jpa_2.0.spec.version>
 		<hyte.geronimo-jta_1.1_spec.version>1.1.1</hyte.geronimo-jta_1.1_spec.version>

@@ -52,7 +52,7 @@
 		<tag>v${project.version}</tag>
 	</scm>
 	<properties>
-		<hyte.revision>42118</hyte.revision>
+		<hyte.revision>42119</hyte.revision>
 		<hyte.jdk.version>11</hyte.jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
