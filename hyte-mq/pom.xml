@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>hyte-mq-4.3.7.hyte-43071</version>
+		<version>hyte-mq-4.3.7.hyte-43072-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-mq</artifactId>
