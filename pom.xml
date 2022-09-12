@@ -5,7 +5,7 @@
 	<artifactId>build</artifactId>
 	<name>HYTE :: Platform :: Build</name>
 	<packaging>pom</packaging>
-	<version>hyte-mq-4.3.7.hyte-43072</version>
+	<version>hyte-mq-4.3.7.hyte-43073-SNAPSHOT</version>
 	<description>HYTE Platform</description>
 	<url>https://hyte.io</url>
 	<inceptionYear>2017</inceptionYear>
@@ -49,7 +49,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
 		<url>https://github.com/hyteio/platform</url>
-		<tag>vhyte-mq-4.3.7.hyte-43072</tag>
+		<tag>v${project.version}</tag>
 	</scm>
 	<properties>
 		<hyte.revision>${project.version}-${buildNumber}</hyte.revision>
