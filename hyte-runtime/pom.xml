@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.3.7.hyte-43075</version>
+		<version>4.3.7.hyte-43076-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-runtime</artifactId>
