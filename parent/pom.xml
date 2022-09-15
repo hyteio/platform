@@ -29,7 +29,7 @@
 		<hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version>
 		<!-- pax versions -->
 		<hyte.pax-cdi.version>1.1.4</hyte.pax-cdi.version>
-		<hyte.pax-logging.version>2.0.16</hyte.pax-logging.version>
+		<hyte.pax-logging.version>2.0.19</hyte.pax-logging.version>
 		<!-- hyte.pax-swissbox.version>1.8.3</hyte.pax-swissbox.version -->
 		<hyte.pax-transx.version>0.5.2</hyte.pax-transx.version>
 		<hyte.pax-url.version>2.6.10</hyte.pax-url.version>
@@ -80,7 +80,7 @@
 		<hyte.jettison.version>1.5.0</hyte.jettison.version>
 		<hyte.junit.version>4.13.2</hyte.junit.version>
 		<hyte.lmax.version>3.4.4</hyte.lmax.version>
-		<hyte.log4j2.version>2.17.1</hyte.log4j2.version>
+		<hyte.log4j2.version>2.18.0</hyte.log4j2.version>
 		<hyte.metrics-core.version>3.2.6</hyte.metrics-core.version>
 		<hyte.neethi.version>3.1.1</hyte.neethi.version>
 		<hyte.osgi.util.version>1.0.0</hyte.osgi.util.version>

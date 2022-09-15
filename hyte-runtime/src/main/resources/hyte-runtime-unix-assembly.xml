@@ -31,8 +31,8 @@
 			<filtered>false</filtered>
 		</fileSet>
 		<fileSet>
-			<directory>${project.build.directory}/karaf/etc</directory>
-			<outputDirectory>hyte-runtime-${project.version}/etc</outputDirectory>
+			<directory>${project.build.directory}/karaf</directory>
+			<outputDirectory>hyte-runtime-${project.version}</outputDirectory>
 			<includes>
 				<include>**/**</include>
 			</includes>
