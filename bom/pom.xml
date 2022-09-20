@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.3.7.hyte-43077-SNAPSHOT</version>
+		<version>4.3.7.hyte-43077</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>bom</artifactId>
