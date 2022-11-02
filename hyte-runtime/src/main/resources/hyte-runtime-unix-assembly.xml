@@ -33,6 +33,11 @@
 		<fileSet>
 			<directory>${project.build.directory}/karaf</directory>
 			<outputDirectory>hyte-runtime-${project.version}</outputDirectory>
+			<excludes>
+              <exclude>.locks</exclude>
+              <exclude>**/maven-metadata-local.xml</exclude>
+              <exclude>**/_remote.repositories</exclude>
+            </excludes>
 			<includes>
 				<include>**/**</include>
 			</includes>
@@ -40,15 +45,6 @@
 		<fileSet>
 			<directory>${project.build.directory}/local-repo</directory>
 			<outputDirectory>hyte-runtime-${project.version}/local-repo</outputDirectory>
-			<excludes>
-				<exclude>.locks</exclude>
-				<exclude>**/maven-metadata-local.xml</exclude>
-				<exclude>**/_remote.repositories</exclude>
-			</excludes>
-		</fileSet>
-		<fileSet>
-			<directory>${project.build.directory}/system</directory>
-			<outputDirectory>hyte-runtime-${project.version}/system</outputDirectory>
 			<excludes>
 				<exclude>.locks</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
