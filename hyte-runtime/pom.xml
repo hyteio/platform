@@ -168,7 +168,7 @@
                   <version>${project.version}</version>
                   <classifier>system</classifier>
                   <type>zip</type>
-                  <outputDirectory>${project.build.directory}/system</outputDirectory>
+                  <outputDirectory>${project.build.directory}/karaf/system</outputDirectory>
                 </artifactItem>
               </artifactItems>
             </configuration>
