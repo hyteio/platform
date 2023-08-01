@@ -28,9 +28,9 @@
         <bundle dependency="true">mvn:org.ow2.asm/asm-analysis/${hyte.asm.version}</bundle>
         <bundle dependency="true">mvn:org.ow2.asm/asm-commons/${hyte.asm.version}</bundle>
 
-        <bundle dependency="true">mvn:org.apache.xbean/xbean-bundleutils/4.21</bundle>
-        <bundle dependency="true">mvn:org.apache.xbean/xbean-reflect/4.21</bundle>
-        <bundle dependency="true">mvn:org.apache.xbean/xbean-finder/4.21</bundle>
+        <bundle dependency="true">mvn:org.apache.xbean/xbean-bundleutils/${hyte.xbean.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.xbean/xbean-reflect/${hyte.xbean.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.xbean/xbean-finder/${hyte.xbean.version}</bundle>
     </feature>
 
     <feature name="pax-jetty" description="Provide Jetty engine support" version="9.4.46.v20220331">
