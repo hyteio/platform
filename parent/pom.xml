@@ -12,12 +12,12 @@
 	<packaging>pom</packaging>
 	<properties>
 		<!-- frameworks -->
-		<hyte.activemq.version>5.17.4</hyte.activemq.version>
+		<hyte.activemq.version>5.17.5</hyte.activemq.version>
 		<hyte.camel.version>3.14.2</hyte.camel.version>
 		<hyte.cxf.version>3.4.8</hyte.cxf.version>
 		<hyte.jetty.version>9.4.46.v20220331</hyte.jetty.version>
 		<hyte.karaf.version>4.3.7</hyte.karaf.version>
-		<hyte.spring.version>5.3.22</hyte.spring.version>
+		<hyte.spring.version>5.3.27</hyte.spring.version>
 		<hyte.h2.version>2.1.214</hyte.h2.version>
 		<!-- api and specs -->
 		<hyte.jakarta.xml.bind-api.version>2.3.3</hyte.jakarta.xml.bind-api.version>
@@ -67,7 +67,7 @@
 		<hyte.hapi-fhir.version>3.5.0</hyte.hapi-fhir.version>
 		<hyte.hibernate.version>6.2.1.Final</hyte.hibernate.version>
 		<hyte.istack-commons-runtime.version>3.0.10</hyte.istack-commons-runtime.version>
-		<hyte.jackson.version>2.13.4</hyte.jackson.version>
+		<hyte.jackson.version>2.15.2</hyte.jackson.version>
 		<hyte.jakarta.activation-api.version>1.2.2</hyte.jakarta.activation-api.version>
 		<hyte.jakarta.activation.version>1.2.2</hyte.jakarta.activation.version>
 		<hyte.jakarta.jws-api.version>2.1.0</hyte.jakarta.jws-api.version>
@@ -79,8 +79,8 @@
 		<hyte.jettison.version>1.5.0</hyte.jettison.version>
 		<hyte.junit.version>4.13.2</hyte.junit.version>
 		<hyte.lmax.version>3.4.4</hyte.lmax.version>
-		<hyte.log4j2.version>2.18.0</hyte.log4j2.version>
-		<hyte.slf4j.version>1.7.30</hyte.slf4j.version>
+		<hyte.log4j2.version>2.20.0</hyte.log4j2.version>
+		<hyte.slf4j.version>1.7.36</hyte.slf4j.version>
 		<hyte.slf4j.version.range>[1.7,2)</hyte.slf4j.version.range>
 		<hyte.smx.bundles.aopalliance.version>1.0_6</hyte.smx.bundles.aopalliance.version>
 		<hyte.smx.bundles.fastinfoset.version>1.2.18_1</hyte.smx.bundles.fastinfoset.version>
@@ -91,12 +91,12 @@
 		<hyte.smx.bundles.javax-websocket-api>1.1_1</hyte.smx.bundles.javax-websocket-api>
 		<hyte.smx.bundles.jaxb-runtime.version>2.3.2_2</hyte.smx.bundles.jaxb-runtime.version>
 		<hyte.smx.bundles.jaxb-xjc.version>2.3.2_2</hyte.smx.bundles.jaxb-xjc.version>
-		<hyte.smx.bundles.spring.version>5.3.22_1</hyte.smx.bundles.spring.version>
+		<hyte.smx.bundles.spring.version>5.3.27_1</hyte.smx.bundles.spring.version>
 		<hyte.smx.bundles.velocity.version>1.7_6</hyte.smx.bundles.velocity.version>
 		<hyte.smx.bundles.xerces.version>2.12.2_1</hyte.smx.bundles.xerces.version>
 		<hyte.smx.bundles.xmlresolver.version>1.2_5</hyte.smx.bundles.xmlresolver.version>
 		<hyte.smx.bundles.xpp3.version>1.1.4c_5</hyte.smx.bundles.xpp3.version>
-		<hyte.smx.bundles.xstream.version>1.4.19_1</hyte.smx.bundles.xstream.version>
+		<hyte.smx.bundles.xstream.version>1.4.20_1</hyte.smx.bundles.xstream.version>
 		<hyte.smx.specs.activation-api-1.1.version>2.9.0</hyte.smx.specs.activation-api-1.1.version>
 		<hyte.smx.specs.javax-el-3.0.0.version>3.0.0_1</hyte.smx.specs.javax-el-3.0.0.version>
 		<hyte.smx.specs.jaxb-api-2.3.version>2.3_3</hyte.smx.specs.jaxb-api-2.3.version>
@@ -107,7 +107,7 @@
 		<hyte.snakeyaml.version>1.32</hyte.snakeyaml.version>
 		<hyte.stax-ex.version>1.8.3</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.2.1</hyte.stax2-api.version>
-		<hyte.xbean.version>4.21</hyte.xbean.version>
+		<hyte.xbean.version>4.23</hyte.xbean.version>
 		<hyte.xmlscheama-core.version>2.2.5</hyte.xmlscheama-core.version>
 		<hyte.woodstox-core.version>6.2.8</hyte.woodstox-core.version>
 		<hyte.woodstox-core-asl.version>4.4.1</hyte.woodstox-core-asl.version>

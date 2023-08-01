@@ -212,7 +212,7 @@ com.atomikos.icatch.log_base_dir=${karaf.data}/atomikos
         <details>JNDI support provided by Apache Aries JNDI 1.0.0, including additional service, commands, and MBean.</details>
         <feature>aries-proxy</feature>
         <bundle dependency="true" start-level="30">mvn:org.apache.aries/org.apache.aries.util/1.1.3</bundle>
-        <bundle start-level="30">mvn:org.apache.xbean/xbean-naming/4.21</bundle>
+        <bundle start-level="30">mvn:org.apache.xbean/xbean-naming/${hyte.xbean.version}</bundle>
         <bundle start-level="30">mvn:org.apache.aries.jndi/org.apache.aries.jndi.api/1.1.0</bundle>
         <bundle start-level="30">mvn:org.apache.aries.jndi/org.apache.aries.jndi.core/1.0.2</bundle>
         <bundle start-level="30">mvn:org.apache.aries.jndi/org.apache.aries.jndi.rmi/1.0.0</bundle>
