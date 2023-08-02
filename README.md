@@ -7,14 +7,14 @@ HYTE Platform provides a standards-based runtime for running modular application
 ## Components ##
 
  * Java 11
- * Apache ActiveMQ (v5.17.2) for messaging and eventing
+ * Apache ActiveMQ (v5.17.5) for messaging and eventing
  * Apache Camel (v3.14.2) for integration and low-code process flows
  * Apache CXF (v3.4.8) for REST API (JAX-RS) 
  * Apache Karaf (v4.3.7) lightweight runtime
- * Jackson (v2.13.4) for JSON data formats
+ * Jackson (v2.15.2) for JSON data formats
  * LMAX disruptor (v3.4.4) for high-speed async logging with log4j2
 
-Latest version: 4.3.7.hyte-43077
+Latest version: 4.3.7.hyte-4307d
 
 ### Default admin account and ports ###
 
@@ -30,16 +30,16 @@ Default password: admin
 | JMX     | 44444/1099 | service:jmx:rmi://localhost:44444/jndi/rmi://localhost:1099/karaf-root | |
 
 ## Downloads:
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.3.7.hyte-43077/hyte-runtime-4.3.7.hyte-43077-unix.tar.gz)
- * Kubernetes pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.3.7.hyte-43077/hyte-runtime-4.3.7.hyte-43077-kubernetes.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.3.7.hyte-43077/hyte-runtime-4.3.7.hyte-43077-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.3.7.hyte-4307d/hyte-runtime-4.3.7.hyte-4307d-unix.tar.gz)
+ * Kubernetes pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.3.7.hyte-4307d/hyte-runtime-4.3.7.hyte-4307d-kubernetes.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.3.7.hyte-4307d/hyte-runtime-4.3.7.hyte-4307d-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -50,7 +50,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>kubernetes</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -61,7 +61,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -72,16 +72,16 @@ Default password: admin
 HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade best practices
 
 ## Downloads:
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.3.7.hyte-43077/hyte-mq-4.3.7.hyte-43077-unix.tar.gz)
- * Kubernetes pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.3.7.hyte-43077/hyte-mq-4.3.7.hyte-43077-kubernetes.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.3.7.hyte-43077/hyte-mq-4.3.7.hyte-43077-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.3.7.hyte-4307d/hyte-mq-4.3.7.hyte-4307d-unix.tar.gz)
+ * Kubernetes pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.3.7.hyte-4307d/hyte-mq-4.3.7.hyte-4307d-kubernetes.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.3.7.hyte-4307d/hyte-mq-4.3.7.hyte-4307d-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -92,7 +92,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>kubernetes</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -103,7 +103,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -114,16 +114,16 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 HYTE DB is a packaged build of H2 Database
 
 ### Downloads:
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.3.7.hyte-43077/hyte-db-4.3.7.hyte-43077-unix.tar.gz)
- * Kubernetes pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.3.7.hyte-43077/hyte-db-4.3.7.hyte-43077-kubernetes.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.3.7.hyte-43077/hyte-db-4.3.7.hyte-43077-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.3.7.hyte-4307d/hyte-db-4.3.7.hyte-4307d-unix.tar.gz)
+ * Kubernetes pre-image tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.3.7.hyte-4307d/hyte-db-4.3.7.hyte-4307d-kubernetes.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.3.7.hyte-4307d/hyte-db-4.3.7.hyte-4307d-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -134,7 +134,7 @@ HYTE DB is a packaged build of H2 Database
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>kubernetes</classififer>
     <type>tar.gz</type>
 </dependency>
@@ -145,7 +145,7 @@ HYTE DB is a packaged build of H2 Database
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.3.7.hyte-43077</version>
+    <version>4.3.7.hyte-4307d</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
