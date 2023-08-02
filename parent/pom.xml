@@ -76,7 +76,7 @@
 		<hyte.javax.interceptor-api.version>1.2.2</hyte.javax.interceptor-api.version>
 		<hyte.javax.transaction-api.version>1.2</hyte.javax.transaction-api.version>
 		<hyte.jaxb2-basics-runtime.version>0.12.0</hyte.jaxb2-basics-runtime.version>
-		<hyte.jettison.version>1.5.0</hyte.jettison.version>
+		<hyte.jettison.version>1.5.4</hyte.jettison.version>
 		<hyte.junit.version>4.13.2</hyte.junit.version>
 		<hyte.lmax.version>3.4.4</hyte.lmax.version>
 		<hyte.log4j2.version>2.20.0</hyte.log4j2.version>
@@ -104,7 +104,8 @@
 		<hyte.smx.specs.jaxws-api-2.3.version>2.3_2</hyte.smx.specs.jaxws-api-2.3.version>
 		<hyte.smx.specs.saaj-api-1.4.version>1.4_1</hyte.smx.specs.saaj-api-1.4.version>
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
-		<hyte.snakeyaml.version>1.32</hyte.snakeyaml.version>
+		<hyte.snakeyaml.version>2.0</hyte.snakeyaml.version>
+		<hyte.snakeyaml-engine.version>2.6</hyte.snakeyaml-engine.version>
 		<hyte.stax-ex.version>1.8.3</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.2.1</hyte.stax2-api.version>
 		<hyte.xbean.version>4.23</hyte.xbean.version>
