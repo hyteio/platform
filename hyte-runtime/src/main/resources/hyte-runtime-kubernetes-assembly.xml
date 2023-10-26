@@ -73,6 +73,7 @@
         <exclude>**/maven-metadata-local.xml</exclude>
         <exclude>**/_remote.repositories</exclude>
         <exclude>**/system/org/ops4j/pax/transx/**/0.5.0/**</exclude>
+        <exclude>**/system/org/ow2/asm/asm*/9.3/**</exclude>
       </excludes>
     </fileSet>
   </fileSets>

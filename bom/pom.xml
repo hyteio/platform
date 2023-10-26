@@ -32,6 +32,36 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-analysis</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-commons</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-tree</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-util</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+            <dependency>
+                                <groupId>commons-io</groupId>
+                                <artifactId>commons-io</artifactId>
+                                <version>${hyte.commons-io.version}</version>
+                        </dependency>
 			<dependency>
 				<groupId>javax.jms</groupId>
 				<artifactId>javax.jms-api</artifactId>

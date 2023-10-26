@@ -22,6 +22,31 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-analysis</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-commons</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-tree</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-util</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
       <artifactId>jakarta.mail</artifactId>
