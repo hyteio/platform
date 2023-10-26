@@ -17,7 +17,7 @@
 		<hyte.cxf.version>3.4.8</hyte.cxf.version>
 		<hyte.jetty.version>9.4.46.v20220331</hyte.jetty.version>
 		<hyte.karaf.version>4.3.7</hyte.karaf.version>
-		<hyte.spring.version>5.3.27</hyte.spring.version>
+		<hyte.spring.version>5.3.30</hyte.spring.version>
 		<hyte.h2.version>2.1.214</hyte.h2.version>
 		<!-- api and specs -->
 		<hyte.jakarta.xml.bind-api.version>2.3.3</hyte.jakarta.xml.bind-api.version>
@@ -91,7 +91,7 @@
 		<hyte.smx.bundles.javax-websocket-api>1.1_1</hyte.smx.bundles.javax-websocket-api>
 		<hyte.smx.bundles.jaxb-runtime.version>2.3.2_2</hyte.smx.bundles.jaxb-runtime.version>
 		<hyte.smx.bundles.jaxb-xjc.version>2.3.2_2</hyte.smx.bundles.jaxb-xjc.version>
-		<hyte.smx.bundles.spring.version>5.3.27_1</hyte.smx.bundles.spring.version>
+		<hyte.smx.bundles.spring.version>5.3.30_1</hyte.smx.bundles.spring.version>
 		<hyte.smx.bundles.velocity.version>1.7_6</hyte.smx.bundles.velocity.version>
 		<hyte.smx.bundles.xerces.version>2.12.2_1</hyte.smx.bundles.xerces.version>
 		<hyte.smx.bundles.xmlresolver.version>1.2_5</hyte.smx.bundles.xmlresolver.version>
