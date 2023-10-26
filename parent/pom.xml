@@ -108,7 +108,7 @@
 		<hyte.snakeyaml-engine.version>2.6</hyte.snakeyaml-engine.version>
 		<hyte.stax-ex.version>1.8.3</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.2.1</hyte.stax2-api.version>
-		<hyte.xbean.version>4.23</hyte.xbean.version>
+		<hyte.xbean.version>4.24</hyte.xbean.version>
 		<hyte.xmlscheama-core.version>2.2.5</hyte.xmlscheama-core.version>
 		<hyte.woodstox-core.version>6.2.8</hyte.woodstox-core.version>
 		<hyte.woodstox-core-asl.version>4.4.1</hyte.woodstox-core-asl.version>
