@@ -26,6 +26,33 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <!-- start dependency upgrade overrides -->
+    <dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-analysis</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-commons</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-tree</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.ow2.asm</groupId>
+  <artifactId>asm-util</artifactId>
+  <version>${hyte.asm.version}</version>
+</dependency>
+   <!-- end dependency upgrade overrides -->
     <!-- Start HYTE javax-api and model deps -->
     <dependency>
       <groupId>javax.jms</groupId>
@@ -1197,7 +1224,7 @@
             <configuration>
               <copyPom>true</copyPom>
               <excludeTransitive>true</excludeTransitive>
-              <includeGroupIds>org.ops4j,pax.logging</includeGroupIds>
+              <includeGroupIds>org.ops4j,pax.logging,org.ow2.asm</includeGroupIds>
               <outputDirectory>${project.build.directory}/hyte-system</outputDirectory>
               <overWriteReleases>false</overWriteReleases>
               <overWriteSnapshots>true</overWriteSnapshots>
