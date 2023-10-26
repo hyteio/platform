@@ -47,7 +47,7 @@
 		<hyte.cdi-api.version>2.0.SP1</hyte.cdi-api.version>
 		<hyte.commons-codec.version>1.15</hyte.commons-codec.version>
 		<hyte.commons-collection.version>3.2.2</hyte.commons-collection.version>
-		<hyte.commons-io.version>2.11.0</hyte.commons-io.version>
+		<hyte.commons-io.version>2.14.0</hyte.commons-io.version>
 		<hyte.commons-lang.version>2.6</hyte.commons-lang.version>
 		<hyte.commons-lang3.version>3.12.0</hyte.commons-lang3.version>
 		<hyte.commons-pool2.version>2.11.1</hyte.commons-pool2.version>
