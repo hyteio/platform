@@ -14,7 +14,7 @@
 		<!-- frameworks -->
 		<hyte.activemq.version>5.17.6</hyte.activemq.version>
 		<hyte.camel.version>3.14.2</hyte.camel.version>
-		<hyte.cxf.version>3.4.8</hyte.cxf.version>
+		<hyte.cxf.version>3.4.10</hyte.cxf.version>
 		<hyte.jetty.version>9.4.53.v20231009</hyte.jetty.version>
 		<hyte.karaf.version>4.3.7</hyte.karaf.version>
 		<hyte.spring.version>5.3.30</hyte.spring.version>
@@ -104,13 +104,13 @@
 		<hyte.smx.specs.jaxws-api-2.3.version>2.3_2</hyte.smx.specs.jaxws-api-2.3.version>
 		<hyte.smx.specs.saaj-api-1.4.version>1.4_1</hyte.smx.specs.saaj-api-1.4.version>
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
-		<hyte.snakeyaml.version>2.0</hyte.snakeyaml.version>
-		<hyte.snakeyaml-engine.version>2.6</hyte.snakeyaml-engine.version>
+		<hyte.snakeyaml.version>2.2</hyte.snakeyaml.version>
+		<hyte.snakeyaml-engine.version>2.7</hyte.snakeyaml-engine.version>
 		<hyte.stax-ex.version>1.8.3</hyte.stax-ex.version>
 		<hyte.stax2-api.version>4.2.1</hyte.stax2-api.version>
 		<hyte.xbean.version>4.24</hyte.xbean.version>
 		<hyte.xmlscheama-core.version>2.2.5</hyte.xmlscheama-core.version>
-		<hyte.woodstox-core.version>6.2.8</hyte.woodstox-core.version>
+		<hyte.woodstox-core.version>6.4.0</hyte.woodstox-core.version>
 		<hyte.woodstox-core-asl.version>4.4.1</hyte.woodstox-core-asl.version>
 		<!-- OSGi Bundle defaults -->
 		<hyte.osgi.version>${project.version}</hyte.osgi.version>
