@@ -135,7 +135,7 @@
 		<hyte.osgi.embed.transitive>false</hyte.osgi.embed.transitive>
 		<hyte.osgi.service.component />
 		<!-- Maven Plugins -->
-		<maven-bundle-plugin.version>5.1.4</maven-bundle-plugin.version>
+		<maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
