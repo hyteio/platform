@@ -6,7 +6,7 @@ pipeline {
 
     tools {
         // ... tell Jenkins what java version, maven version or other tools are required ...
-        maven 'Maven 3.9'
+        maven 'maven-3.9'
         jdk 'jdk-11'
     }
 
