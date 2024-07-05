@@ -14,7 +14,7 @@
 		<!-- frameworks -->
 		<hyte.activemq.version>5.17.6</hyte.activemq.version>
 		<hyte.camel.version>3.14.2</hyte.camel.version>
-		<hyte.cxf.version>3.4.10</hyte.cxf.version>
+		<hyte.cxf.version>3.6.3</hyte.cxf.version>
 		<hyte.jetty.version>9.4.53.v20231009</hyte.jetty.version>
 		<hyte.karaf.version>4.3.7</hyte.karaf.version>
 		<hyte.spring.version>5.3.30</hyte.spring.version>
