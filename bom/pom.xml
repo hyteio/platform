@@ -11,6 +11,13 @@
 	<packaging>pom</packaging>
 	<dependencyManagement>
 		<dependencies>
+                        <dependency>
+				<groupId>com.fasterxml.jackson</groupId>
+				<artifactId>jackson-bom</artifactId>
+				<version>${hyte.jackson.version}</version>
+                                <type>pom</type>
+                                <scope>import</scope>
+                        </dependency>
 			<dependency>
 				<groupId>org.apache.karaf</groupId>
 				<artifactId>karaf-bom</artifactId>
@@ -81,26 +88,6 @@
 				<groupId>com.lmax</groupId>
 				<artifactId>disruptor</artifactId>
 				<version>${hyte.lmax.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-annotations</artifactId>
-				<version>${hyte.jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-databind</artifactId>
-				<version>${hyte.jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-core</artifactId>
-				<version>${hyte.jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.datatype</groupId>
-				<artifactId>jackson-datatype-jsr310</artifactId>
-				<version>${hyte.jackson.version}</version>
 			</dependency>
 			<!-- provided by karaf-bom
 			<dependency>
