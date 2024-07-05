@@ -991,11 +991,13 @@
       <artifactId>camel-xslt</artifactId>
     </dependency>
     <!-- camel + karaf + osgi -->
+    <!--
     <dependency>
       <groupId>org.apache.camel.karaf</groupId>
       <artifactId>camel-bean-osgi</artifactId>
       <version>${hyte.camel.version}</version>
     </dependency>
+    -->
     <dependency>
       <groupId>org.apache.camel.karaf</groupId>
       <artifactId>camel-core-osgi</artifactId>
