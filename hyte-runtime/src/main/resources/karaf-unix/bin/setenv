@@ -2,12 +2,12 @@
 
 export KARAF_STARTDATE=`date +"%Y%m%d%H%M%S"`
 
-if [ "$KARAF_SCRIPT" == "client" ] || [ "$KARAF_SCRIPT" == "status" ] || [ "$KARAF_SCRIPT" == "stop" ] ; then
-    export JAVA_MIN_MEM=16M
-    export JAVA_MAX_MEM=128M
+if [ "${KARAF_SCRIPT}" == "client" ] || [ "${KARAF_SCRIPT}" == "status" ] || [ "${KARAF_SCRIPT}" == "stop" ] ; then
+    export JAVA_MIN_MEM=-Xms16M
+    export JAVA_MAX_MEM=-Xmx128M
 else
-    export JAVA_MIN_MEM=512M
-    export JAVA_MAX_MEM=2G
+    export JAVA_MIN_MEM=-Xms512M
+    export JAVA_MAX_MEM=-Xmx2G
     export JAVA_GC_LOG_OPTS="-Xlog:gc*:file=data/log/gc.log:time,hostname,uptime,pid,tags,level:filecount=16,filesize=16M"
     export JAVA_HEAPDUMP_OPTS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=data/log/jvm-heapdump-$KARAF_STARTDATE.hprof"
 	export JAVA_NET_OPTS="-Dnetworkaddress.cache.ttl=60 -Dsun.net.client.defaultConnectTimeout=30000 -Dsun.net.client.defaultReadTimeout=300000"
@@ -15,16 +15,12 @@ else
 fi
 
 export JAVA_G1_GC_OPTS="-XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=800" 
+export LOG4SHELL_OPTS="-Dlog4j2.formatMsgNoLookups=true -Djdk.util.zip.disableZip64ExtraFieldValidation=true"
 
 # export JAVA_HOME # Location of Java installation
-export LOG4SHELL_OPTS="-Dlog4j2.formatMsgNoLookups=true -Djdk.util.zip.disableZip64ExtraFieldValidation=true"
+export JAVA_OPTS="$JAVA_MIN_MEM $JAVA_MAX_MEM" # Generic JVM options, for instance, where you can pass the memory configuration
+# export JAVA_NON_DEBUG_OPTS # Additional non-debug JVM options
 export EXTRA_JAVA_OPTS="$JAVA_G1_GC_OPTS $JAVA_GC_LOG_OPTS $JAVA_SP_LOG_OPTS $JAVA_HEAPDUMP_OPTS $JAVA_NET_OPTS $LOG4SHELL_OPTS"
-# export JAVA_HOME # Location of Java installation
-# export JAVA_MIN_MEM # Minimum memory for the JVM
-# export JAVA_MAX_MEM # Maximum memory for the JVM
-# export JAVA_PERM_MEM # Minimum perm memory for the JVM
-# export JAVA_MAX_PERM_MEM # Maximum perm memory for the JVM
-# export EXTRA_JAVA_OPTS # Additional JVM options
 # export KARAF_HOME # Karaf home folder
 # export KARAF_DATA # Karaf data folder
 # export KARAF_BASE # Karaf base folder

@@ -27,32 +27,29 @@
   </dependencyManagement>
   <dependencies>
     <!-- start dependency upgrade overrides -->
+    <!-- asm not needed to be overriden
     <dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-analysis</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-commons</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-tree</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-util</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-   <!-- end dependency upgrade overrides -->
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-analysis</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-commons</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-tree</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-util</artifactId>
+    </dependency>
+    -->
+    <!-- end dependency upgrade overrides -->
     <!-- Start HYTE javax-api and model deps -->
     <dependency>
       <groupId>javax.jms</groupId>
@@ -162,7 +159,6 @@
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.coordinator</artifactId>
-      <version>${hyte.felix.coordinator.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.aries.transaction</groupId>
@@ -176,12 +172,10 @@
     <dependency>
       <groupId>org.apache.aries.tx-control</groupId>
       <artifactId>tx-control-service-local</artifactId>
-      <version>${hyte.aries.tx-control.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.aries.tx-control</groupId>
       <artifactId>tx-control-service-xa</artifactId>
-      <version>${hyte.aries.tx-control.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.geronimo.components</groupId>
@@ -206,7 +200,6 @@
     <dependency>
       <groupId>org.apache.felix</groupId>
       <artifactId>org.apache.felix.inventory</artifactId>
-      <version>${hyte.felix.inventory.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.felix</groupId>
@@ -223,7 +216,6 @@
     <dependency>
       <groupId>org.apache.karaf.scr</groupId>
       <artifactId>org.apache.karaf.scr.state</artifactId>
-      <version>${hyte.karaf.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.karaf.http</groupId>
@@ -275,12 +267,10 @@
     <dependency>
       <groupId>org.ops4j.pax.transx</groupId>
       <artifactId>pax-transx-tm-api</artifactId>
-      <version>${hyte.pax-transx.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.transx</groupId>
       <artifactId>pax-transx-tm-geronimo</artifactId>
-      <version>${hyte.pax-transx.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.transx</groupId>
@@ -292,7 +282,6 @@
     <dependency>
       <groupId>org.ops4j.pax.url</groupId>
       <artifactId>pax-url-classpath</artifactId>
-      <version>${hyte.pax-url.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.url</groupId>
@@ -312,6 +301,7 @@
       <groupId>org.ops4j.base</groupId>
       <artifactId>ops4j-base-util-property</artifactId>
     </dependency>
+    <!-- Only needed for pax-logging override
     <dependency>
       <groupId>org.ops4j.pax.logging</groupId>
       <artifactId>pax-logging-api</artifactId>
@@ -324,13 +314,13 @@
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.logging</groupId>
-      <artifactId>pax-logging-log4j2-extra</artifactId>
-      <version>${hyte.pax-logging.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.ops4j.pax.logging</groupId>
       <artifactId>pax-logging-logback</artifactId>
       <version>${hyte.pax-logging.version}</version>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.ops4j.pax.logging</groupId>
+      <artifactId>pax-logging-log4j2-extra</artifactId>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.swissbox</groupId>
@@ -349,11 +339,13 @@
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-deployer</artifactId>
     </dependency>
+    <!-- not needed in v8.x
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-descriptor</artifactId>
       <version>${hyte.pax-web.version}</version>
     </dependency>
+    -->
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-extender-whiteboard</artifactId>
@@ -400,7 +392,6 @@
     <dependency>
       <groupId>org.apache.aries.spifly</groupId>
       <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
-      <version>${hyte.aries.spifly.dynamic.bundle.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.aries</groupId>
@@ -596,7 +587,6 @@
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
-      <version>${hyte.commons-codec.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-lang</groupId>
@@ -606,7 +596,6 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-pool2</artifactId>
-      <version>${hyte.commons-pool2.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
@@ -620,12 +609,10 @@
     <dependency>
       <groupId>org.apache.karaf.jaas</groupId>
       <artifactId>org.apache.karaf.jaas.jasypt</artifactId>
-      <version>${hyte.karaf.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.karaf.jaas.blueprint</groupId>
       <artifactId>org.apache.karaf.jaas.blueprint.jasypt</artifactId>
-      <version>${hyte.karaf.version}</version>
     </dependency>
     <!-- End ActiveMQ Deps -->
     <!-- Start ActiveMQ -->
@@ -687,7 +674,6 @@
     <dependency>
       <groupId>com.github.ben-manes.caffeine</groupId>
       <artifactId>caffeine</artifactId>
-      <version>${hyte.caffine.version}</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.woodstox</groupId>
@@ -799,7 +785,6 @@
     <dependency>
       <groupId>org.apache.camel.karaf</groupId>
       <artifactId>camel-blueprint</artifactId>
-      <version>${hyte.camel.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -816,7 +801,6 @@
     <dependency>
       <groupId>org.apache.camel.karaf</groupId>
       <artifactId>camel-commands-core</artifactId>
-      <version>${hyte.camel.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -1001,7 +985,6 @@
     <dependency>
       <groupId>org.apache.camel.karaf</groupId>
       <artifactId>camel-core-osgi</artifactId>
-      <version>${hyte.camel.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel.karaf</groupId>
@@ -1019,27 +1002,22 @@
     <dependency>
       <groupId>com.fasterxml.jackson.dataformat</groupId>
       <artifactId>jackson-dataformat-yaml</artifactId>
-      <version>${hyte.jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-base</artifactId>
-      <version>${hyte.jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
-      <version>${hyte.jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.module</groupId>
       <artifactId>jackson-module-jaxb-annotations</artifactId>
-      <version>${hyte.jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>org.yaml</groupId>
       <artifactId>snakeyaml</artifactId>
-      <version>${hyte.snakeyaml.version}</version>
     </dependency>
     <dependency>
       <groupId>org.snakeyaml</groupId>
