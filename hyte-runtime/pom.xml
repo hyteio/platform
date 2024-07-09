@@ -22,78 +22,70 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-analysis</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-commons</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-tree</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-<dependency>
-  <groupId>org.ow2.asm</groupId>
-  <artifactId>asm-util</artifactId>
-  <version>${hyte.asm.version}</version>
-</dependency>
-    <dependency>
-      <groupId>com.sun.mail</groupId>
-      <artifactId>jakarta.mail</artifactId>
-      <version>${hyte.jakarta.mail.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.aries.transaction</groupId>
-      <artifactId>org.apache.aries.transaction.blueprint</artifactId>
-      <version>${hyte.aries.transaction.blueprint_1.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.enterprise</groupId>
-      <artifactId>cdi-api</artifactId>
-      <version>${hyte.javax.cdi-api.version}</version>
-    </dependency>
-    <!-- End duplicate dependencies -->
-    <!-- Start startup dependencies -->
-    <dependency>
-      <groupId>com.lmax</groupId>
-      <artifactId>disruptor</artifactId>
-    </dependency>
-    <dependency>
+    <dependency> 
+    <groupId>org.ow2.asm</groupId>
+    <artifactId>asm</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.ow2.asm</groupId>
+    <artifactId>asm-analysis</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.ow2.asm</groupId>
+    <artifactId>asm-commons</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.ow2.asm</groupId>
+    <artifactId>asm-tree</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.ow2.asm</groupId>
+    <artifactId>asm-util</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>jakarta.mail</artifactId>
+    <version>${hyte.jakarta.mail.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.aries.transaction</groupId>
+    <artifactId>org.apache.aries.transaction.blueprint</artifactId>
+    <version>${hyte.aries.transaction.blueprint_1.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>javax.enterprise</groupId>
+    <artifactId>cdi-api</artifactId>
+    <version>${hyte.javax.cdi-api.version}</version>
+  </dependency>
+  <!-- End duplicate dependencies -->
+  <!-- Start startup dependencies -->
+  <dependency>
+    <groupId>com.lmax</groupId>
+    <artifactId>disruptor</artifactId>
+  </dependency>
+  <!--
+  <dependency>
       <groupId>org.ops4j.pax.logging</groupId>
       <artifactId>pax-logging-api</artifactId>
-      <version>${hyte.pax-logging.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.logging</groupId>
       <artifactId>pax-logging-log4j2</artifactId>
-      <version>${hyte.pax-logging.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.logging</groupId>
       <artifactId>pax-logging-logback</artifactId>
-      <version>${hyte.pax-logging.version}</version>
     </dependency>
+    -->
     <!-- End startup dependencies -->
     <dependency>
       <groupId>org.apache.karaf</groupId>
       <artifactId>apache-karaf</artifactId>
-      <version>${hyte.karaf.version}</version>
       <type>tar.gz</type>
     </dependency>
     <dependency>
       <groupId>org.apache.karaf</groupId>
       <artifactId>apache-karaf</artifactId>
-      <version>${hyte.karaf.version}</version>
       <type>zip</type>
     </dependency>
     <dependency>
@@ -163,20 +155,14 @@
                   <version>${hyte.karaf.version}</version>
                   <type>tar.gz</type>
                   <outputDirectory>${project.build.directory}/karaf-unix</outputDirectory>
-                  <!-- temporary upgrade pax-logging for log4shell
-									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
-									-->
-                  <excludes>**/pax-transx-features/0.5.2/**,**/pax/logging/**,**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
+                  <excludes>**/RELEASE-NOTES,**/LICENSE,**/README</excludes>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.apache.karaf</groupId>
                   <artifactId>apache-karaf</artifactId>
                   <version>${hyte.karaf.version}</version>
                   <type>zip</type>
-                  <excludes>**/pax-transx-features/0.5.2/**,**/pax/logging/**,**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
-                  <!-- temporary upgrade pax-logging for log4shell
-									<excludes>**/demos/**,**/RELEASE-NOTES,**/LICENSE,**/README,**/karaf-manual*</excludes>
-									-->
+                  <excludes>**/RELEASE-NOTES,**/LICENSE,**/README</excludes>
                   <outputDirectory>${project.build.directory}/karaf-win64</outputDirectory>
                 </artifactItem>
                 <artifactItem>
@@ -198,14 +184,6 @@
               </artifactItems>
             </configuration>
           </execution>
-          <!-- <execution> <id>unpack.docs</id> <phase>generate-sources</phase> 
-						<goals> <goal>unpack</goal> </goals> <configuration> <artifactItems> <artifactItem> 
-						<groupId>io.hyte.runtime</groupId> <artifactId>docs</artifactId> <version>${project.version}</version> 
-						<classifier>site</classifier> <outputDirectory>${project.build.directory}/unpack/docs</outputDirectory> 
-						<includes>**/**</includes> </artifactItem> </artifactItems> </configuration> 
-						</execution> <execution> <phase>generate-sources</phase> <goals> <goal>copy-dependencies</goal> 
-						</goals> <configuration> <outputDirectory>${project.build.directory}/unpack/lib</outputDirectory> 
-						</configuration> </execution> -->
           <!-- TODO: confirm no leaking copies -->
           <execution>
             <id>copy.local-repo</id>

@@ -75,7 +75,6 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-pool2</artifactId>
-      <version>${hyte.commons-pool2.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
@@ -95,7 +94,6 @@
     <dependency>
       <groupId>org.codehaus.jettison</groupId>
       <artifactId>jettison</artifactId>
-      <version>${hyte.jettison.version}</version>
     </dependency>
     <!-- End ActiveMQ broker -->
   </dependencies>
