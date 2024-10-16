@@ -17,7 +17,7 @@
 		<hyte.cxf.version>3.6.4</hyte.cxf.version>
 		<hyte.jetty.version>9.4.54.v20240208</hyte.jetty.version>
 		<hyte.karaf.version>4.4.6</hyte.karaf.version>
-		<hyte.spring.version>5.3.33</hyte.spring.version>
+		<hyte.spring.version>5.3.39</hyte.spring.version>
 		<hyte.h2.version>2.3.232</hyte.h2.version>
 		<!-- api and specs -->
 		<hyte.jakarta.xml.bind-api.version>2.3.3</hyte.jakarta.xml.bind-api.version>
