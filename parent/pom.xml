@@ -98,6 +98,7 @@
 		<hyte.smx.specs.jaxws-api-2.3.version>2.3_2</hyte.smx.specs.jaxws-api-2.3.version>
 		<hyte.smx.specs.saaj-api-1.4.version>1.4_1</hyte.smx.specs.saaj-api-1.4.version>
 		<hyte.smx.specs.stax-api-1.0.version>2.9.0</hyte.smx.specs.stax-api-1.0.version>
+		<hyte.smx.specs.stax-api-1.2.version>2.9.0</hyte.smx.specs.stax-api-1.2.version>
 		<hyte.snakeyaml.version>2.2</hyte.snakeyaml.version>
 		<hyte.snakeyaml-engine.version>2.7</hyte.snakeyaml-engine.version>
 		<hyte.stax-ex.version>1.8.3</hyte.stax-ex.version>
