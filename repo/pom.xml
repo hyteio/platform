@@ -743,6 +743,7 @@
 			<classifier>features</classifier>
 		</dependency>
 		 -->
+    <!--
     <dependency>
       <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator-osgi-karaf-features</artifactId>
@@ -757,6 +758,7 @@
       <type>xml</type>
       <classifier>features</classifier>
     </dependency>
+    -->
     <!-- End Camel Deps -->
     <!-- Start Camel -->
     <dependency>
