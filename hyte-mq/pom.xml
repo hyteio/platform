@@ -94,6 +94,7 @@
     <dependency>
       <groupId>org.codehaus.jettison</groupId>
       <artifactId>jettison</artifactId>
+      <version>${hyte.jettison.version}</version>
     </dependency>
     <!-- End ActiveMQ broker -->
   </dependencies>

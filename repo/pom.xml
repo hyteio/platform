@@ -1020,6 +1020,7 @@
     <dependency>
       <groupId>org.yaml</groupId>
       <artifactId>snakeyaml</artifactId>
+      <version>${hyte.snakeyaml.version}</version>
     </dependency>
     <dependency>
       <groupId>org.snakeyaml</groupId>
