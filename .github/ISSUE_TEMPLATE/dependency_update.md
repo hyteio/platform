@@ -1,4 +1,4 @@
 ---
-name: library
-version: new version
+name: dependency update
+about: Use this template for updating project dependencies.
 ---
