@@ -26,7 +26,7 @@
 	</feature>
 	
 	<feature name="hyte-activemq-client" version="${hyte.activemq.version}">
-		<feature version="[4.3,6)">spring</feature>
+		<feature version="${hyte.spring.feature.version}">spring</feature>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
@@ -79,7 +79,7 @@
 	</feature>
 
 	<feature name="hyte-spring-jms" version="${hyte.smx.bundles.spring.version}">
-		<feature version="${hyte.smx.bundles.spring.version}">spring-tx</feature> 
+		<feature version="${hyte.spring.feature.version}">spring-tx</feature>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
   		<bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-jms/${hyte.smx.bundles.spring.version}</bundle>
   		<capability>spring-jms;provider:=hyte</capability>
@@ -87,10 +87,10 @@
 	
 	<feature name="hyte-camel-jms" version="${hyte.camel.version}">
 		<feature version="${hyte.camel.version}">camel-core</feature>
-		<feature version="${hyte.smx.bundles.spring.version}">spring</feature>
-		<feature version="${hyte.smx.bundles.spring.version}">hyte-spring-jms</feature>
+		<feature version="${hyte.spring.feature.version}">spring</feature>
+		<feature version="${hyte.spring.feature.version}">hyte-spring-jms</feature>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/${hyte.geronimo-jta_1.1_spec.version}</bundle>
-                <bundle dependency='true'>mvn:org.apache.commons/commons-pool2/${hyte.commons-pool2.version}</bundle>
+		<bundle dependency='true'>mvn:org.apache.commons/commons-pool2/${hyte.commons-pool2.version}</bundle>
 		<!-- mvn:org.apache.geronimo.specs/geronimo-jms_2.0_spec/1.0-alpha-2 -->
 		<bundle>mvn:org.apache.camel/camel-jms/${hyte.camel.version}</bundle>
 		<capability>camel-jms;provider:=hyte</capability>

@@ -117,7 +117,13 @@
     </dependency>
     <dependency>
       <groupId>org.apache.servicemix.specs</groupId>
+      <artifactId>org.apache.servicemix.specs.stax-api-1.2</artifactId>
+      <version>${hyte.smx.specs.stax-api-1.2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.servicemix.specs</groupId>
       <artifactId>org.apache.servicemix.specs.jaxws-api-2.3</artifactId>
+      <version>${hyte.smx.specs.jaxws-api-2.3.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.servicemix.specs</groupId>
@@ -132,9 +138,9 @@
     <!-- End Karaf+Jetty+Camel conflicts -->
     <!-- Start Karaf connector, transaction-api, transaction -->
     <dependency>
-      <groupId>javax.el</groupId>
-      <artifactId>javax.el-api</artifactId>
-      <version>${hyte.javax.el-api.version}</version>
+      <groupId>jakarta.el</groupId>
+      <artifactId>jakarta.el-api</artifactId>
+      <version>${hyte.jakarta.el-api.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.enterprise</groupId>
@@ -229,6 +235,7 @@
       <groupId>org.apache.karaf.webconsole</groupId>
       <artifactId>org.apache.karaf.webconsole.http</artifactId>
     </dependency>
+    <!--
     <dependency>
       <groupId>org.apache.servicemix.specs</groupId>
       <artifactId>org.apache.servicemix.specs.javax-el-api-3.0.0</artifactId>
@@ -239,8 +246,9 @@
       <artifactId>org.apache.servicemix.bundles.javax-el-impl</artifactId>
       <version>${hyte.smx.bundles.javax-el-3.0.0.version}</version>
     </dependency>
+    -->
     <dependency>
-      <groupId>org.eclipse.jdt.core.compiler</groupId>
+      <groupId>org.eclipse.jdt</groupId>
       <artifactId>ecj</artifactId>
       <version>${hyte.ecj.version}</version>
     </dependency>
@@ -337,6 +345,16 @@
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-compatibility-el2</artifactId>
+      <version>${hyte.pax-web.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-compatibility-servlet31</artifactId>
+      <version>${hyte.pax-web.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-deployer</artifactId>
     </dependency>
     <!-- not needed in v8.x
@@ -356,11 +374,23 @@
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-features</artifactId>
+      <version>${hyte.pax-web.version}</version>
+      <type>xml</type>
+      <classifier>context-jetty</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-jetty</artifactId>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-jsp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-karaf</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
@@ -370,10 +400,29 @@
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-spi</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-tomcat-common</artifactId>
+      <version>${hyte.pax-web.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-websocket</artifactId>
+      <version>${hyte.pax-web.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.service.component</artifactId>
+    </dependency>
     <!-- Start Jetty Deps -->
     <dependency>
       <groupId>jakarta.annotation</groupId>
       <artifactId>jakarta.annotation-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>${hyte.jakarta.servlet-api.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.annotation</groupId>
@@ -383,6 +432,7 @@
     <dependency>
       <groupId>jakarta.mail</groupId>
       <artifactId>jakarta.mail-api</artifactId>
+      <version>${hyte.jakarta.mail.version}</version>
     </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
@@ -531,6 +581,11 @@
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-client</artifactId>
       <version>${hyte.jetty.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.websocket</groupId>
+      <artifactId>jakarta.websocket-api</artifactId>
+      <version>${hyte.jakarta.websocket-api.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.servicemix.bundles</groupId>
@@ -804,6 +859,10 @@
       <groupId>org.apache.camel.karaf</groupId>
       <artifactId>camel-commands-core</artifactId>
     </dependency>
+	<dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-console</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-controlbus</artifactId>
@@ -871,6 +930,12 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-jms</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jms_2.0_spec</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
@@ -1086,7 +1151,7 @@
     <dependency>
       <groupId>org.apache.ws.xmlschema</groupId>
       <artifactId>xmlschema-core</artifactId>
-      <version>${hyte.xmlscheama-core.version}</version>
+      <version>${hyte.xmlschema-core.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.woodstox</groupId>
@@ -1123,7 +1188,7 @@
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-simple</artifactId>
       <version>${hyte.cxf.version}</version>
-    </dependency>
+	</dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-rs-client</artifactId>
