@@ -10,7 +10,7 @@
 		<!--  bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-annotation_1.0_spec/${hyte.geronimo-annotation_1.0_spec.version}</bundle -->
 		<bundle start-level="10">mvn:jakarta.annotation/jakarta.annotation-api/${hyte.jakarta.annotation-api.version}</bundle>
 		<bundle start-level="10">mvn:org.apache.geronimo.specs/geronimo-j2ee-management_1.1_spec/${hyte.geronimo-j2ee-management_1.1_spec.version}</bundle>
-		<bundle start-level="10">mvn:jakarta.mail/jakarta.mail-api/${hyte.jakarta.mail-api.version}</bundle>
+		<!-- bundle start-level="10">mvn:jakarta.mail/jakarta.mail-api/${hyte.jakarta.mail-api.version}</bundle -->
 		<bundle start-level="10">mvn:com.sun.mail/jakarta.mail/${hyte.jakarta.mail.version}</bundle>
 		<bundle start-level="10">mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
 	</feature>
