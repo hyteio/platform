@@ -424,11 +424,13 @@
       <artifactId>jakarta.servlet-api</artifactId>
       <version>${hyte.jakarta.servlet-api.version}</version>
     </dependency>
+    <!--
     <dependency>
       <groupId>javax.annotation</groupId>
       <artifactId>javax.annotation-api</artifactId>
       <version>${hyte.javax.annotation-api.version}</version>
     </dependency>
+    -->
     <dependency>
       <groupId>jakarta.mail</groupId>
       <artifactId>jakarta.mail-api</artifactId>
@@ -629,11 +631,13 @@
     </dependency>
     <!-- End Jetty -->
     <!-- Start ActiveMQ Deps -->
+    <!--
     <dependency>
       <groupId>org.apache.geronimo.specs</groupId>
       <artifactId>geronimo-annotation_1.0_spec</artifactId>
       <version>${hyte.geronimo-annotation_1.0_spec.version}</version>
     </dependency>
+    -->
     <dependency>
       <groupId>org.apache.geronimo.specs</groupId>
       <artifactId>geronimo-j2ee-management_1.1_spec</artifactId>
