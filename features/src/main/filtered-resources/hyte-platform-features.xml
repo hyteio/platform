@@ -61,7 +61,6 @@
 		<feature version="${hyte.activemq.version}">hyte-activemq-client</feature>
 		<bundle>mvn:org.apache.activemq/activemq-karaf/${hyte.activemq.version}</bundle>
 		<bundle dependency="true">mvn:commons-collections/commons-collections/${hyte.commons-collection.version}</bundle>
-		<bundle dependency="true">mvn:commons-io/commons-io/${hyte.commons-io.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.commons/commons-lang3/${hyte.commons-lang3.version}</bundle>
 		<bundle dependency="true">mvn:commons-codec/commons-codec/${hyte.commons-codec.version}</bundle>
 		<bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.velocity/${hyte.smx.bundles.velocity.version}</bundle>
