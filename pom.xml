@@ -32,7 +32,7 @@
 		</snapshotRepository>
 		<repository>
 			<id>ossrh-central</id>
-			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<url>https://oss.sonatype.org/content/repositories/releases/</url>
 		</repository>
 	</distributionManagement>
 	<issueManagement>
@@ -47,7 +47,7 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
+		<connection>scm:git:git@hyteio.github.com:hyteio/platform.git</connection>
 		<url>https://github.com/hyteio/platform</url>
 		<tag>v${project.version}</tag>
 	</scm>
