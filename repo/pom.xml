@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.hyte.platform</groupId>
     <artifactId>parent</artifactId>
-    <version>4.4.7.hyte-25321-SNAPSHOT</version>
+    <version>4.4.8.hyte-25322-SNAPSHOT</version>
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
   <artifactId>repo</artifactId>
@@ -190,6 +190,10 @@
     </dependency>
     <dependency>
       <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-atinject_1.0_spec</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
       <artifactId>geronimo-j2ee-connector_1.6_spec</artifactId>
       <version>${hyte.geronimo-j2ee-connector_1.6_spec.version}</version>
     </dependency>
@@ -255,22 +259,18 @@
     <dependency>
       <groupId>org.apache.xbean</groupId>
       <artifactId>xbean-bundleutils</artifactId>
-      <version>${hyte.xbean.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.xbean</groupId>
       <artifactId>xbean-finder</artifactId>
-      <version>${hyte.xbean.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.xbean</groupId>
       <artifactId>xbean-naming</artifactId>
-      <version>${hyte.xbean.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.xbean</groupId>
       <artifactId>xbean-reflect</artifactId>
-      <version>${hyte.xbean.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.transx</groupId>
@@ -651,6 +651,11 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>${hyte.commons-lang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${hyte.commons-lang3.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>

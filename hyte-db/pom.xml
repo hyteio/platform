@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>io.hyte.platform</groupId>
 		<artifactId>parent</artifactId>
-		<version>4.4.7.hyte-25321-SNAPSHOT</version>
+		<version>4.4.8.hyte-25322-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>hyte-db</artifactId>
@@ -35,13 +35,6 @@
 			<artifactId>hyte-runtime</artifactId>
 			<version>${project.version}</version>
 			<classifier>unix</classifier>
-			<type>tar.gz</type>
-		</dependency>
-		<dependency>
-			<groupId>io.hyte.platform</groupId>
-			<artifactId>hyte-runtime</artifactId>
-			<version>${project.version}</version>
-			<classifier>kubernetes</classifier>
 			<type>tar.gz</type>
 		</dependency>
 		<!-- End HYTE Runtime base builds -->
@@ -114,14 +107,6 @@
 									<type>tar.gz</type>
 									<outputDirectory>${project.build.directory}/hyte-runtime-unix</outputDirectory>
 								</artifactItem>
-								<artifactItem>
-									<groupId>io.hyte.platform</groupId>
-									<artifactId>hyte-runtime</artifactId>
-									<version>${project.version}</version>
-									<classifier>kubernetes</classifier>
-									<type>tar.gz</type>
-									<outputDirectory>${project.build.directory}/hyte-runtime-kubernetes</outputDirectory>
-								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
@@ -156,7 +141,6 @@
 						<configuration>
 							<descriptors>
 								<descriptor>src/main/resources/hyte-db-unix-assembly.xml</descriptor>
-								<descriptor>src/main/resources/hyte-db-kubernetes-assembly.xml</descriptor>
 								<descriptor>src/main/resources/hyte-db-win64-assembly.xml</descriptor>
 							</descriptors>
 							<filters>

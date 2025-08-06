@@ -130,7 +130,7 @@
 		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs.*;version="[2.0,3)",com.fasterxml.jackson.*;version="[2.8,3)"</bundle>
 		<bundle start-level="35">wrap:mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${hyte.jackson.version}$overwrite=merge&amp;Import-Package=javax.ws.rs.*;version="[2.0,3)",com.fasterxml.jackson.module.jaxb;resolution:=optional;version="[2.8,3)",com.fasterxml.jackson.*;version="[2.8,3)"</bundle>
 		-->
-		<capability>cxf-jackson;provider:=hyte</capability>        
+		<capability>cxf-jackson;provider:=hyte</capability>
 	</feature>
     
 	<feature name="hyte-db" version="${hyte.h2.version}" start-level="40">
