@@ -47,7 +47,7 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git@hyteio.github.com:hyteio/platform.git</connection>
+		<connection>scm:git:https://github.com/hyteio/platform.git</connection>
 		<url>https://github.com/hyteio/platform</url>
 		<tag>v4.4.6.hyte-25320</tag>
 	</scm>
