@@ -97,8 +97,8 @@ pipeline {
 
         stage("Release Dry Run") {
             when {
-        
-            }        expression { params.Build == 'release-dry-run' }
+                expression { params.Build == 'release-dry-run' }
+            }
 
             steps {
                 script {
