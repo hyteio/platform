@@ -95,22 +95,11 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            when {
-                expression {
-                    env.BRANCH_NAME ==~ /(main|v4.3.x|v4.2.x)/
-                }
-            }
-            steps {
-                echo 'Deploying'
-                sh 'mvn -B -e deploy -Pdeploy -DskipTests'
-            }
-        }
-
         stage("Release Dry Run") {
             when {
-                expression { params.Build == 'release-dry-run' }
-            }
+        
+            }        expression { params.Build == 'release-dry-run' }
+
             steps {
                 script {
                     if (!params.ReleaseVersion.isEmpty() && !params.NextSnapshotVersion.isEmpty()) {
