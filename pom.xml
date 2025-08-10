@@ -54,13 +54,14 @@
 	<properties>
 		<hyte.revision>${project.version}-${buildNumber}</hyte.revision>
 		<hyte.jdk.version>11</hyte.jdk.version>
+                <project.build.outputTimestamp>2023-01-01T00:00:00Z</project.build.outputTimestamp>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Maven Plugins -->
 		<maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
 		<maven-build-helper-maven-plugin.version>3.6.1</maven-build-helper-maven-plugin.version>
                 <maven-buildnumber-plugin.version>3.2.1</maven-buildnumber-plugin.version>
-        <maven-central-publishing-plugin.version>0.8.0</maven-central-publishing-plugin.version>
+                <maven-central-publishing-plugin.version>0.8.0</maven-central-publishing-plugin.version>
 		<maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
 		<maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
 		<maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
