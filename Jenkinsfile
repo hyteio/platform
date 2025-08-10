@@ -82,6 +82,13 @@ pipeline {
             }
         }
 
+        stage('Verify') {
+            steps {
+                echo 'Reproducible build check'
+                sh 'mvn clean verify artifact:compare'
+            }
+        }
+
         stage('Tests') {
             steps {
                 echo 'Running tests'
