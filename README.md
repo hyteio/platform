@@ -14,7 +14,7 @@ HYTE Platform provides a standards-based runtime for running modular application
  * Jackson (v2.19.2) for JSON data formats
  * LMAX disruptor (v3.4.4) for high-speed async logging with log4j2
 
-Latest version: 4.4.8.hyte-25322
+Latest version: 4.4.8.hyte-25323
 
 ### Default admin account and ports ###
 
@@ -30,15 +30,15 @@ Default password: admin
 | JMX     | 44444/1099 | service:jmx:rmi://localhost:44444/jndi/rmi://localhost:1099/karaf-root | |
 
 ## Downloads:
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.4.8.hyte-25322/hyte-runtime-4.4.8.hyte-25322-unix.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.4.8.hyte-25322/hyte-runtime-4.4.8.hyte-25322-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.4.8.hyte-25323/hyte-runtime-4.4.8.hyte-25323-unix.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-runtime/4.4.8.hyte-25323/hyte-runtime-4.4.8.hyte-25323-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.4.8.hyte-25322</version>
+    <version>4.4.8.hyte-25323</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -49,7 +49,7 @@ Default password: admin
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-runtime</artifactId>
-    <version>4.4.8.hyte-25322</version>
+    <version>4.4.8.hyte-25323</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -60,15 +60,15 @@ Default password: admin
 HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade best practices
 
 ## Downloads:
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.4.8.hyte-25322/hyte-mq-4.4.8.hyte-25322-unix.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.4.8.hyte-25322/hyte-mq-4.4.8.hyte-25322-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.4.8.hyte-25323/hyte-mq-4.4.8.hyte-25323-unix.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-mq/4.4.8.hyte-25323/hyte-mq-4.4.8.hyte-25323-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.4.8.hyte-25322</version>
+    <version>4.4.8.hyte-25323</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -79,7 +79,7 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-mq</artifactId>
-    <version>4.4.8.hyte-25322</version>
+    <version>4.4.8.hyte-25323</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
@@ -90,15 +90,15 @@ HYTE MQ is a packaged build of Apache ActiveMQ that applies enterprise grade bes
 HYTE DB is a packaged build of H2 Database
 
 ### Downloads:
- * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.4.8.hyte-25322/hyte-db-4.4.8.hyte-25322-unix.tar.gz)
- * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.4.8.hyte-25322/hyte-db-4.4.8.hyte-25322-win64.zip)
+ * UNIX 64-bit tar.gz: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.4.8.hyte-25323/hyte-db-4.4.8.hyte-25323-unix.tar.gz)
+ * Windows 64-bit zip: [Download latest](https://repo1.maven.org/maven2/io/hyte/platform/hyte-db/4.4.8.hyte-25323/hyte-db-4.4.8.hyte-25323-win64.zip)
 
 ### Maven coordinates for UNIX: ###
 ```
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.4.8.hyte-25322</version>
+    <version>4.4.8.hyte-25323</version>
     <classifier>unix</classifier>
     <type>tar.gz</type>
 </dependency>
@@ -109,7 +109,7 @@ HYTE DB is a packaged build of H2 Database
 <dependency>
     <groupId>io.hyte.platform</groupId>
     <artifactId>hyte-db</artifactId>
-    <version>4.4.8.hyte-25322</version>
+    <version>4.4.8.hyte-25323</version>
     <classifier>win64</classififer>
     <type>zip</type>
 </dependency>
