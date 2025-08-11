@@ -13,7 +13,7 @@
     <properties>
         <!-- frameworks -->
         <hyte.activemq.version>5.19.0</hyte.activemq.version>
-        <hyte.camel.version>3.22.2</hyte.camel.version>
+        <hyte.camel.version>3.22.4</hyte.camel.version>
         <hyte.cxf.version>3.6.8</hyte.cxf.version>
         <hyte.jetty.version>9.4.57.v20241219</hyte.jetty.version>
         <hyte.karaf.version>4.4.8</hyte.karaf.version>
