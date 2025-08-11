@@ -5,7 +5,7 @@
     <artifactId>build</artifactId>
     <name>HYTE :: Platform :: Build</name>
     <packaging>pom</packaging>
-    <version>4.4.8.hyte-25324-SNAPSHOT</version>
+    <version>4.4.8.hyte-25324</version>
     <description>HYTE Platform</description>
     <url>https://hyte.io</url>
     <inceptionYear>2017</inceptionYear>
@@ -49,12 +49,12 @@
     <scm>
         <connection>scm:git:https://github.com/hyteio/platform.git</connection>
         <url>https://github.com/hyteio/platform</url>
-        <tag>v4.4.8.hyte-25323</tag>
+        <tag>v4.4.8.hyte-25324</tag>
     </scm>
     <properties>
         <hyte.revision>${project.version}-${buildNumber}</hyte.revision>
         <hyte.jdk.version>11</hyte.jdk.version>
-        <project.build.outputTimestamp>2025-08-10T23:10:02Z</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2025-08-11T15:04:30Z</project.build.outputTimestamp>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Maven Plugins -->
