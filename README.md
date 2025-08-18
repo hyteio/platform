@@ -1,6 +1,6 @@
 # HYTE Platform #
 
-## HYBRID Microservices Runtime ##
+## Modular services Runtime ##
 
 HYTE Platform provides a standards-based runtime for running modular applications. Support for using REST APIs, standardized enterprise messaging and low-code integration process flows.
 
