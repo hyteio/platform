@@ -29,6 +29,7 @@
         <hyte.jakarta.mail-api.version>1.6.7</hyte.jakarta.mail-api.version>
         <hyte.jakarta.mail.version>1.6.7</hyte.jakarta.mail.version>
         <hyte.jakarta.servlet-api.version>4.0.4</hyte.jakarta.servlet-api.version>
+        <hyte.jakarta.ws.rs-api.version>2.1.5</hyte.jakarta.ws.rs-api.version>
         <!-- hyte.javax.servlet-api.version>3.1.0</hyte.javax.servlet-api.version -->
         <!-- hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version -->
         <!-- pax versions -->
@@ -46,8 +47,8 @@
         <hyte.cdi-api.version>2.0.SP1</hyte.cdi-api.version>
         <hyte.commons-codec.version>1.17.1</hyte.commons-codec.version>
         <hyte.commons-collection.version>3.2.2</hyte.commons-collection.version>
-        <hyte.commons-io.version>2.14.0</hyte.commons-io.version>
-        <hyte.commons-lang.version>2.6</hyte.commons-lang.version>
+        <hyte.commons-io.version>2.15.1</hyte.commons-io.version>
+        <!-- hyte.commons-lang.version>2.6</hyte.commons-lang.version -->
         <hyte.commons-lang3.version>3.18.0</hyte.commons-lang3.version>
         <hyte.commons-pool2.version>2.12.0</hyte.commons-pool2.version>
         <hyte.ecj.version>3.26.0</hyte.ecj.version>
@@ -68,8 +69,10 @@
         <hyte.jakarta.activation.version>1.2.2</hyte.jakarta.activation.version>
         <hyte.jakarta.jws-api.version>2.1.0</hyte.jakarta.jws-api.version>
         <hyte.jakarta.websocket-api.version>1.1.2</hyte.jakarta.websocket-api.version>
+        <hyte.jakarta.xml.ws-api.version>2.3.2</hyte.jakarta.xml.ws-api.version>
         <hyte.javax.cdi-api.version>1.2</hyte.javax.cdi-api.version>
         <hyte.javax.interceptor-api.version>1.2.2</hyte.javax.interceptor-api.version>
+        <hyte.javax.servlet-api.version>3.1.0</hyte.javax.servlet-api.version>
         <hyte.javax.transaction-api.version>1.2</hyte.javax.transaction-api.version>
         <hyte.jaxb2-basics-runtime.version>0.12.0</hyte.jaxb2-basics-runtime.version>
         <hyte.jettison.version>1.5.4</hyte.jettison.version>

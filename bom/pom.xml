@@ -88,6 +88,22 @@
 				<version>${hyte.jakarta.activation.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>jakarta.ws.rs</groupId>
+				<artifactId>jakarta.ws.rs-api</artifactId>
+				<version>${hyte.jakarta.ws.rs-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.xml.ws</groupId>
+				<artifactId>jakarta.xml.ws-api</artifactId>
+				<version>${hyte.jakarta.xml.ws-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-bom</artifactId>
+				<version>${hyte.log4j2.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
 				<groupId>com.lmax</groupId>
 				<artifactId>disruptor</artifactId>
 				<version>${hyte.lmax.version}</version>
@@ -145,6 +161,37 @@
 				<groupId>com.h2database</groupId>
 				<artifactId>h2</artifactId>
 				<version>${hyte.h2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.servicemix.bundles</groupId>
+				<artifactId>org.apache.servicemix.bundles.jasypt</artifactId>
+				<version>${hyte.smx.bundles.jasypt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.servicemix.bundles</groupId>
+				<artifactId>org.apache.servicemix.bundles.jasypt-spring31</artifactId>
+				<version>${hyte.smx.bundles.jasypt-spring31.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+				<version>${hyte.geronimo-ws-metadata_2.0_spec.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${hyte.javax.servlet-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>${hyte.snakeyaml.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.snakeyaml</groupId>
+				<artifactId>snakeyaml-engine</artifactId>
+				<version>${hyte.snakeyaml-engine.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

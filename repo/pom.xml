@@ -648,11 +648,13 @@
       <artifactId>commons-codec</artifactId>
       <version>${hyte.commons-codec.version}</version>
     </dependency>
+    <!--
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>${hyte.commons-lang.version}</version>
     </dependency>
+    -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>

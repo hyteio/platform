@@ -22,7 +22,7 @@
     <repository>mvn:org.apache.karaf.features/standard/4.4.8/xml/features</repository>
 
     <!-- Spring DM support (deprecated, user should use blueprint instead -->
-
+    <!--
     <feature name="spring-dm" description="Spring DM support" version="1.2.1">
         <feature version="[2.5.6,4)">spring</feature>
         <bundle dependency="true" start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.cglib/3.2.9_1</bundle>
@@ -45,9 +45,9 @@
         <feature version="[2.5.6,4)">spring-web</feature>
         <bundle start-level="30">mvn:org.springframework.osgi/spring-osgi-web/1.2.1</bundle>
     </feature>
-
+    -->
     <!-- Spring 3.1.x support (required for spring-dm) -->
-
+    <!--
     <feature name="spring" description="Spring 3.1.x support" version="3.1.4.RELEASE">
         <bundle dependency="true" start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/1.0_6</bundle>
         <bundle start-level="30">mvn:org.springframework/spring-core/3.1.4.RELEASE</bundle>
@@ -123,9 +123,9 @@
         <bundle dependency="true" start-level="30">wrap:mvn:javax.portlet/portlet-api/2.0$Export-Package=javax.portlet.*;version=2.0</bundle>
         <bundle start-level="30">mvn:org.springframework/spring-webmvc-portlet/3.1.4.RELEASE</bundle>
     </feature>
-
+    -->
     <!-- Spring 4.3.x support -->
-
+    <!--
     <feature name="spring" description="Spring 4.3.x support" version="4.3.30.RELEASE_1">
         <bundle dependency="true" start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/1.0_6</bundle>
         <bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-core/4.3.30.RELEASE_1</bundle>
@@ -205,9 +205,9 @@
         <feature version="[4.3.30.RELEASE_1,4.4)">spring-web</feature>
         <bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-websocket/4.3.30.RELEASE_1</bundle>
     </feature>
-
+    -->
     <!-- Spring 5.2.x support -->
-
+    <!--
     <feature name="spring" description="Spring 5.2.x support" version="5.2.25.RELEASE_1">
         <bundle dependency="true" start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.aopalliance/1.0_6</bundle>
         <bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-core/5.2.25.RELEASE_1</bundle>
@@ -280,7 +280,7 @@
         <feature version="[5.2.25.RELEASE_1,5.3)">spring-web</feature>
         <bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-websocket/5.2.25.RELEASE_1</bundle>
     </feature>
-
+    -->
     <!-- Spring 5.3.x support -->
 
     <feature name="spring" description="Spring 5.3.x support" version="5.3.39_2">
@@ -432,7 +432,7 @@
     </feature>
     -->
     <!-- Spring Security support -->
-
+    <!--
     <feature name="spring-security" description="Spring Security 3.1.x support" version="3.1.4.RELEASE">
         <feature>pax-web-jsp</feature>
         <feature>pax-web-war</feature>
@@ -492,7 +492,7 @@
         <bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-security-acl/5.4.6_1</bundle>
         <bundle start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.spring-security-taglibs/5.4.6_1</bundle>
     </feature>
-
+    -->
     <feature name="spring-security" description="Spring Security 5.5.x support" version="5.5.3_1">
         <feature>pax-web-jsp</feature>
         <feature>pax-web-war</feature>

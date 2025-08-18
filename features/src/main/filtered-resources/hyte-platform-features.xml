@@ -15,15 +15,15 @@
 		<bundle start-level="10">mvn:javax.jms/javax.jms-api/${hyte.javax.jms-api.version}</bundle>
 	</feature>
 	
-	<feature name="hyte-model" version="${project.version}" start-level="20">
-	    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
- 		<bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
-        <bundle>mvn:com.sun.istack/istack-commons-runtime/${hyte.istack-commons-runtime.version}</bundle>
-		<bundle>mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/${hyte.jaxb2-basics-runtime.version}</bundle>
-		<bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
-		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
-		<bundle>mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
-		<bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
+        <feature name="hyte-model" version="${project.version}" start-level="20">
+          <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-runtime/${hyte.smx.bundles.jaxb-runtime.version}</bundle>
+          <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
+          <bundle>mvn:com.sun.istack/istack-commons-runtime/${hyte.istack-commons-runtime.version}</bundle>
+          <bundle>mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/${hyte.jaxb2-basics-runtime.version}</bundle>
+          <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+          <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
+          <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
+          <bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
 	</feature>
 	
 	<feature name="hyte-activemq-client" version="${hyte.activemq.version}">
