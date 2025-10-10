@@ -322,6 +322,18 @@
         </repository>
         -->
         <repository>
+          <id>apache-activemq-staging</id>
+          <url>https://repository.apache.org/content/repositories/orgapacheactivemq-1436/</url>
+          <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </releases>
+        </repository>
+        <repository>
             <id>apache-snapshots</id>
             <name>Apache Snapshots Repository</name>
             <url>https://repository.apache.org/content/groups/snapshots-group</url>
