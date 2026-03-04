@@ -2,7 +2,7 @@
 
 ## Modular services Runtime ##
 
-HYTE Platform provides a standards-based runtime for running modular applications. Support for using REST APIs, standardized enterprise messaging and low-code integration process flows.
+HYTE Platform provides a standards-based runtime for running modular applications. Support for using REST APIs, enterprise messaging and integration flows.
 
 ## Components ##
 
