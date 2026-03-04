@@ -5,7 +5,7 @@
     <artifactId>build</artifactId>
     <name>HYTE :: Platform :: Build</name>
     <packaging>pom</packaging>
-    <version>4.4.8.hyte-25343-SNAPSHOT</version>
+    <version>4.4.8.hyte-26100-SNAPSHOT</version>
     <description>HYTE Platform</description>
     <url>https://hyte.io</url>
     <inceptionYear>2017</inceptionYear>
@@ -54,7 +54,7 @@
     <properties>
         <hyte.revision>${project.version}-${buildNumber}</hyte.revision>
         <hyte.jdk.version>11</hyte.jdk.version>
-        <project.build.outputTimestamp>2025-11-13T15:22:02Z</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2026-03-04T15:39:46Z</project.build.outputTimestamp>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Maven Plugins -->
