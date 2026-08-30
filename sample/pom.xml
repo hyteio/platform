@@ -4,13 +4,13 @@
     <parent>
         <groupId>io.hyte.platform</groupId>
         <artifactId>parent</artifactId>
-        <version>4.4.11.hyte-26350-SNAPSHOT</version>
+        <version>4.4.11.hyte-26350</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
     <artifactId>sample</artifactId>
     <name>HYTE :: Platform :: Sample</name>
     <packaging>bundle</packaging>
-    <description>End-to-end dependency alignment validation: CXF (Jetty) -> Camel -> JMS -> ActiveMQ vm:// request/response -> Jackson marshaling, all at the platform-pinned versions.</description>
+    <description>End-to-end dependency alignment validation: CXF (Jetty) -&gt; Camel -&gt; JMS -&gt; ActiveMQ vm:// request/response -&gt; Jackson marshaling, all at the platform-pinned versions.</description>
 
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
