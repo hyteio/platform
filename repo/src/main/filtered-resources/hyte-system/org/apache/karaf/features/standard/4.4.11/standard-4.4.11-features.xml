@@ -1442,7 +1442,7 @@ org.apache.felix.eventadmin.AddSubject=true
 
     <feature name="jasypt-encryption" description="Advanced encryption support for Karaf security" version="4.4.11">
         <feature>jaas</feature>
-        <bundle dependency="true" start-level="30">mvn:commons-codec/commons-codec/1.17.1</bundle>
+        <bundle dependency="true" start-level="30">mvn:commons-codec/commons-codec/${hyte.commons-codec.version}</bundle>
         <bundle dependency="true" start-level="30">mvn:org.apache.commons/commons-lang3/3.20.0</bundle>
         <bundle dependency="true" start-level="30">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jasypt/1.9.3_1</bundle>
         <bundle start-level="30">mvn:org.apache.karaf.jaas/org.apache.karaf.jaas.jasypt/4.4.11</bundle>

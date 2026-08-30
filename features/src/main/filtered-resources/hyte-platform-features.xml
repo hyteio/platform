@@ -20,7 +20,7 @@
           <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jaxb-xjc/${hyte.smx.bundles.jaxb-xjc.version}</bundle>
           <bundle>mvn:com.sun.istack/istack-commons-runtime/${hyte.istack-commons-runtime.version}</bundle>
           <bundle>mvn:org.jvnet.jaxb2_commons/jaxb2-basics-runtime/${hyte.jaxb2-basics-runtime.version}</bundle>
-          <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+          <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson-annotations.version}</bundle>
           <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
           <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
           <bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
@@ -74,7 +74,7 @@
 		<bundle dependency="true">mvn:org.codehaus.jettison/jettison/${hyte.jettison.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
-		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson-annotations.version}</bundle>
 		<bundle>mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
 		<capability>activemq-broker;provider:=hyte</capability>
 	</feature>
@@ -118,7 +118,7 @@
 		<bundle start-level="35">mvn:org.yaml/snakeyaml/${hyte.snakeyaml.version}</bundle>
 		<bundle start-level="35">mvn:org.snakeyaml/snakeyaml-engine/${hyte.snakeyaml-engine.version}</bundle>
 		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-core/${hyte.jackson.version}</bundle>
-		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson.version}</bundle>
+		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-annotations/${hyte.jackson-annotations.version}</bundle>
 		<bundle start-level="35">mvn:com.fasterxml.jackson.core/jackson-databind/${hyte.jackson.version}</bundle>
 		<bundle start-level="35">mvn:com.fasterxml.jackson.datatype/jackson-datatype-jsr310/${hyte.jackson.version}</bundle>
 		<bundle start-level="35">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/${hyte.jackson.version}</bundle>
