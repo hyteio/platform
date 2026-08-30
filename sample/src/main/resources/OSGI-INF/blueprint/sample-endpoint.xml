@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:jaxrs="http://cxf.apache.org/blueprint/jaxrs"
+           xmlns:camel="http://camel.apache.org/schema/blueprint">
+
+    <!-- In-container execution path: the CXF JAX-RS endpoint and Camel JMS route run INSIDE Karaf,
+         so cxf:list-endpoints, camel:context-list and camel:route-list see them, and both register
+         their MBeans in the container's JMX. Requires boot features: hyte-cxf-jaxrs,
+         hyte-cxf-jackson, hyte-camel-jms, camel (blueprint + karaf commands). -->
+
+    <bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="vm://hyte-it?create=false"/>
+        <property name="trustAllPackages" value="true"/>
+    </bean>
+    <bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    </bean>
+
+    <bean id="sampleResponder" class="io.hyte.platform.sample.SampleResponder"/>
+
+    <camel:camelContext id="sample-camel" depends-on="xaConnectionFactory">
+        <camel:template id="producerTemplate"/>
+        <camel:route id="sample-payload-responder">
+            <camel:from uri="jms:queue:sample.payload"/>
+            <camel:bean ref="sampleResponder" method="respond"/>
+        </camel:route>
+    </camel:camelContext>
+
+    <bean id="hyteObjectMapper" class="io.hyte.platform.sample.HyteJackson" factory-method="newObjectMapper"/>
+    <bean id="jacksonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
+        <argument ref="hyteObjectMapper"/>
+    </bean>
+    <bean id="sampleResource" class="io.hyte.platform.sample.SampleResource">
+        <argument ref="producerTemplate"/>
+    </bean>
+
+    <!-- served by the CXF OSGi HTTP transport under the CXF servlet (org.apache.cxf.osgi.cfg context /api) on pax-web port 8181:
+         http://localhost:8181/api/sample-app/sample/payload -->
+    <jaxrs:server id="sampleEndpoint" address="/sample-app">
+        <jaxrs:serviceBeans>
+            <ref component-id="sampleResource"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref component-id="jacksonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+
+</blueprint>

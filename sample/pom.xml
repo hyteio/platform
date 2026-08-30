@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.hyte.platform</groupId>
+        <artifactId>parent</artifactId>
+        <version>4.4.11.hyte-26350-SNAPSHOT</version>
+        <relativePath>../parent/pom.xml</relativePath>
+    </parent>
+    <artifactId>sample</artifactId>
+    <name>HYTE :: Platform :: Sample</name>
+    <packaging>bundle</packaging>
+    <description>End-to-end dependency alignment validation: CXF (Jetty) -> Camel -> JMS -> ActiveMQ vm:// request/response -> Jackson marshaling, all at the platform-pinned versions.</description>
+
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- The platform BOM is the alignment under test: every stack artifact resolves through it -->
+            <dependency>
+                <groupId>io.hyte.platform</groupId>
+                <artifactId>bom</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-bom</artifactId>
+                <version>${hyte.jetty.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- CXF JAX-RS front end on the Jetty HTTP transport -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-management</artifactId>
+        </dependency>
+        <!-- Jackson JSON marshaling (javax JAX-RS provider, matches CXF 3.6) -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <!-- Camel core + JMS component (+ JMX management of contexts/routes/endpoints) -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-management</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>${hyte.spring.version}</version>
+        </dependency>
+        <!-- ActiveMQ embedded broker + client (vm:// transport) -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-broker</artifactId>
+            <version>${hyte.activemq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-client</artifactId>
+            <version>${hyte.activemq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.jms</groupId>
+            <artifactId>javax.jms-api</artifactId>
+            <version>${hyte.javax.jms-api.version}</version>
+        </dependency>
+        <!-- in-container XA path (blueprint-wired; optional at plain-JVM runtime) -->
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>javax.transaction-api</artifactId>
+            <version>${hyte.javax.transaction-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-j2ee-connector_1.6_spec</artifactId>
+            <version>${hyte.geronimo-j2ee-connector_1.6_spec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${hyte.h2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.transx</groupId>
+            <artifactId>pax-transx-tm-api</artifactId>
+            <version>${hyte.pax-transx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.transx</groupId>
+            <artifactId>pax-transx-jdbc</artifactId>
+            <version>${hyte.pax-transx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.transx</groupId>
+            <artifactId>pax-transx-jms</artifactId>
+            <version>${hyte.pax-transx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${hyte.slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.core</artifactId>
+            <version>8.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${hyte.junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${hyte.slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>io.hyte.platform.sample</Bundle-SymbolicName>
+                        <!-- Deployed into Karaf, only the XA execution path (blueprint) activates:
+                             its packages import mandatorily; the JVM-side app's packages (CXF, Camel,
+                             Jackson, Spring, Jetty) never load in-container and resolve optionally. -->
+                        <Import-Package>
+                            javax.jms,
+                            javax.sql,
+                            javax.transaction;version="[1.1,2)",
+                            javax.resource.spi,
+                            javax.ws.rs;version="[2,3)",
+                            javax.ws.rs.core;version="[2,3)",
+                            org.apache.activemq,
+                            org.apache.camel,
+                            org.apache.camel.component.jms,
+                            org.osgi.framework,
+                            org.h2.jdbcx;version="[0,3)",
+                            org.ops4j.pax.transx.tm,
+                            org.ops4j.pax.transx.jdbc,
+                            org.ops4j.pax.transx.jms,
+                            com.fasterxml.jackson.databind,
+                            com.fasterxml.jackson.databind.cfg,
+                            com.fasterxml.jackson.datatype.jsr310,
+                            com.fasterxml.jackson.annotation,
+                            com.fasterxml.jackson.jaxrs.json,
+                            org.slf4j,
+                            *;resolution:=optional
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <hyte.jackson.version>${hyte.jackson.version}</hyte.jackson.version>
+                        <hyte.camel.version>${hyte.camel.version}</hyte.camel.version>
+                        <hyte.activemq.version>${hyte.activemq.version}</hyte.activemq.version>
+                        <hyte.cxf.version>${hyte.cxf.version}</hyte.cxf.version>
+                        <hyte.jetty.version>${hyte.jetty.version}</hyte.jetty.version>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
