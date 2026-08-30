@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.hyte.platform</groupId>
     <artifactId>parent</artifactId>
-    <version>4.4.8.hyte-26151-SNAPSHOT</version>
+    <version>4.4.11.hyte-26350-SNAPSHOT</version>
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
   <artifactId>hyte-mq</artifactId>
@@ -90,6 +90,31 @@
       <version>${hyte.jettison.version}</version>
     </dependency>
     <!-- End ActiveMQ broker -->
+    <!-- Distro integration test: runs the sample alignment flow against the assembled runtime -->
+    <dependency>
+      <groupId>io.hyte.platform</groupId>
+      <artifactId>sample</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${hyte.h2.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${hyte.junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${hyte.slf4j.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <extensions>
@@ -165,6 +190,7 @@
             <configuration>
               <copyPom>true</copyPom>
               <excludeTransitive>true</excludeTransitive>
+              <includeScope>runtime</includeScope>
               <excludeArtifactIds>hyte-runtime</excludeArtifactIds>
               <outputDirectory>${project.build.directory}/local-repo</outputDirectory>
               <overWriteReleases>false</overWriteReleases>
@@ -194,6 +220,57 @@
               </filters>
               <finalName>hyte-mq-${project.version}</finalName>
               <tarLongFileMode>posix</tarLongFileMode>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- pom packaging binds no test lifecycle: compile the IT sources and run them with failsafe
+           AFTER the distribution tarball is assembled -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>compile-integration-tests</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- exposes ${io.hyte.platform:sample-xa:jar} for the IT to hot-deploy into the distro -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>dependency-paths</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>distro-sample-it</id>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+            <configuration>
+              <systemPropertyVariables>
+                <hyte.mq.tarball>${project.build.directory}/hyte-mq-${project.version}-unix.tar.gz</hyte.mq.tarball>
+                <hyte.mq.workdir>${project.build.directory}/it-distro</hyte.mq.workdir>
+                <hyte.samplexa.jar>${io.hyte.platform:sample:jar}</hyte.samplexa.jar>
+                <hyte.h2.jar>${com.h2database:h2:jar}</hyte.h2.jar>
+                <hyte.h2.version>${hyte.h2.version}</hyte.h2.version>
+              </systemPropertyVariables>
             </configuration>
           </execution>
         </executions>

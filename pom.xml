@@ -5,7 +5,7 @@
     <artifactId>build</artifactId>
     <name>HYTE :: Platform :: Build</name>
     <packaging>pom</packaging>
-    <version>4.4.8.hyte-26151-SNAPSHOT</version>
+    <version>4.4.11.hyte-26350-SNAPSHOT</version>
     <description>HYTE Platform</description>
     <url>https://hyte.io</url>
     <inceptionYear>2017</inceptionYear>
@@ -54,7 +54,7 @@
     <properties>
         <hyte.revision>${project.version}-${buildNumber}</hyte.revision>
         <hyte.jdk.version>11</hyte.jdk.version>
-        <project.build.outputTimestamp>2026-04-09T22:32:03Z</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2026-08-30T15:15:56Z</project.build.outputTimestamp>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!-- Maven Plugins -->
@@ -62,12 +62,12 @@
         <maven-assembly-plugin.version>3.8.0</maven-assembly-plugin.version>
         <maven-build-helper-maven-plugin.version>3.6.1</maven-build-helper-maven-plugin.version>
         <maven-buildnumber-plugin.version>3.3.0</maven-buildnumber-plugin.version>
-        <maven-central-publishing-plugin.version>0.10.0</maven-central-publishing-plugin.version>
+        <maven-central-publishing-plugin.version>0.11.0</maven-central-publishing-plugin.version>
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
-        <maven-dependency-plugin.version>3.10.0</maven-dependency-plugin.version>
+        <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
         <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
-        <maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
+        <maven-enforcer-plugin.version>3.6.3</maven-enforcer-plugin.version>
         <maven-exec-plugin.version>3.6.3</maven-exec-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
         <maven-install-plugin.version>3.1.4</maven-install-plugin.version>
@@ -78,6 +78,9 @@
         <maven-resources-plugin-encoding>${default.encoding}</maven-resources-plugin-encoding>
         <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
+        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.5.6</maven-failsafe-plugin.version>
+        <maven-bundle-plugin.version>5.1.9</maven-bundle-plugin.version>
         <maven-versions-plugin.version>2.21.0</maven-versions-plugin.version>
         <maven-wagon-maven-plugin.version>1.0</maven-wagon-maven-plugin.version>
         <maven-wagon-ssh.version>3.0.0</maven-wagon-ssh.version>
@@ -156,6 +159,22 @@
                 <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${maven-source-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                    <extensions>true</extensions>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -376,5 +395,6 @@
         <module>hyte-runtime</module>
         <module>hyte-db</module>
         <module>hyte-mq</module>
+        <module>sample</module>
     </modules>
 </project>

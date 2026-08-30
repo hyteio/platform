@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.hyte.platform</groupId>
     <artifactId>parent</artifactId>
-    <version>4.4.8.hyte-26151-SNAPSHOT</version>
+    <version>4.4.11.hyte-26350-SNAPSHOT</version>
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
   <artifactId>repo</artifactId>
@@ -183,6 +183,15 @@
       <groupId>org.apache.aries.tx-control</groupId>
       <artifactId>tx-control-service-xa</artifactId>
     </dependency>
+    <!-- Karaf 4.4.11 enterprise features added the jdbc tx-control providers -->
+    <dependency>
+      <groupId>org.apache.aries.tx-control</groupId>
+      <artifactId>tx-control-provider-jdbc-local</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.tx-control</groupId>
+      <artifactId>tx-control-provider-jdbc-xa</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.apache.geronimo.components</groupId>
       <artifactId>geronimo-connector</artifactId>
@@ -279,6 +288,17 @@
     <dependency>
       <groupId>org.ops4j.pax.transx</groupId>
       <artifactId>pax-transx-tm-geronimo</artifactId>
+    </dependency>
+    <!-- XA enlistment wrappers for in-container queue<->database transactions (sample-xa IT) -->
+    <dependency>
+      <groupId>org.ops4j.pax.transx</groupId>
+      <artifactId>pax-transx-jdbc</artifactId>
+      <version>${hyte.pax-transx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.transx</groupId>
+      <artifactId>pax-transx-jms</artifactId>
+      <version>${hyte.pax-transx.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.transx</groupId>

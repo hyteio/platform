@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.2.0">
+
+    <!-- $[karaf.data] resolves from system properties; the H2 file lives under karaf.data so each
+         test run starts and ends with a clean dataset (the IT removes data/it-xa around the run) -->
+    <ext:property-placeholder placeholder-prefix="$[" placeholder-suffix="]" system-properties="override"/>
+
+    <!-- services provided by the karaf 'transaction' feature (transaction-manager-geronimo) -->
+    <reference id="paxTransxTm" interface="org.ops4j.pax.transx.tm.TransactionManager" timeout="60000"/>
+    <reference id="userTransaction" interface="javax.transaction.UserTransaction" timeout="60000"/>
+
+
+    <!-- XA-enlisting wrappers (pax-transx) around H2 XADataSource and ActiveMQ XAConnectionFactory;
+         AUTO_SERVER lets the integration test inspect the on-disk database concurrently -->
+    <bean id="xaDataSource" class="io.hyte.platform.sample.xa.XaWiring" factory-method="dataSource">
+        <argument ref="paxTransxTm"/>
+        <argument value="jdbc:h2:file:$[karaf.data]/it-xa/sampledb;AUTO_SERVER=TRUE"/>
+    </bean>
+    <!-- the factory waits (via the bundle context) for activemq-osgi to register the FULLY STARTED
+         BrokerService before first vm:// attach; BrokerService is a class with final methods, so a
+         blueprint <reference> proxy is not possible -->
+    <bean id="xaConnectionFactory" class="io.hyte.platform.sample.xa.XaWiring" factory-method="connectionFactory">
+        <argument ref="paxTransxTm"/>
+        <argument ref="blueprintBundleContext"/>
+        <argument value="vm://hyte-it?create=false"/>
+    </bean>
+
+    <!-- the consumer operates only on the injected interfaces -->
+    <bean id="xaQueueToDatabase" class="io.hyte.platform.sample.xa.XaQueueToDatabase"
+          init-method="start" destroy-method="stop">
+        <argument ref="xaDataSource"/>
+        <argument ref="xaConnectionFactory"/>
+        <argument ref="userTransaction"/>
+    </bean>
+
+</blueprint>
