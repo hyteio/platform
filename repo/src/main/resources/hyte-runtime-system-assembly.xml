@@ -21,6 +21,8 @@
 				<exclude>**/maven-metadata-local.xml</exclude>
 				<exclude>**/_remote.repositories</exclude>
 				<exclude>**/*.pom</exclude>
+				<exclude>**/*.orig</exclude>
+				<exclude>**/.DS_Store</exclude>
 			</excludes>
 		</fileSet>
 	</fileSets>
