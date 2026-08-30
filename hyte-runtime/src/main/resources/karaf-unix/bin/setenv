@@ -2,7 +2,7 @@
 
 export KARAF_STARTDATE=`date +"%Y%m%d%H%M%S"`
 
-if [ "${KARAF_SCRIPT}" == "client" ] || [ "${KARAF_SCRIPT}" == "status" ] || [ "${KARAF_SCRIPT}" == "stop" ] ; then
+if [ "${KARAF_SCRIPT}" = "client" ] || [ "${KARAF_SCRIPT}" = "status" ] || [ "${KARAF_SCRIPT}" = "stop" ] ; then
     export JAVA_MIN_MEM=-Xms16M
     export JAVA_MAX_MEM=-Xmx128M
 else

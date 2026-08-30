@@ -102,8 +102,11 @@ public class HyteMqDistroSampleIT {
         // IN-CONTAINER endpoint: the deployed bundle's blueprint runs the CXF JAX-RS endpoint and
         // the Camel JMS route inside Karaf (visible to cxf:list-endpoints / camel:route-list); the
         // identical verification runs against it via the CXF servlet (context /api per org.apache.cxf.osgi.cfg).
-        // The blueprint mounts after the broker gate, so wait for the endpoint before verifying.
-        waitForEndpoint("http://127.0.0.1:8181/api/sample-app/sample/payload", 120_000);
+        // The blueprint mounts after the broker gate and the Camel/JMS leg starts after the CXF
+        // servlet, so wait until the WHOLE in-container flow answers (a real POST returning 200)
+        // before running the strict verification -- a slow CI can otherwise catch the gap between
+        // servlet mount and route readiness (observed as a 500).
+        waitForInContainerFlow("http://127.0.0.1:8181/api/sample-app/sample/payload", 120_000);
         SampleFlowVerifier.verify("http://127.0.0.1:8181/api/sample-app");
 
         // run the identical sample verification, JMS leg on the DISTRO broker
@@ -128,25 +131,48 @@ public class HyteMqDistroSampleIT {
         }
     }
 
-    /** Polls until the in-container JAX-RS endpoint is mounted (anything but 404). */
-    private static void waitForEndpoint(String url, long timeoutMillis) throws Exception {
+    /** Polls until the full in-container flow (CXF servlet + Camel route + JMS + broker) answers 200. */
+    private void waitForInContainerFlow(String url, long timeoutMillis) throws Exception {
         long deadline = System.currentTimeMillis() + timeoutMillis;
-        int last = -1;
+        int lastCode = -1;
+        String lastBody = "";
         while (System.currentTimeMillis() < deadline) {
             try {
                 java.net.HttpURLConnection connection =
                         (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
-                connection.setRequestMethod("GET");
-                last = connection.getResponseCode();
-                if (last != 404) {
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
+                connection.setDoOutput(true);
+                try (java.io.OutputStream out = connection.getOutputStream()) {
+                    out.write("{\"SampleRequest\":{\"note\":\"readiness-probe\"}}".getBytes(StandardCharsets.UTF_8));
+                }
+                lastCode = connection.getResponseCode();
+                if (lastCode == 200) {
                     return;
                 }
+                java.io.InputStream err = connection.getErrorStream();
+                lastBody = err == null ? "" : new String(err.readAllBytes(), StandardCharsets.UTF_8);
             } catch (Exception e) {
-                // http layer not up yet -- keep polling
+                lastBody = String.valueOf(e);
             }
             Thread.sleep(1000);
         }
-        throw new AssertionError("in-container endpoint never mounted at " + url + " (last=" + last + ")");
+        throw new AssertionError("in-container flow never became ready at " + url
+                + "\nlast status: " + lastCode + "\nlast body: " + head(lastBody)
+                + "\nkaraf.log tail:\n" + karafLogTail(40));
+    }
+
+    private String karafLogTail(int lines) {
+        try {
+            java.util.List<String> all = Files.readAllLines(distroHome.resolve("data/log/karaf.log"));
+            return String.join("\n", all.subList(Math.max(0, all.size() - lines), all.size()));
+        } catch (Exception e) {
+            return "(karaf.log unreadable: " + e + ")";
+        }
+    }
+
+    private static String head(String s) {
+        return s == null ? "" : s.substring(0, Math.min(s.length(), 500));
     }
 
     private static void waitForRow(String jdbcUrl, String content, long timeoutMillis) throws Exception {
