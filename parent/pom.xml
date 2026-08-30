@@ -15,8 +15,8 @@
         <hyte.activemq.version>5.19.10</hyte.activemq.version>
         <hyte.camel.version>3.22.4</hyte.camel.version>
         <hyte.cxf.version>3.6.8</hyte.cxf.version>
-        <hyte.jetty.version>9.4.57.v20241219</hyte.jetty.version>
-        <hyte.karaf.version>4.4.8</hyte.karaf.version>
+        <hyte.jetty.version>9.4.58.v20250814</hyte.jetty.version>
+        <hyte.karaf.version>4.4.11</hyte.karaf.version>
         <hyte.spring.version>5.3.39</hyte.spring.version>
         <hyte.spring.bundles.version>${hyte.spring.version}_2</hyte.spring.bundles.version>
         <hyte.spring.feature.version>${hyte.spring.version}.2</hyte.spring.feature.version>
@@ -34,16 +34,16 @@
         <!-- hyte.javax.websocket-api.version>1.1</hyte.javax.websocket-api.version -->
         <!-- pax versions -->
         <hyte.pax-cdi.version>1.1.4</hyte.pax-cdi.version>
-        <hyte.pax-logging.version>2.3.0</hyte.pax-logging.version>
+        <hyte.pax-logging.version>2.3.3</hyte.pax-logging.version>
         <hyte.pax-swissbox.version>1.8.5</hyte.pax-swissbox.version>
         <hyte.pax-transx.version>0.5.4</hyte.pax-transx.version>
-        <hyte.pax-web.version>8.0.33</hyte.pax-web.version>
+        <hyte.pax-web.version>8.0.35</hyte.pax-web.version>
         <!-- lib dependencies -->
         <hyte.activeio-core.version>3.1.4</hyte.activeio-core.version>
         <hyte.aries.transaction.blueprint_1.version>1.1.1</hyte.aries.transaction.blueprint_1.version>
         <hyte.aries.transaction.blueprint_2.version>2.3.0</hyte.aries.transaction.blueprint_2.version>
         <hyte.aries.util.version>1.1.3</hyte.aries.util.version>
-        <hyte.asm.version>9.8</hyte.asm.version>
+        <hyte.asm.version>9.9.1</hyte.asm.version>
         <hyte.cdi-api.version>2.0.SP1</hyte.cdi-api.version>
         <hyte.commons-codec.version>1.17.1</hyte.commons-codec.version>
         <hyte.commons-collection.version>3.2.2</hyte.commons-collection.version>

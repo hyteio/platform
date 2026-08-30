@@ -183,6 +183,15 @@
       <groupId>org.apache.aries.tx-control</groupId>
       <artifactId>tx-control-service-xa</artifactId>
     </dependency>
+    <!-- Karaf 4.4.11 enterprise features added the jdbc tx-control providers -->
+    <dependency>
+      <groupId>org.apache.aries.tx-control</groupId>
+      <artifactId>tx-control-provider-jdbc-local</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.tx-control</groupId>
+      <artifactId>tx-control-provider-jdbc-xa</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.apache.geronimo.components</groupId>
       <artifactId>geronimo-connector</artifactId>
