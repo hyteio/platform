@@ -28,6 +28,13 @@
 				<scope>import</scope>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-bom</artifactId>
+				<version>${hyte.cxf.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.apache.karaf</groupId>
 				<artifactId>karaf-bom</artifactId>
 				<version>${hyte.karaf.version}</version>
@@ -45,13 +52,6 @@
 				<groupId>org.apache.camel.karaf</groupId>
 				<artifactId>camel-karaf-bom</artifactId>
 				<version>${hyte.camel.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-bom</artifactId>
-				<version>${hyte.cxf.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
