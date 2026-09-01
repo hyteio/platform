@@ -51,7 +51,7 @@ public class HyteMqDistroSampleIT extends DistroTestSupport {
         // servlet, so wait until the WHOLE in-container flow answers (a real POST returning 200)
         // before running the strict verification -- a slow CI can otherwise catch the gap between
         // servlet mount and route readiness (observed as a 500).
-        waitForInContainerFlow("http://127.0.0.1:8181/api/sample-app/sample/payload", 120_000);
+        waitForInContainerFlow("http://127.0.0.1:8181/api/sample-app/sample/payload", 300_000);
         SampleFlowVerifier.verify("http://127.0.0.1:8181/api/sample-app");
 
         // run the identical sample verification, JMS leg on the DISTRO broker

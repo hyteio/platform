@@ -106,35 +106,68 @@ abstract class DistroTestSupport {
         throw new AssertionError("broker OpenWire transport never came up on port " + port, last);
     }
 
-    /** Polls until the full in-container flow (CXF servlet + Camel route + JMS + broker) answers 200. */
+    /**
+     * Polls until the full in-container flow (CXF servlet + Camel route + JMS + broker) answers
+     * 200. Each probe is bounded (a not-yet-started route makes the CXF resource block on the
+     * camel-jms request timeout, ~20s server-side), and the status transition history plus the
+     * karaf.log ERROR lines ride in the failure for CI diagnosis.
+     */
     protected void waitForInContainerFlow(String url, long timeoutMillis) throws Exception {
-        long deadline = System.currentTimeMillis() + timeoutMillis;
-        int lastCode = -1;
+        long start = System.currentTimeMillis();
+        long deadline = start + timeoutMillis;
+        int lastCode = Integer.MIN_VALUE;
         String lastBody = "";
+        StringBuilder history = new StringBuilder();
         while (System.currentTimeMillis() < deadline) {
+            int code;
             try {
                 java.net.HttpURLConnection connection =
                         (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
+                connection.setConnectTimeout(10_000);
+                connection.setReadTimeout(30_000);
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-Type", "application/json");
                 connection.setDoOutput(true);
                 try (java.io.OutputStream out = connection.getOutputStream()) {
                     out.write("{\"SampleRequest\":{\"note\":\"readiness-probe\"}}".getBytes(StandardCharsets.UTF_8));
                 }
-                lastCode = connection.getResponseCode();
-                if (lastCode == 200) {
+                code = connection.getResponseCode();
+                if (code == 200) {
                     return;
                 }
                 java.io.InputStream err = connection.getErrorStream();
                 lastBody = err == null ? "" : new String(err.readAllBytes(), StandardCharsets.UTF_8);
             } catch (Exception e) {
+                code = -1;
                 lastBody = String.valueOf(e);
+            }
+            if (code != lastCode) {
+                history.append('+').append((System.currentTimeMillis() - start) / 1000).append("s=")
+                        .append(code == -1 ? "io-error" : String.valueOf(code)).append(' ');
+                lastCode = code;
             }
             Thread.sleep(1000);
         }
         throw new AssertionError("in-container flow never became ready at " + url
+                + "\nprobe status history: " + history
                 + "\nlast status: " + lastCode + "\nlast body: " + head(lastBody)
-                + "\nkaraf.log tail:\n" + karafLogTail(40));
+                + "\nkaraf.log ERRORs:\n" + karafLogErrors(15)
+                + "\nkaraf.log tail:\n" + karafLogTail(60));
+    }
+
+    /** The first ERROR lines from karaf.log (stack frames excluded), for failure diagnostics. */
+    protected String karafLogErrors(int maxLines) {
+        try {
+            java.util.List<String> errors = new java.util.ArrayList<>();
+            for (String line : Files.readAllLines(distroHome.resolve("data/log/karaf.log"))) {
+                if (line.contains("| ERROR |") && errors.size() < maxLines) {
+                    errors.add(line);
+                }
+            }
+            return errors.isEmpty() ? "(none)" : String.join("\n", errors);
+        } catch (Exception e) {
+            return "(karaf.log unreadable: " + e + ")";
+        }
     }
 
     protected String karafLogTail(int lines) {

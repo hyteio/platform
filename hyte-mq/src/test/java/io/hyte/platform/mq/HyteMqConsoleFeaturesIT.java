@@ -113,7 +113,7 @@ public class HyteMqConsoleFeaturesIT extends DistroTestSupport {
         }
 
         // CXF-over-blueprint endpoint on the console feature set (identical marshaling verification)
-        waitForInContainerFlow("http://127.0.0.1:8181/api/sample-app/sample/payload", 120_000);
+        waitForInContainerFlow("http://127.0.0.1:8181/api/sample-app/sample/payload", 300_000);
         SampleFlowVerifier.verify("http://127.0.0.1:8181/api/sample-app");
 
         // every console feature must report Started on the karaf FeaturesMBean
