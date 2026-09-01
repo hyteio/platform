@@ -267,6 +267,11 @@
               <systemPropertyVariables>
                 <hyte.mq.tarball>${project.build.directory}/hyte-mq-${project.version}-unix.tar.gz</hyte.mq.tarball>
                 <hyte.mq.workdir>${project.build.directory}/it-distro</hyte.mq.workdir>
+                <hyte.mq.console-workdir>${project.build.directory}/it-console</hyte.mq.console-workdir>
+                <hyte.karaf.version>${hyte.karaf.version}</hyte.karaf.version>
+                <hyte.pax-web.version>${hyte.pax-web.version}</hyte.pax-web.version>
+                <hyte.pax-url.version>${hyte.pax-url.version}</hyte.pax-url.version>
+                <hyte.jetty.version>${hyte.jetty.version}</hyte.jetty.version>
                 <hyte.samplexa.jar>${io.hyte.platform:sample:jar}</hyte.samplexa.jar>
                 <hyte.h2.jar>${com.h2database:h2:jar}</hyte.h2.jar>
                 <hyte.h2.version>${hyte.h2.version}</hyte.h2.version>

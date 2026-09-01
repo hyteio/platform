@@ -18,7 +18,7 @@
 -->
 <features name="standard-4.4.11" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
 
-	<repository>mvn:org.ops4j.pax.web/pax-web-features/8.0.35/xml/features</repository>
+	<repository>mvn:org.ops4j.pax.web/pax-web-features/${hyte.pax-web.version}/xml/features</repository>
 
     <feature version="4.4.11" description="OSGi Security for Karaf" name="framework-security">
         <bundle start="false" start-level="1">mvn:org.apache.felix/org.apache.felix.framework.security/2.8.4</bundle>
@@ -878,7 +878,7 @@ org.osgi.service.http.port=8181
         </conditional>
     </feature>
 
-    <feature name="pax-web-http" description="Pax Web OSGi HTTP Service" version="8.0.35">
+    <feature name="pax-web-http" description="Pax Web OSGi HTTP Service" version="${hyte.pax-web.version}">
         <feature>pax-web-http-jetty</feature>
         <bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.core/4.4.11</bundle>
         <capability>http-service;provider:=pax-http</capability>
@@ -887,16 +887,16 @@ org.osgi.service.http.port=8181
             <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.http/4.4.11</bundle>
         </conditional>
     </feature>
-    <feature name="http" description="Transition feature for backward compatibility" version="8.0.35">
+    <feature name="http" description="Transition feature for backward compatibility" version="${hyte.pax-web.version}">
         <feature>pax-web-http</feature>
     </feature>
 
-    <feature name="pax-web-http-whiteboard" description="Pax Web OSGi HTTP Whiteboard support" version="8.0.35">
+    <feature name="pax-web-http-whiteboard" description="Pax Web OSGi HTTP Whiteboard support" version="${hyte.pax-web.version}">
         <feature>pax-web-http</feature>
         <feature>pax-web-whiteboard</feature>
         <feature>pax-web-websockets</feature>
     </feature>
-    <feature name="http-whiteboard" description="Transition feature for backward compatibility" version="8.0.35">
+    <feature name="http-whiteboard" description="Transition feature for backward compatibility" version="${hyte.pax-web.version}">
         <feature>pax-web-http-whiteboard</feature>
     </feature>
 
