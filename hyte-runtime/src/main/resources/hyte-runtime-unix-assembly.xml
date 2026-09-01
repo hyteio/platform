@@ -59,6 +59,8 @@
 				<exclude>**/bin/*.bat</exclude>
 				<exclude>**/maven-metadata-local.xml</exclude>
 				<exclude>**/_remote.repositories</exclude>
+				<!-- pax-web ships from the repo overlay at ${hyte.pax-web.version}; drop karaf's copy -->
+				<exclude>**/org/ops4j/pax/web/**</exclude>
 			</excludes>
 		</fileSet>
 	</fileSets>
