@@ -362,6 +362,7 @@
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-api</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
@@ -376,6 +377,7 @@
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-deployer</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <!-- not needed in v8.x
     <dependency>
@@ -387,10 +389,12 @@
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-extender-whiteboard</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-extender-war</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
@@ -401,11 +405,20 @@
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-features</artifactId>
+      <version>${hyte.pax-web.version}</version>
+      <type>xml</type>
+      <classifier>features</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-jetty</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-jsp</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
@@ -415,10 +428,12 @@
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-runtime</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-spi</artifactId>
+      <version>${hyte.pax-web.version}</version>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>

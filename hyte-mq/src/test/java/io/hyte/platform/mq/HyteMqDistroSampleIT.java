@@ -1,14 +1,9 @@
 package io.hyte.platform.mq;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.junit.After;
 import org.junit.Test;
 
 import io.hyte.platform.sample.SampleFlowVerifier;
@@ -21,58 +16,18 @@ import io.hyte.platform.sample.SampleServer;
  * transport, then runs the sample alignment flow (CXF -> Camel -> JMS request/response -> Jackson)
  * with the JMS leg pointed at the distribution's broker over tcp://.
  */
-public class HyteMqDistroSampleIT {
-
-    private Path distroHome;
-
-    /** Karaf 4.4.x supports up to JDK 21 (JDK 23+ removed Subject.getSubject, JEP 486). */
-    private static final int MAX_SUPPORTED_JAVA = 21;
+public class HyteMqDistroSampleIT extends DistroTestSupport {
 
     @Test
     public void sampleFlowAgainstAssembledDistribution() throws Exception {
-        int javaMajor = javaMajorVersion();
-        if (javaMajor > MAX_SUPPORTED_JAVA) {
-            System.err.println("WARNING: skipping " + getClass().getSimpleName() + " -- the build JVM is Java "
-                    + javaMajor + ", but the Karaf runtime supports at most Java " + MAX_SUPPORTED_JAVA
-                    + ". Run the build with JAVA_HOME set to a JDK 11-21 to execute the distro integration test.");
-        }
-        org.junit.Assume.assumeTrue("build JVM Java " + javaMajor + " > " + MAX_SUPPORTED_JAVA
-                + " (unsupported by the Karaf runtime)", javaMajor <= MAX_SUPPORTED_JAVA);
-
-        Path tarball = Path.of(System.getProperty("hyte.mq.tarball"));
-        Path workDir = Path.of(System.getProperty("hyte.mq.workdir"));
-        if (!Files.isRegularFile(tarball)) {
-            throw new AssertionError("distribution tarball not found (run after package): " + tarball);
-        }
+        assumeSupportedJava();
+        unpackDistro(Path.of(System.getProperty("hyte.mq.workdir")));
 
         int brokerPort = freePort();
         int httpPort = freePort();
 
-        // unpack
-        deleteRecursively(workDir);
-        Files.createDirectories(workDir);
-        run(workDir.toFile(), "tar", "-xzf", tarball.toString());
-        try (var dirs = Files.list(workDir)) {
-            distroHome = dirs.filter(Files::isDirectory).findFirst()
-                    .orElseThrow(() -> new AssertionError("no distribution directory unpacked"));
-        }
-
-        // provision the broker: xbean config + server factory cfg (post-install mechanism)
-        String brokerXml = String.join("\n",
-                "<beans xmlns=\"http://www.springframework.org/schema/beans\"",
-                "       xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"",
-                "       xsi:schemaLocation=\"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd",
-                "       http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd\">",
-                "    <broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"hyte-it\" persistent=\"false\" useJmx=\"false\">",
-                "        <transportConnectors>",
-                "            <transportConnector name=\"openwire\" uri=\"tcp://127.0.0.1:" + brokerPort + "\"/>",
-                "        </transportConnectors>",
-                "    </broker>",
-                "</beans>", "");
-        Path brokerXmlPath = distroHome.resolve("etc/activemq-it.xml");
-        Files.writeString(brokerXmlPath, brokerXml, StandardCharsets.UTF_8);
-        Files.writeString(distroHome.resolve("etc/org.apache.activemq.server-it.cfg"),
-                "broker-name=hyte-it\nconfig=" + brokerXmlPath.toAbsolutePath() + "\n", StandardCharsets.UTF_8);
+        writeBrokerConfig("hyte-it",
+                "            <transportConnector name=\"openwire\" uri=\"tcp://127.0.0.1:" + brokerPort + "\"/>");
 
         // in-container XA path: boot the transaction feature (Geronimo TM), pax-transx enlistment,
         // and the h2 feature; hot-deploy the sample bundle (its blueprint wires the XA consumer)
@@ -80,20 +35,10 @@ public class HyteMqDistroSampleIT {
         Files.writeString(featuresCfg, Files.readString(featuresCfg, StandardCharsets.UTF_8)
                 .replace("featuresBoot = ", "featuresBoot = transaction, pax-transx-jdbc, pax-transx-jms, hyte-db, hyte-cxf-jackson, camel, "),
                 StandardCharsets.UTF_8);
-        Files.copy(Path.of(System.getProperty("hyte.samplexa.jar")),
-                Files.createDirectories(distroHome.resolve("deploy")).resolve("sample.jar"));
-
-        // test fixture: the hyte-db feature (h2) is not part of the hyte-mq product -- provision the
-        // h2 bundle into the unpacked distro's local-repo just for this scenario (h2 stays test-scoped)
-        String h2Version = System.getProperty("hyte.h2.version");
-        Path h2Dir = Files.createDirectories(distroHome.resolve("local-repo/com/h2database/h2/" + h2Version));
-        Files.copy(Path.of(System.getProperty("hyte.h2.jar")), h2Dir.resolve("h2-" + h2Version + ".jar"));
-
-        // clean XA dataset at startup (and again at shutdown in stopDistro)
-        deleteRecursively(distroHome.resolve("data/it-xa"));
+        deploySampleBundle();
 
         // start the distribution and wait for the broker's OpenWire transport
-        run(distroHome.toFile(), distroHome.resolve("bin/start").toString());
+        startDistro(java.util.Map.of());
         waitForOpenWire(brokerPort, 180_000);
 
         String brokerUrl = "tcp://127.0.0.1:" + brokerPort + "?wireFormat.maxInactivityDuration=0";
@@ -129,50 +74,6 @@ public class HyteMqDistroSampleIT {
                 throw new AssertionError("committed XA row must persist exactly once");
             }
         }
-    }
-
-    /** Polls until the full in-container flow (CXF servlet + Camel route + JMS + broker) answers 200. */
-    private void waitForInContainerFlow(String url, long timeoutMillis) throws Exception {
-        long deadline = System.currentTimeMillis() + timeoutMillis;
-        int lastCode = -1;
-        String lastBody = "";
-        while (System.currentTimeMillis() < deadline) {
-            try {
-                java.net.HttpURLConnection connection =
-                        (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setDoOutput(true);
-                try (java.io.OutputStream out = connection.getOutputStream()) {
-                    out.write("{\"SampleRequest\":{\"note\":\"readiness-probe\"}}".getBytes(StandardCharsets.UTF_8));
-                }
-                lastCode = connection.getResponseCode();
-                if (lastCode == 200) {
-                    return;
-                }
-                java.io.InputStream err = connection.getErrorStream();
-                lastBody = err == null ? "" : new String(err.readAllBytes(), StandardCharsets.UTF_8);
-            } catch (Exception e) {
-                lastBody = String.valueOf(e);
-            }
-            Thread.sleep(1000);
-        }
-        throw new AssertionError("in-container flow never became ready at " + url
-                + "\nlast status: " + lastCode + "\nlast body: " + head(lastBody)
-                + "\nkaraf.log tail:\n" + karafLogTail(40));
-    }
-
-    private String karafLogTail(int lines) {
-        try {
-            java.util.List<String> all = Files.readAllLines(distroHome.resolve("data/log/karaf.log"));
-            return String.join("\n", all.subList(Math.max(0, all.size() - lines), all.size()));
-        } catch (Exception e) {
-            return "(karaf.log unreadable: " + e + ")";
-        }
-    }
-
-    private static String head(String s) {
-        return s == null ? "" : s.substring(0, Math.min(s.length(), 500));
     }
 
     private static void waitForRow(String jdbcUrl, String content, long timeoutMillis) throws Exception {
@@ -224,88 +125,5 @@ public class HyteMqDistroSampleIT {
         }
         throw new AssertionError("ActiveMQ.DLQ never reached depth " + expected
                 + " (poison message not dead-lettered after XA rollbacks)");
-    }
-
-    @After
-    public void stopDistro() {
-        if (distroHome == null) {
-            return;
-        }
-        try {
-            run(distroHome.toFile(), distroHome.resolve("bin/stop").toString());
-            for (int i = 0; i < 30 && isKarafRunning(); i++) {
-                Thread.sleep(1000);
-            }
-        } catch (Exception e) {
-            // fall through to the hard kill below
-        }
-        if (isKarafRunning()) {
-            try {
-                new ProcessBuilder("pkill", "-9", "-f", distroHome.toString()).start().waitFor();
-            } catch (Exception ignored) {
-                // best effort
-            }
-        }
-        try {
-            deleteRecursively(distroHome.resolve("data/it-xa")); // clean XA dataset at shutdown too
-        } catch (IOException ignored) {
-            // best effort
-        }
-    }
-
-    private boolean isKarafRunning() {
-        try {
-            Process p = new ProcessBuilder("pgrep", "-f", distroHome.toString()).start();
-            return p.waitFor() == 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /** OpenWire brokers send a WireFormatInfo frame immediately on connect. */
-    private static void waitForOpenWire(int port, long timeoutMillis) throws Exception {
-        long deadline = System.currentTimeMillis() + timeoutMillis;
-        Exception last = null;
-        while (System.currentTimeMillis() < deadline) {
-            try (Socket socket = new Socket("127.0.0.1", port)) {
-                socket.setSoTimeout(5000);
-                if (socket.getInputStream().read() >= 0) {
-                    return;
-                }
-            } catch (Exception e) {
-                last = e;
-            }
-            Thread.sleep(1000);
-        }
-        throw new AssertionError("broker OpenWire transport never came up on port " + port, last);
-    }
-
-    private static void run(File workingDir, String... command) throws Exception {
-        ProcessBuilder builder = new ProcessBuilder(command).directory(workingDir).inheritIO();
-        builder.environment().put("JAVA_HOME", System.getProperty("java.home"));
-        int exit = builder.start().waitFor();
-        if (exit != 0) {
-            throw new AssertionError("command failed (" + exit + "): " + String.join(" ", command));
-        }
-    }
-
-    /** Parses java.specification.version ("11", "21", "25", legacy "1.8") to the major version. */
-    private static int javaMajorVersion() {
-        String spec = System.getProperty("java.specification.version", "11");
-        return Integer.parseInt(spec.startsWith("1.") ? spec.substring(2) : spec);
-    }
-
-    private static int freePort() throws IOException {
-        try (ServerSocket socket = new ServerSocket(0)) {
-            return socket.getLocalPort();
-        }
-    }
-
-    private static void deleteRecursively(Path path) throws IOException {
-        if (Files.exists(path)) {
-            try (var walk = Files.walk(path)) {
-                walk.sorted(java.util.Comparator.reverseOrder()).map(Path::toFile).forEach(File::delete);
-            }
-        }
     }
 }
