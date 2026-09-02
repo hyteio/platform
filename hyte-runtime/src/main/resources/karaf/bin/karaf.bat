@@ -443,6 +443,8 @@ if "%KARAF_PROFILER%" == "" goto :RUN
                 --add-exports=java.base/sun.net.www.content.text=ALL-UNNAMED ^
                 --add-exports=jdk.xml.dom/org.w3c.dom.html=ALL-UNNAMED ^
                 --add-exports=jdk.naming.rmi/com.sun.jndi.url.rmi=ALL-UNNAMED ^
+                --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED ^
+                --add-exports=jdk.naming.dns/com.sun.jndi.url.dns=ALL-UNNAMED ^
                 --add-exports=java.rmi/sun.rmi.registry=ALL-UNNAMED ^
                 --add-exports=java.security.sasl/com.sun.security.sasl=ALL-UNNAMED ^
                 --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED ^
