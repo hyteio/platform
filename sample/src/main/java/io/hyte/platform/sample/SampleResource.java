@@ -15,12 +15,22 @@ import org.apache.camel.ProducerTemplate;
 @Path("/sample")
 public class SampleResource {
 
+    /** Consumer-side endpoint: responder routes consume the plain request queue. */
     public static final String REQUEST_QUEUE = "jms:queue:sample.payload";
 
     private final ProducerTemplate producerTemplate;
+    private final String requestEndpoint;
 
-    public SampleResource(ProducerTemplate producerTemplate) {
+    /**
+     * @param replyQueue fixed reply queue for this requester -- camel's temporary-replyTo-queue
+     *        machinery is disabled in favor of a hard-coded queue with an Exclusive reply
+     *        consumer. Each requester context needs its OWN reply queue (Exclusive assumes a
+     *        single consumer); the responder still replies via the standard JMSReplyTo header,
+     *        which is what routes each reply back to the requester that asked.
+     */
+    public SampleResource(ProducerTemplate producerTemplate, String replyQueue) {
         this.producerTemplate = producerTemplate;
+        this.requestEndpoint = REQUEST_QUEUE + "?replyTo=" + replyQueue + "&replyToType=Exclusive";
     }
 
     @POST
@@ -28,7 +38,7 @@ public class SampleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public SamplePayload payload(SampleRequest request) {
-        return producerTemplate.requestBody(REQUEST_QUEUE, request, SamplePayload.class);
+        return producerTemplate.requestBody(requestEndpoint, request, SamplePayload.class);
     }
 
     /**

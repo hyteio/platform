@@ -71,7 +71,7 @@ public class SampleServer implements AutoCloseable {
         JAXRSServerFactoryBean factory = new JAXRSServerFactoryBean();
         factory.setBus(bus);
         factory.setAddress(baseAddress);
-        factory.setServiceBean(new SampleResource(producerTemplate));
+        factory.setServiceBean(new SampleResource(producerTemplate, "sample.payload.reply.external"));
         factory.setProviders(Collections.singletonList(new JacksonJsonProvider(HyteJackson.newObjectMapper())));
         cxfServer = factory.create();
     }
