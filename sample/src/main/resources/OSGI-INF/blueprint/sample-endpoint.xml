@@ -30,8 +30,11 @@
     <bean id="jacksonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider">
         <argument ref="hyteObjectMapper"/>
     </bean>
+    <!-- fixed reply queue (Exclusive) instead of camel's temporary replyTo queue; the queue is
+         per-requester (the external SampleServer uses sample.payload.reply.external) -->
     <bean id="sampleResource" class="io.hyte.platform.sample.SampleResource">
         <argument ref="producerTemplate"/>
+        <argument value="sample.payload.reply.container"/>
     </bean>
 
     <!-- served by the CXF OSGi HTTP transport under the CXF servlet (org.apache.cxf.osgi.cfg context /api) on pax-web port 8181:

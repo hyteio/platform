@@ -152,7 +152,31 @@ abstract class DistroTestSupport {
                 + "\nprobe status history: " + history
                 + "\nlast status: " + lastCode + "\nlast body: " + head(lastBody)
                 + "\nkaraf.log ERRORs:\n" + karafLogErrors(15)
+                + "\nkaraf.log JMS/listener recovery WARNs:\n"
+                + karafLogMatching(15, "trying to recover", "Could not refresh", "Setup of JMS message listener",
+                        "temporary destination", "Failed to resolve", "recovery")
                 + "\nkaraf.log tail:\n" + karafLogTail(60));
+    }
+
+    /** The first karaf.log lines containing any of the needles (case-sensitive), for diagnostics. */
+    protected String karafLogMatching(int maxLines, String... needles) {
+        try {
+            java.util.List<String> hits = new java.util.ArrayList<>();
+            for (String line : Files.readAllLines(distroHome.resolve("data/log/karaf.log"))) {
+                for (String needle : needles) {
+                    if (line.contains(needle)) {
+                        hits.add(line);
+                        break;
+                    }
+                }
+                if (hits.size() >= maxLines) {
+                    break;
+                }
+            }
+            return hits.isEmpty() ? "(none)" : String.join("\n", hits);
+        } catch (Exception e) {
+            return "(karaf.log unreadable: " + e + ")";
+        }
     }
 
     /** The first ERROR lines from karaf.log (stack frames excluded), for failure diagnostics. */
