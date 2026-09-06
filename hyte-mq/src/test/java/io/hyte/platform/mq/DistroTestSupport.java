@@ -154,8 +154,59 @@ abstract class DistroTestSupport {
                 + "\nkaraf.log ERRORs:\n" + karafLogErrors(15)
                 + "\nkaraf.log JMS/listener recovery WARNs:\n"
                 + karafLogMatching(15, "trying to recover", "Could not refresh", "Setup of JMS message listener",
-                        "temporary destination", "Failed to resolve", "recovery")
+                        "temporary destination", "recovery")
+                + "\nkaraf JVM threads (JMS/broker/camel):\n" + karafThreadDump()
                 + "\nkaraf.log tail:\n" + karafLogTail(60));
+    }
+
+    /**
+     * Thread-dumps the karaf JVM (jstack) at failure time: a reply consumer that hangs silently --
+     * no listener-recovery WARNs -- can only be diagnosed from its thread stack. The full dump is
+     * saved next to karaf.log (for CI artifact archiving); the assertion carries just the
+     * JMS/broker/camel-related thread stacks.
+     */
+    protected String karafThreadDump() {
+        try {
+            String pid = karafPid();
+            if (pid.isEmpty()) {
+                Process pgrep = new ProcessBuilder("pgrep", "-f", distroHome.toString()).start();
+                pid = new String(pgrep.getInputStream().readAllBytes(), StandardCharsets.UTF_8).trim()
+                        .lines().findFirst().orElse("");
+                pgrep.waitFor();
+            }
+            if (pid.isEmpty()) {
+                return "(karaf process not found for jstack)";
+            }
+            Path jstack = Path.of(System.getProperty("java.home"), "bin", "jstack");
+            ProcessBuilder builder = new ProcessBuilder(jstack.toString(), "-l", pid);
+            builder.redirectErrorStream(true);
+            Process dumper = builder.start();
+            String dump = new String(dumper.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
+            if (dumper.waitFor() != 0) {
+                return "(jstack failed for pid " + pid + ": " + dump.substring(0, Math.min(dump.length(), 500)) + ")";
+            }
+            Path dumpFile = distroHome.resolve("data/log/threaddump-" + System.currentTimeMillis() + ".txt");
+            Files.writeString(dumpFile, dump, StandardCharsets.UTF_8);
+
+            // pull out only the threads that can explain a stuck JMS reply path
+            StringBuilder relevant = new StringBuilder("(full dump: " + dumpFile + ")\n");
+            for (String block : dump.split("\n\n")) {
+                String header = block.lines().findFirst().orElse("");
+                if (header.startsWith("\"") && (block.contains("JmsConsumer") || block.contains("ReplyManager")
+                        || block.contains("activemq") || block.contains("ActiveMQ") || block.contains("camel")
+                        || block.contains("VMTransport") || block.contains("listenerContainer")
+                        || block.contains("DefaultMessageListenerContainer"))) {
+                    relevant.append(block).append("\n\n");
+                    if (relevant.length() > 12_000) {
+                        relevant.append("(truncated; see full dump file)");
+                        break;
+                    }
+                }
+            }
+            return relevant.toString();
+        } catch (Exception e) {
+            return "(thread dump unavailable: " + e + ")";
+        }
     }
 
     /** The first karaf.log lines containing any of the needles (case-sensitive), for diagnostics. */
@@ -222,7 +273,12 @@ abstract class DistroTestSupport {
         }
         if (isKarafRunning()) {
             try {
-                new ProcessBuilder("pkill", "-9", "-f", distroHome.toString()).start().waitFor();
+                String pid = karafPid();
+                if (!pid.isEmpty()) {
+                    new ProcessBuilder("kill", "-9", pid).start().waitFor();
+                } else {
+                    new ProcessBuilder("pkill", "-9", "-f", distroHome.toString()).start().waitFor();
+                }
             } catch (Exception ignored) {
                 // best effort
             }
@@ -234,12 +290,30 @@ abstract class DistroTestSupport {
         }
     }
 
+    /**
+     * Process liveness via karaf.pid + kill -0: pgrep/pkill -f does not reliably match karaf's
+     * very long java command line on macOS, which let consecutive ITs overlap their containers.
+     */
     protected boolean isKarafRunning() {
         try {
+            String pid = karafPid();
+            if (!pid.isEmpty()) {
+                return new ProcessBuilder("kill", "-0", pid).start().waitFor() == 0;
+            }
             Process p = new ProcessBuilder("pgrep", "-f", distroHome.toString()).start();
             return p.waitFor() == 0;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    protected String karafPid() {
+        try {
+            Path pidFile = distroHome.resolve("karaf.pid");
+            return Files.isRegularFile(pidFile)
+                    ? Files.readString(pidFile, StandardCharsets.UTF_8).trim() : "";
+        } catch (Exception e) {
+            return "";
         }
     }
 
