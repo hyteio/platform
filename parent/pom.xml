@@ -21,7 +21,7 @@
         <hyte.spring.version>5.3.39</hyte.spring.version>
         <hyte.spring.bundles.version>${hyte.spring.version}_2</hyte.spring.bundles.version>
         <hyte.spring.feature.version>${hyte.spring.version}.2</hyte.spring.feature.version>
-        <hyte.h2.version>2.4.240</hyte.h2.version>
+        <hyte.h2.version>2.5.250</hyte.h2.version>
         <!-- api and specs -->
         <hyte.jakarta.xml.bind-api.version>2.3.3</hyte.jakarta.xml.bind-api.version>
         <hyte.jakarta.annotation-api.version>1.3.5</hyte.jakarta.annotation-api.version>
