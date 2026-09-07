@@ -35,6 +35,8 @@
     <bean id="sampleResource" class="io.hyte.platform.sample.SampleResource">
         <argument ref="producerTemplate"/>
         <argument value="sample.payload.reply.container"/>
+        <!-- container-managed DataSource from sample-xa.xml (one merged blueprint container) -->
+        <argument ref="xaDataSource"/>
     </bean>
 
     <!-- served by the CXF OSGi HTTP transport under the CXF servlet (org.apache.cxf.osgi.cfg context /api) on pax-web port 8181:

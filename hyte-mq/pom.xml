@@ -97,6 +97,15 @@
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- HyteDbDistroIT boots the assembled hyte-db distribution to validate the shipped h2 -->
+    <dependency>
+      <groupId>io.hyte.platform</groupId>
+      <artifactId>hyte-db</artifactId>
+      <version>${project.version}</version>
+      <classifier>unix</classifier>
+      <type>tar.gz</type>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
@@ -268,6 +277,8 @@
                 <hyte.mq.tarball>${project.build.directory}/hyte-mq-${project.version}-unix.tar.gz</hyte.mq.tarball>
                 <hyte.mq.workdir>${project.build.directory}/it-distro</hyte.mq.workdir>
                 <hyte.mq.console-workdir>${project.build.directory}/it-console</hyte.mq.console-workdir>
+                <hyte.db.tarball>${io.hyte.platform:hyte-db:tar.gz:unix}</hyte.db.tarball>
+                <hyte.db.workdir>${project.build.directory}/it-db</hyte.db.workdir>
                 <hyte.karaf.version>${hyte.karaf.version}</hyte.karaf.version>
                 <hyte.pax-web.version>${hyte.pax-web.version}</hyte.pax-web.version>
                 <hyte.pax-url.version>${hyte.pax-url.version}</hyte.pax-url.version>

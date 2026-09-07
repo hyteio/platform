@@ -12,14 +12,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.TimeUnit;
 
-import javax.management.MBeanServerConnection;
-import javax.management.ObjectName;
-import javax.management.openmbean.CompositeData;
-import javax.management.openmbean.TabularData;
-import javax.management.remote.JMXConnector;
-import javax.management.remote.JMXConnectorFactory;
-import javax.management.remote.JMXServiceURL;
-
 import org.junit.Test;
 
 import io.hyte.platform.sample.SampleFlowVerifier;
@@ -183,40 +175,4 @@ public class HyteMqConsoleFeaturesIT extends DistroTestSupport {
                 + "\nkaraf.log tail:\n" + karafLogTail(40), last);
     }
 
-    /** Asserts the given features report Installed=true on the karaf FeaturesMBean. */
-    private void assertFeaturesStarted(int rmiRegistryPort, int rmiServerPort, Set<String> required)
-            throws Exception {
-        JMXServiceURL serviceUrl = new JMXServiceURL("service:jmx:rmi://127.0.0.1:" + rmiServerPort
-                + "/jndi/rmi://127.0.0.1:" + rmiRegistryPort + "/karaf-root");
-        Map<String, Object> env = Map.of(JMXConnector.CREDENTIALS, new String[] {"admin", "admin"});
-        long deadline = System.currentTimeMillis() + 120_000;
-        Exception last = null;
-        while (System.currentTimeMillis() < deadline) {
-            try (JMXConnector connector = JMXConnectorFactory.connect(serviceUrl, env)) {
-                MBeanServerConnection connection = connector.getMBeanServerConnection();
-                TabularData features = (TabularData) connection.getAttribute(
-                        new ObjectName("org.apache.karaf:type=feature,name=root"), "Features");
-                java.util.Set<String> installed = new java.util.HashSet<>();
-                for (Object row : features.values()) {
-                    CompositeData feature = (CompositeData) row;
-                    if (Boolean.TRUE.equals(feature.get("Installed"))) {
-                        installed.add(String.valueOf(feature.get("Name")));
-                    }
-                }
-                java.util.Set<String> missing = new java.util.TreeSet<>(required);
-                missing.removeAll(installed);
-                if (missing.isEmpty()) {
-                    return;
-                }
-                throw new AssertionError("console features not Started: " + missing
-                        + "\nkaraf.log tail:\n" + karafLogTail(40));
-            } catch (AssertionError e) {
-                throw e;
-            } catch (Exception e) {
-                last = e; // JMX connector may mount slightly after the broker -- keep polling
-            }
-            Thread.sleep(2000);
-        }
-        throw new AssertionError("karaf JMX FeaturesMBean never became reachable at " + serviceUrl, last);
-    }
 }
