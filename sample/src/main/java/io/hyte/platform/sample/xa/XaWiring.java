@@ -24,6 +24,17 @@ public final class XaWiring {
 
     private XaWiring() {}
 
+    // pax-transx 0.5.4's GenericConnectionManager pool on JDK 21 is timing-fragile: its
+    // HikariCP-style housekeeper computes a spurious ~59s "clock leap" and soft-evicts the pool,
+    // and the XA-recovery/vm:// connection lifecycle races ("connection is already closed"), both
+    // of which tear the live XA consumer's managed connection out from under it so it silently
+    // stops receiving. We stabilise the pool: keep warm connections, never idle-evict, never
+    // retire by lifetime, and stretch the housekeeping period so the misfiring timer cannot run
+    // during a test. idleTimeout must stay BELOW maxLifetime or pax-transx disables it with a WARN.
+    private static final long STABLE_POOL_MILLIS = java.util.concurrent.TimeUnit.DAYS.toMillis(1);
+    private static final long STABLE_POOL_LIFETIME_MILLIS = java.util.concurrent.TimeUnit.DAYS.toMillis(2);
+    private static final int STABLE_POOL_MAX = 16;
+
     public static DataSource dataSource(TransactionManager transactionManager, String jdbcUrl) throws Exception {
         JdbcDataSource h2 = new JdbcDataSource();
         h2.setURL(jdbcUrl);
@@ -32,6 +43,11 @@ public final class XaWiring {
                 .dataSource(h2)
                 .transaction(TransactionSupportLevel.XATransaction)
                 .transactionManager(transactionManager)
+                .minIdle(1)
+                .maxPoolSize(STABLE_POOL_MAX)
+                .idleTimeout(STABLE_POOL_MILLIS)
+                .maxLifetime(STABLE_POOL_LIFETIME_MILLIS)
+                .houseKeepingPeriod(STABLE_POOL_MILLIS)
                 .build();
     }
 
@@ -50,6 +66,11 @@ public final class XaWiring {
                 .connectionFactory(new ActiveMQConnectionFactory(brokerUrl), new ActiveMQXAConnectionFactory(brokerUrl))
                 .transaction(TransactionSupportLevel.XATransaction)
                 .transactionManager(transactionManager)
+                .minIdle(1)
+                .maxPoolSize(STABLE_POOL_MAX)
+                .idleTimeout(STABLE_POOL_MILLIS)
+                .maxLifetime(STABLE_POOL_LIFETIME_MILLIS)
+                .houseKeepingPeriod(STABLE_POOL_MILLIS)
                 .build();
     }
 

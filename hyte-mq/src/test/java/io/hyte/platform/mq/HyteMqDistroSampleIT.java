@@ -37,6 +37,9 @@ public class HyteMqDistroSampleIT extends DistroTestSupport {
                 StandardCharsets.UTF_8);
         deploySampleBundle();
 
+        // fail fast on a leftover instance holding the fixed ports, before we try to start ours
+        assertNoConflictingInstance();
+
         // start the distribution and wait for the broker's OpenWire transport
         startDistro(java.util.Map.of());
         waitForOpenWire(brokerPort, 180_000);
@@ -51,44 +54,59 @@ public class HyteMqDistroSampleIT extends DistroTestSupport {
         // servlet, so wait until the WHOLE in-container flow answers (a real POST returning 200)
         // before running the strict verification -- a slow CI can otherwise catch the gap between
         // servlet mount and route readiness (observed as a 500).
-        waitForInContainerFlow("http://127.0.0.1:8181/api/sample-app/sample/payload", 300_000);
-        SampleFlowVerifier.verify("http://127.0.0.1:8181/api/sample-app");
+        String inContainer = "http://127.0.0.1:8181/api/sample-app";
+        waitForInContainerFlow(inContainer + "/sample/payload", 300_000);
+        SampleFlowVerifier.verify(inContainer);
 
-        // run the identical sample verification, JMS leg on the DISTRO broker
+        // --- in-container XA runs FIRST, with only the in-container consumers active ------------
+        // The whole XA leg is in-container (endpoint + consumer), matching real usage and the
+        // passing HyteDbDistroIT. It must NOT overlap the external SampleServer below: that server
+        // registers a SECOND, competing consumer on sample.payload against the same broker, and
+        // its extra broker connections perturb the in-container XA consumer enough (on JDK 21, with
+        // pax-transx's connection pool) to intermittently swallow the sample.xa delivery.
+        // --- commit case ---
+        SampleFlowVerifier.submitXa(inContainer, "xa-commit-1");
+        waitForRow(jdbcUrl, "xa-commit-1", 120_000);
+        // --- rollback/atomicity case: the consumer INSERTS then rolls back, so the row must never
+        // persist, and after the redelivery policy is exhausted the message dead-letters to ActiveMQ.DLQ
+        SampleFlowVerifier.submitXa(inContainer, "POISON-1");
+        waitForDlqDepth(brokerUrl, 1, 120_000);
+        if (countRows(jdbcUrl, "POISON-1") != 0) {
+            throw new AssertionError("XA atomicity violated: rolled-back insert persisted");
+        }
+        if (countRows(jdbcUrl, "xa-commit-1") != 1) {
+            throw new AssertionError("committed XA row must persist exactly once");
+        }
+
+        // run the identical payload verification against the JVM-side stack (SampleServer), proving
+        // the aligned libraries work outside karaf too (payload marshaling only -- no XA)
         try (SampleServer server = new SampleServer(httpPort, brokerUrl)) {
             SampleFlowVerifier.verify(server.getBaseAddress());
-
-            // --- in-container XA: commit case -------------------------------------------------
-            SampleFlowVerifier.submitXa(server.getBaseAddress(), "xa-commit-1");
-            waitForRow(jdbcUrl, "xa-commit-1", 120_000);
-
-            // --- in-container XA: rollback/atomicity case -------------------------------------
-            // the consumer INSERTS then rolls back: the row must never persist, and after the
-            // redelivery policy is exhausted the message must dead-letter to ActiveMQ.DLQ
-            SampleFlowVerifier.submitXa(server.getBaseAddress(), "POISON-1");
-            waitForDlqDepth(brokerUrl, 1, 120_000);
-            if (countRows(jdbcUrl, "POISON-1") != 0) {
-                throw new AssertionError("XA atomicity violated: rolled-back insert persisted");
-            }
-            if (countRows(jdbcUrl, "xa-commit-1") != 1) {
-                throw new AssertionError("committed XA row must persist exactly once");
-            }
         }
     }
 
-    private static void waitForRow(String jdbcUrl, String content, long timeoutMillis) throws Exception {
+    private void waitForRow(String jdbcUrl, String content, long timeoutMillis) throws Exception {
         long deadline = System.currentTimeMillis() + timeoutMillis;
+        Exception lastError = null;
+        int lastCount = -1;
         while (System.currentTimeMillis() < deadline) {
             try {
-                if (countRows(jdbcUrl, content) == 1) {
+                lastCount = countRows(jdbcUrl, content);
+                lastError = null;
+                if (lastCount == 1) {
                     return;
                 }
             } catch (Exception e) {
-                // table/db not created yet -- keep polling
+                // table/db not queryable yet (still starting, or a real fault) -- keep polling but
+                // remember WHY, so a persistent failure is diagnosable instead of a bare timeout
+                lastError = e;
             }
             Thread.sleep(1000);
         }
-        throw new AssertionError("XA-committed row '" + content + "' never appeared in " + jdbcUrl);
+        throw new AssertionError("XA-committed row '" + content + "' never appeared in " + jdbcUrl
+                + (lastError != null ? "\nlast query error: " + lastError : "\nlast row count: " + lastCount)
+                + "\nkaraf JVM threads:\n" + karafThreadDump()
+                + "\nkaraf.log tail:\n" + karafLogTail(40));
     }
 
     private static int countRows(String jdbcUrl, String content) throws Exception {

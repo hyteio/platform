@@ -92,6 +92,7 @@ public class HyteMqConsoleFeaturesIT extends DistroTestSupport {
         replaceFeaturesBoot(consoleBoot);
 
         deploySampleBundle();
+        assertNoConflictingInstance();
         startDistro(Map.of(
                 "ORG_APACHE_KARAF_MANAGEMENT_RMIREGISTRYPORT", String.valueOf(rmiRegistryPort),
                 "ORG_APACHE_KARAF_MANAGEMENT_RMISERVERPORT", String.valueOf(rmiServerPort)));
