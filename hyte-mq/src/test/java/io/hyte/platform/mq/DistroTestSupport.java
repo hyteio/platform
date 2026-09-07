@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.After;
 
@@ -36,7 +37,11 @@ abstract class DistroTestSupport {
     }
 
     protected void unpackDistro(Path workDir) throws Exception {
-        Path tarball = Path.of(System.getProperty("hyte.mq.tarball"));
+        unpackDistro(workDir, "hyte.mq.tarball");
+    }
+
+    protected void unpackDistro(Path workDir, String tarballSysprop) throws Exception {
+        Path tarball = Path.of(System.getProperty(tarballSysprop));
         if (!Files.isRegularFile(tarball)) {
             throw new AssertionError("distribution tarball not found (run after package): " + tarball);
         }
@@ -76,11 +81,18 @@ abstract class DistroTestSupport {
      * hyte-mq product) and a clean XA dataset.
      */
     protected void deploySampleBundle() throws Exception {
+        deploySampleBundle(true);
+    }
+
+    /** @param h2Fixture false when the distribution ships h2 natively (hyte-db) */
+    protected void deploySampleBundle(boolean h2Fixture) throws Exception {
         Files.copy(Path.of(System.getProperty("hyte.samplexa.jar")),
                 Files.createDirectories(distroHome.resolve("deploy")).resolve("sample.jar"));
-        String h2Version = System.getProperty("hyte.h2.version");
-        Path h2Dir = Files.createDirectories(distroHome.resolve("local-repo/com/h2database/h2/" + h2Version));
-        Files.copy(Path.of(System.getProperty("hyte.h2.jar")), h2Dir.resolve("h2-" + h2Version + ".jar"));
+        if (h2Fixture) {
+            String h2Version = System.getProperty("hyte.h2.version");
+            Path h2Dir = Files.createDirectories(distroHome.resolve("local-repo/com/h2database/h2/" + h2Version));
+            Files.copy(Path.of(System.getProperty("hyte.h2.jar")), h2Dir.resolve("h2-" + h2Version + ".jar"));
+        }
         deleteRecursively(distroHome.resolve("data/it-xa"));
     }
 
@@ -263,6 +275,19 @@ abstract class DistroTestSupport {
         if (distroHome == null) {
             return;
         }
+        shutdownContainer();
+        try {
+            deleteRecursively(distroHome.resolve("data/it-xa")); // clean XA dataset at shutdown too
+        } catch (IOException ignored) {
+            // best effort
+        }
+    }
+
+    /** Stops the container WITHOUT touching its data -- restart scenarios call this mid-test. */
+    protected void shutdownContainer() {
+        if (!isKarafRunning()) {
+            return; // already down (a test may end with the container stopped)
+        }
         try {
             run(distroHome.toFile(), Map.of(), distroHome.resolve("bin/stop").toString());
             for (int i = 0; i < 30 && isKarafRunning(); i++) {
@@ -272,20 +297,23 @@ abstract class DistroTestSupport {
             // fall through to the hard kill below
         }
         if (isKarafRunning()) {
-            try {
-                String pid = karafPid();
-                if (!pid.isEmpty()) {
-                    new ProcessBuilder("kill", "-9", pid).start().waitFor();
-                } else {
-                    new ProcessBuilder("pkill", "-9", "-f", distroHome.toString()).start().waitFor();
-                }
-            } catch (Exception ignored) {
-                // best effort
-            }
+            killContainer();
         }
+    }
+
+    /** Hard-kills the container (kill -9) -- crash-recovery scenarios call this directly. */
+    protected void killContainer() {
         try {
-            deleteRecursively(distroHome.resolve("data/it-xa")); // clean XA dataset at shutdown too
-        } catch (IOException ignored) {
+            String pid = karafPid();
+            if (!pid.isEmpty()) {
+                new ProcessBuilder("kill", "-9", pid).start().waitFor();
+            } else {
+                new ProcessBuilder("pkill", "-9", "-f", distroHome.toString()).start().waitFor();
+            }
+            for (int i = 0; i < 10 && isKarafRunning(); i++) {
+                Thread.sleep(500);
+            }
+        } catch (Exception ignored) {
             // best effort
         }
     }
@@ -337,6 +365,43 @@ abstract class DistroTestSupport {
         try (ServerSocket socket = new ServerSocket(0)) {
             return socket.getLocalPort();
         }
+    }
+
+    /** Asserts the given features report Installed=true on the karaf FeaturesMBean. */
+    protected void assertFeaturesStarted(int rmiRegistryPort, int rmiServerPort, Set<String> required)
+            throws Exception {
+        javax.management.remote.JMXServiceURL serviceUrl = new javax.management.remote.JMXServiceURL("service:jmx:rmi://127.0.0.1:" + rmiServerPort
+                + "/jndi/rmi://127.0.0.1:" + rmiRegistryPort + "/karaf-root");
+        Map<String, Object> env = Map.of(javax.management.remote.JMXConnector.CREDENTIALS, new String[] {"admin", "admin"});
+        long deadline = System.currentTimeMillis() + 120_000;
+        Exception last = null;
+        while (System.currentTimeMillis() < deadline) {
+            try (javax.management.remote.JMXConnector connector = javax.management.remote.JMXConnectorFactory.connect(serviceUrl, env)) {
+                javax.management.MBeanServerConnection connection = connector.getMBeanServerConnection();
+                javax.management.openmbean.TabularData features = (javax.management.openmbean.TabularData) connection.getAttribute(
+                        new javax.management.ObjectName("org.apache.karaf:type=feature,name=root"), "Features");
+                java.util.Set<String> installed = new java.util.HashSet<>();
+                for (Object row : features.values()) {
+                    javax.management.openmbean.CompositeData feature = (javax.management.openmbean.CompositeData) row;
+                    if (Boolean.TRUE.equals(feature.get("Installed"))) {
+                        installed.add(String.valueOf(feature.get("Name")));
+                    }
+                }
+                java.util.Set<String> missing = new java.util.TreeSet<>(required);
+                missing.removeAll(installed);
+                if (missing.isEmpty()) {
+                    return;
+                }
+                throw new AssertionError("console features not Started: " + missing
+                        + "\nkaraf.log tail:\n" + karafLogTail(40));
+            } catch (AssertionError e) {
+                throw e;
+            } catch (Exception e) {
+                last = e; // JMX connector may mount slightly after the broker -- keep polling
+            }
+            Thread.sleep(2000);
+        }
+        throw new AssertionError("karaf JMX FeaturesMBean never became reachable at " + serviceUrl, last);
     }
 
     protected static void deleteRecursively(Path path) throws IOException {
