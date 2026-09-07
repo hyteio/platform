@@ -94,6 +94,9 @@ public class XaQueueToDatabase {
     private void processOneMessage() throws Exception {
         userTransaction.begin();
         boolean rollback = false;
+        // per-transaction connection so the pax-transx managed connection enlists correctly into
+        // THIS XA transaction; the stable pool (see XaWiring) keeps the physical connection warm,
+        // so this is cheap and avoids the connect/disconnect churn that trips JDK 21
         try (Connection jms = connectionFactory.createConnection()) {
             jms.start();
             try (Session session = jms.createSession(false, Session.AUTO_ACKNOWLEDGE);
@@ -118,11 +121,31 @@ public class XaQueueToDatabase {
             rollback = true;
             throw e;
         } finally {
-            if (rollback) {
+            completeTransaction(rollback);
+        }
+    }
+
+    /**
+     * Commits (or rolls back) the current XA transaction, guaranteeing the transaction is always
+     * resolved: if the commit itself fails (the "connection is already closed" XA race pax-transx
+     * exhibits on JDK 21), force a rollback so the message returns to the queue and is retried on
+     * a rebuilt consumer -- never leaving the branch in-doubt or the message silently consumed.
+     */
+    private void completeTransaction(boolean rollback) throws Exception {
+        if (rollback) {
+            userTransaction.rollback();
+            return;
+        }
+        try {
+            userTransaction.commit();
+        } catch (Exception commitFailure) {
+            logger.warn("sample-xa commit failed, rolling back for redelivery: {}", commitFailure.toString());
+            try {
                 userTransaction.rollback();
-            } else {
-                userTransaction.commit();
+            } catch (Exception rollbackFailure) {
+                // status may already be rolled back by the TM after a failed commit -- ignore
             }
+            throw commitFailure;
         }
     }
 

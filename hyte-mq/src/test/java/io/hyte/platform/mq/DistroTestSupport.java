@@ -96,6 +96,37 @@ abstract class DistroTestSupport {
         deleteRecursively(distroHome.resolve("data/it-xa"));
     }
 
+    /** The distribution's FIXED ports: pax-web HTTP (in-container endpoint) and karaf SSH. */
+    protected static final int HTTP_PORT = 8181;
+    protected static final int SSH_PORT = 8101;
+
+    /**
+     * Fails fast if a distribution's fixed ports are already bound -- almost always a leftover
+     * karaf from a prior run that did not shut down (the container binds HTTP 8181 / SSH 8101 at
+     * fixed ports, so an orphan silently poisons this run: the new container can't bind, and
+     * requests hit the stale instance while assertions read this run's separate data). Call before
+     * the first {@link #startDistro} so the diagnosis is the actual cause, not a downstream timeout.
+     */
+    protected void assertNoConflictingInstance() {
+        for (int port : new int[] {HTTP_PORT, SSH_PORT}) {
+            if (isPortBound(port)) {
+                throw new AssertionError("port " + port + " is already in use before the distribution starts"
+                        + " -- a previous karaf instance is almost certainly still running (fixed ports 8181/8101"
+                        + " are shared across runs). Stop it before retrying, e.g.:  pkill -9 -f karaf.base");
+            }
+        }
+    }
+
+    /** True if something is listening on the loopback port (a free port refuses the connect). */
+    private static boolean isPortBound(int port) {
+        try (Socket probe = new Socket()) {
+            probe.connect(new java.net.InetSocketAddress("127.0.0.1", port), 1000);
+            return true; // connect succeeded -> something is listening
+        } catch (Exception e) {
+            return false; // connection refused / no listener
+        }
+    }
+
     protected void startDistro(Map<String, String> extraEnv) throws Exception {
         run(distroHome.toFile(), extraEnv, distroHome.resolve("bin/start").toString());
     }

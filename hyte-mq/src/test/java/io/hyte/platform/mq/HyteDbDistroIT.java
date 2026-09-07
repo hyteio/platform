@@ -63,6 +63,7 @@ public class HyteDbDistroIT extends DistroTestSupport {
         // no h2 fixture: hyte-db ships h2 natively (that is the point of this test)
         deploySampleBundle(false);
 
+        assertNoConflictingInstance();
         startDistro(jmxPorts);
         waitForOpenWire(brokerPort, 180_000);
         waitForInContainerFlow(BASE + "/sample/payload", 300_000);
@@ -196,19 +197,28 @@ public class HyteDbDistroIT extends DistroTestSupport {
         }
     }
 
-    private static void waitForRow(String jdbcUrl, String content, long timeoutMillis) throws Exception {
+    private void waitForRow(String jdbcUrl, String content, long timeoutMillis) throws Exception {
         long deadline = System.currentTimeMillis() + timeoutMillis;
+        Exception lastError = null;
+        int lastCount = -1;
         while (System.currentTimeMillis() < deadline) {
             try {
-                if (countRows(jdbcUrl, content) == 1) {
+                lastCount = countRows(jdbcUrl, content);
+                lastError = null;
+                if (lastCount == 1) {
                     return;
                 }
             } catch (Exception e) {
-                // table/db not created yet -- keep polling
+                // table/db not queryable yet (still starting, or a real fault) -- keep polling but
+                // remember WHY, so a persistent failure is diagnosable instead of a bare timeout
+                lastError = e;
             }
             Thread.sleep(1000);
         }
-        throw new AssertionError("XA-committed row '" + content + "' never appeared in " + jdbcUrl);
+        throw new AssertionError("XA-committed row '" + content + "' never appeared in " + jdbcUrl
+                + (lastError != null ? "\nlast query error: " + lastError : "\nlast row count: " + lastCount)
+                + "\nkaraf JVM threads:\n" + karafThreadDump()
+                + "\nkaraf.log tail:\n" + karafLogTail(40));
     }
 
     private static int countRows(String jdbcUrl, String content) throws Exception {
