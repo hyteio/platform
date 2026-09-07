@@ -273,6 +273,18 @@
               <goal>verify</goal>
             </goals>
             <configuration>
+              <!--
+                These distro ITs each boot a full karaf + ActiveMQ broker + XA and drive
+                request/reply over camel-jms on an in-container vm:// broker. camel-jms initialises
+                its JMS reply manager LAZILY on the first request; under CI load that init can race
+                the vm:// broker-registry lookup and leave the reply manager permanently broken
+                (every request then 500s with "Failed to resolve replyTo destination"). This is a
+                third-party (camel-jms / ActiveMQ vm://) startup-timing flake, observed on JDK 11
+                and 21 alike. rerunFailingTestsCount re-runs a failed IT in a fresh container: a
+                genuine flake passes on retry (reported as a flake), while a real regression fails
+                every attempt and still fails the build, so this does not mask real breakage.
+              -->
+              <rerunFailingTestsCount>3</rerunFailingTestsCount>
               <systemPropertyVariables>
                 <hyte.mq.tarball>${project.build.directory}/hyte-mq-${project.version}-unix.tar.gz</hyte.mq.tarball>
                 <hyte.mq.workdir>${project.build.directory}/it-distro</hyte.mq.workdir>
